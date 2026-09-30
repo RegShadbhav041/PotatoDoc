@@ -1,0 +1,32 @@
+{
+ "small_cnn_cuda": {
+  "ms_per_image": 1.4,
+  "params_M": 1.21,
+  "ckpt_MB": 4.85
+ },
+ "mobilenetv2_cuda": {
+  "ms_per_image": 3.4,
+  "params_M": 2.23,
+  "ckpt_MB": 9.14
+ },
+ "efficientnetb0_cuda": {
+  "ms_per_image": 5.2,
+  "params_M": 4.01,
+  "ckpt_MB": 16.33
+ },
+ "small_cnn_cpu": {
+  "ms_per_image": 16.2,
+  "params_M": 1.21,
+  "ckpt_MB": 4.85
+ },
+ "mobilenetv2_cpu": {
+  "ms_per_image": 18.3,
+  "params_M": 2.23,
+  "ckpt_MB": 9.14
+ },
+ "efficientnetb0_cpu": {
+  "ms_per_image": 23.0,
+  "params_M": 4.01,
+  "ckpt_MB": 16.33
+ }
+}

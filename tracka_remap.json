@@ -1,0 +1,175 @@
+{
+ "fallback_base_image": [
+  {
+   "was": "D:\\Potato\\IrishPotato37G\\lateblt\\Lateblt2487_1.jpg",
+   "now": "D:\\Potato\\IrishPotato37G_full\\lateblt\\lateblt2487.jpg",
+   "split": "train"
+  },
+  {
+   "was": "D:\\Potato\\IrishPotato37G\\lateblt\\Lateblt2413_1.jpg",
+   "now": "D:\\Potato\\IrishPotato37G_full\\lateblt\\lateblt2413.jpg",
+   "split": "train"
+  },
+  {
+   "was": "D:\\Potato\\IrishPotato37G\\lateblt\\Lateblt2439_1.jpg",
+   "now": "D:\\Potato\\IrishPotato37G_full\\lateblt\\lateblt2439.jpg",
+   "split": "train"
+  },
+  {
+   "was": "D:\\Potato\\IrishPotato37G\\lateblt\\Lateblt2659_1.jpg",
+   "now": "D:\\Potato\\IrishPotato37G_full\\lateblt\\lateblt2659.jpg",
+   "split": "train"
+  },
+  {
+   "was": "D:\\Potato\\IrishPotato37G\\lateblt\\Lateblt2664_1.jpg",
+   "now": "D:\\Potato\\IrishPotato37G_full\\lateblt\\lateblt2664.jpg",
+   "split": "train"
+  },
+  {
+   "was": "D:\\Potato\\IrishPotato37G\\lateblt\\Lateblt2442_1.jpg",
+   "now": "D:\\Potato\\IrishPotato37G_full\\lateblt\\lateblt2442.jpg",
+   "split": "train"
+  },
+  {
+   "was": "D:\\Potato\\IrishPotato37G\\lateblt\\Lateblt2685_1.jpg",
+   "now": "D:\\Potato\\IrishPotato37G_full\\lateblt\\lateblt2685.jpg",
+   "split": "train"
+  },
+  {
+   "was": "D:\\Potato\\IrishPotato37G\\lateblt\\Lateblt2127_1.jpg",
+   "now": "D:\\Potato\\IrishPotato37G_full\\lateblt\\lateblt2127.jpg",
+   "split": "train"
+  },
+  {
+   "was": "D:\\Potato\\IrishPotato37G\\lateblt\\Lateblt2520_1.jpg",
+   "now": "D:\\Potato\\IrishPotato37G_full\\lateblt\\lateblt2520.jpg",
+   "split": "train"
+  },
+  {
+   "was": "D:\\Potato\\IrishPotato37G\\lateblt\\Lateblt2259_1.jpg",
+   "now": "D:\\Potato\\IrishPotato37G_full\\lateblt\\lateblt2259.jpg",
+   "split": "train"
+  },
+  {
+   "was": "D:\\Potato\\IrishPotato37G\\lateblt\\Lateblt2515_1.jpg",
+   "now": "D:\\Potato\\IrishPotato37G_full\\lateblt\\lateblt2515.jpg",
+   "split": "train"
+  },
+  {
+   "was": "D:\\Potato\\IrishPotato37G\\lateblt\\Lateblt2911_1.jpg",
+   "now": "D:\\Potato\\IrishPotato37G_full\\lateblt\\lateblt2911.jpg",
+   "split": "train"
+  },
+  {
+   "was": "D:\\Potato\\IrishPotato37G\\lateblt\\Lateblt2435_1.jpg",
+   "now": "D:\\Potato\\IrishPotato37G_full\\lateblt\\lateblt2435.jpg",
+   "split": "train"
+  },
+  {
+   "was": "D:\\Potato\\IrishPotato37G\\lateblt\\Lateblt2725_1.jpg",
+   "now": "D:\\Potato\\IrishPotato37G_full\\lateblt\\lateblt2725.jpg",
+   "split": "train"
+  },
+  {
+   "was": "D:\\Potato\\IrishPotato37G\\lateblt\\Lateblt2717_1.jpg",
+   "now": "D:\\Potato\\IrishPotato37G_full\\lateblt\\lateblt2717.jpg",
+   "split": "train"
+  },
+  {
+   "was": "D:\\Potato\\IrishPotato37G\\lateblt\\Lateblt258_1.jpg",
+   "now": "D:\\Potato\\IrishPotato37G_full\\lateblt\\lateblt258.jpg",
+   "split": "train"
+  },
+  {
+   "was": "D:\\Potato\\IrishPotato37G\\lateblt\\Lateblt1828_1.jpg",
+   "now": "D:\\Potato\\IrishPotato37G_full\\lateblt\\lateblt1828.jpg",
+   "split": "val"
+  },
+  {
+   "was": "D:\\Potato\\IrishPotato37G\\lateblt\\Lateblt2395_1.jpg",
+   "now": "D:\\Potato\\IrishPotato37G_full\\lateblt\\lateblt2395.jpg",
+   "split": "test"
+  },
+  {
+   "was": "D:\\Potato\\IrishPotato37G\\lateblt\\Lateblt2360_1.jpg",
+   "now": "D:\\Potato\\IrishPotato37G_full\\lateblt\\lateblt2360.jpg",
+   "split": "test"
+  },
+  {
+   "was": "D:\\Potato\\IrishPotato37G\\lateblt\\Lateblt2330_1.jpg",
+   "now": "D:\\Potato\\IrishPotato37G_full\\lateblt\\lateblt2330.jpg",
+   "split": "test"
+  },
+  {
+   "was": "D:\\Potato\\IrishPotato37G\\lateblt\\Lateblt2366_1.jpg",
+   "now": "D:\\Potato\\IrishPotato37G_full\\lateblt\\lateblt2366.jpg",
+   "split": "test"
+  },
+  {
+   "was": "D:\\Potato\\IrishPotato37G\\lateblt\\Lateblt2364_1.jpg",
+   "now": "D:\\Potato\\IrishPotato37G_full\\lateblt\\lateblt2364.jpg",
+   "split": "test"
+  },
+  {
+   "was": "D:\\Potato\\IrishPotato37G\\lateblt\\Lateblt2338_1.jpg",
+   "now": "D:\\Potato\\IrishPotato37G_full\\lateblt\\lateblt2338.jpg",
+   "split": "test"
+  },
+  {
+   "was": "D:\\Potato\\IrishPotato37G\\lateblt\\Lateblt2336_1.jpg",
+   "now": "D:\\Potato\\IrishPotato37G_full\\lateblt\\lateblt2336.jpg",
+   "split": "test"
+  },
+  {
+   "was": "D:\\Potato\\IrishPotato37G\\lateblt\\Lateblt2346_1.jpg",
+   "now": "D:\\Potato\\IrishPotato37G_full\\lateblt\\lateblt2346.jpg",
+   "split": "test"
+  },
+  {
+   "was": "D:\\Potato\\IrishPotato37G\\lateblt\\Lateblt2356_1.jpg",
+   "now": "D:\\Potato\\IrishPotato37G_full\\lateblt\\lateblt2356.jpg",
+   "split": "test"
+  },
+  {
+   "was": "D:\\Potato\\IrishPotato37G\\lateblt\\Lateblt2397_1.jpg",
+   "now": "D:\\Potato\\IrishPotato37G_full\\lateblt\\lateblt2397.jpg",
+   "split": "test"
+  },
+  {
+   "was": "D:\\Potato\\IrishPotato37G\\lateblt\\Lateblt2340_1.jpg",
+   "now": "D:\\Potato\\IrishPotato37G_full\\lateblt\\lateblt2340.jpg",
+   "split": "test"
+  },
+  {
+   "was": "D:\\Potato\\IrishPotato37G\\lateblt\\Lateblt2344_1.jpg",
+   "now": "D:\\Potato\\IrishPotato37G_full\\lateblt\\lateblt2344.jpg",
+   "split": "test"
+  },
+  {
+   "was": "D:\\Potato\\IrishPotato37G\\lateblt\\Lateblt2332_1.jpg",
+   "now": "D:\\Potato\\IrishPotato37G_full\\lateblt\\lateblt2332.jpg",
+   "split": "test"
+  },
+  {
+   "was": "D:\\Potato\\IrishPotato37G\\lateblt\\Lateblt2334_1.jpg",
+   "now": "D:\\Potato\\IrishPotato37G_full\\lateblt\\lateblt2334.jpg",
+   "split": "test"
+  },
+  {
+   "was": "D:\\Potato\\IrishPotato37G\\lateblt\\Lateblt2358_1.jpg",
+   "now": "D:\\Potato\\IrishPotato37G_full\\lateblt\\lateblt2358.jpg",
+   "split": "test"
+  },
+  {
+   "was": "D:\\Potato\\IrishPotato37G\\lateblt\\Lateblt2342_1.jpg",
+   "now": "D:\\Potato\\IrishPotato37G_full\\lateblt\\lateblt2342.jpg",
+   "split": "test"
+  },
+  {
+   "was": "D:\\Potato\\IrishPotato37G\\lateblt\\Lateblt2362_1.jpg",
+   "now": "D:\\Potato\\IrishPotato37G_full\\lateblt\\lateblt2362.jpg",
+   "split": "test"
+  }
+ ],
+ "dropped": []
+}

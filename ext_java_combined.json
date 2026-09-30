@@ -1,0 +1,81 @@
+{
+ "n": 3076,
+ "overall_unknown_rate": 0.3225,
+ "overall_maxprob_mean": 0.6571,
+ "by_native": {
+  "bacteria": {
+   "n": 569,
+   "pred_dist": {
+    "Non-Leaf": 508,
+    "Late Blight": 57,
+    "Healthy": 4
+   },
+   "unknown_rate": 0.1248,
+   "maxprob_mean": 0.7898
+  },
+  "fungi": {
+   "n": 748,
+   "pred_dist": {
+    "Late Blight": 367,
+    "Non-Leaf": 268,
+    "Early Blight": 93,
+    "Healthy": 20
+   },
+   "unknown_rate": 0.3596,
+   "maxprob_mean": 0.6348
+  },
+  "healthy": {
+   "n": 201,
+   "pred_dist": {
+    "Late Blight": 101,
+    "Healthy": 60,
+    "Non-Leaf": 40
+   },
+   "unknown_rate": 0.393,
+   "maxprob_mean": 0.6018
+  },
+  "nematode": {
+   "n": 68,
+   "pred_dist": {
+    "Non-Leaf": 30,
+    "Late Blight": 21,
+    "Early Blight": 16,
+    "Healthy": 1
+   },
+   "unknown_rate": 0.4706,
+   "maxprob_mean": 0.5916
+  },
+  "pest": {
+   "n": 611,
+   "pred_dist": {
+    "Late Blight": 265,
+    "Non-Leaf": 221,
+    "Healthy": 104,
+    "Early Blight": 21
+   },
+   "unknown_rate": 0.4779,
+   "maxprob_mean": 0.5858
+  },
+  "phytophthora": {
+   "n": 347,
+   "pred_dist": {
+    "Late Blight": 262,
+    "Non-Leaf": 83,
+    "Early Blight": 2
+   },
+   "unknown_rate": 0.1412,
+   "maxprob_mean": 0.7293
+  },
+  "virus": {
+   "n": 532,
+   "pred_dist": {
+    "Late Blight": 281,
+    "Non-Leaf": 174,
+    "Healthy": 74,
+    "Early Blight": 3
+   },
+   "unknown_rate": 0.3759,
+   "maxprob_mean": 0.6107
+  }
+ }
+}

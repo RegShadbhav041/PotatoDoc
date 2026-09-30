@@ -1,0 +1,37 @@
+{
+ "pool_n": 9801,
+ "n_groups": 749,
+ "new_split_counts": {
+  "train": 7858,
+  "val": 981,
+  "test": 962
+ },
+ "new_split_by_label": {
+  "early_blight": {
+   "test": 283,
+   "train": 2502,
+   "val": 282
+  },
+  "healthy": {
+   "test": 319,
+   "train": 2409,
+   "val": 339
+  },
+  "late_blight": {
+   "test": 300,
+   "train": 2467,
+   "val": 300
+  },
+  "non_leaf": {
+   "test": 60,
+   "train": 480,
+   "val": 60
+  }
+ },
+ "OLD_random_split_test_groups_also_in_train": 143,
+ "OLD_random_split_test_groups_total": 204,
+ "NEW_grouped_split_leak_train_test": 0,
+  "group_key_rule": "irish: <prefix>_<num//100>; coco: one group per file",
+  "grouping_level": "source-aware PROXY grouping (filename bands) — NOT a guaranteed plant-level split; metadata/pHash/embedding verification still pending",
+ "note": "Re-eval frozen best.pt on Irish_grouped_test.csv WITHOUT retraining for pure leakage audit (P0-1 step 2)."
+}

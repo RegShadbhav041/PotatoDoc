@@ -1,0 +1,39 @@
+{
+ "seed": 42,
+ "group_rule": "prefix + number//100 band (PROXY, not plant-level)",
+ "pool_n": 59309,
+ "n_groups": 1188,
+ "splits": {
+  "train": {
+   "n": 47586,
+   "sha256": "f6f40287dc8c1b8f1765917e3b31dc9efe6dffe46874a40c6e9eb90c90758e87",
+   "by_label": {
+    "late_blight": 16500,
+    "healthy": 16436,
+    "early_blight": 14170,
+    "non_leaf": 480
+   }
+  },
+  "val": {
+   "n": 5859,
+   "sha256": "4e661e8990dd712898303be0548d4e9edc83c236e81a39d59dea184b86f087b6",
+   "by_label": {
+    "healthy": 2000,
+    "late_blight": 1999,
+    "early_blight": 1800,
+    "non_leaf": 60
+   }
+  },
+  "test": {
+   "n": 5860,
+   "sha256": "1c5a1d3cc055df8a69bcc7e9a05e7b87ed9483e423608fcb91f5153441deeea8",
+   "by_label": {
+    "healthy": 2000,
+    "late_blight": 2000,
+    "early_blight": 1800,
+    "non_leaf": 60
+   }
+  }
+ },
+ "manifest_sha256": "1ae84d65cac9c4ad45adc4b0c0415c8fdb93f76e0f3d01626663170443962016"
+}

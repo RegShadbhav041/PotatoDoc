@@ -1,0 +1,342 @@
+{
+ "small_cnn": {
+  "n": 981,
+  "correct": 945,
+  "accuracy": 0.9633,
+  "wilson95": [
+   0.94961,
+   0.97338
+  ],
+  "one_error_pp": 0.1019,
+  "bootstrap_acc95": [
+   0.95107,
+   0.97452
+  ],
+  "per_class": {
+   "Early Blight": {
+    "recall": [
+     0.9446,
+     [
+      0.9131,
+      0.9651
+     ]
+    ],
+    "precision": [
+     0.9699,
+     [
+      0.9438,
+      0.9841
+     ]
+    ],
+    "support": 307
+   },
+   "Late Blight": {
+    "recall": [
+     0.9577,
+     [
+      0.9289,
+      0.9751
+     ]
+    ],
+    "precision": [
+     0.9833,
+     [
+      0.9615,
+      0.9928
+     ]
+    ],
+    "support": 307
+   },
+   "Healthy": {
+    "recall": [
+     0.9935,
+     [
+      0.9766,
+      0.9982
+     ]
+    ],
+    "precision": [
+     0.9385,
+     [
+      0.9069,
+      0.9598
+     ]
+    ],
+    "support": 307
+   },
+   "Non-Leaf": {
+    "recall": [
+     0.9333,
+     [
+      0.8407,
+      0.9738
+     ]
+    ],
+    "precision": [
+     0.9655,
+     [
+      0.8827,
+      0.9905
+     ]
+    ],
+    "support": 60
+   }
+  },
+  "note": "ECE/Brier/reliability require saved probabilities; run scripts/calibrate.py after adding proba dumps (P0-4)."
+ },
+ "mobilenetv2": {
+  "n": 981,
+  "correct": 980,
+  "accuracy": 0.99898,
+  "wilson95": [
+   0.99425,
+   0.99982
+  ],
+  "one_error_pp": 0.1019,
+  "bootstrap_acc95": [
+   0.99694,
+   1.0
+  ],
+  "per_class": {
+   "Early Blight": {
+    "recall": [
+     0.9967,
+     [
+      0.9818,
+      0.9994
+     ]
+    ],
+    "precision": [
+     1.0,
+     [
+      0.9876,
+      1
+     ]
+    ],
+    "support": 307
+   },
+   "Late Blight": {
+    "recall": [
+     1.0,
+     [
+      0.9876,
+      1
+     ]
+    ],
+    "precision": [
+     0.9968,
+     [
+      0.9818,
+      0.9994
+     ]
+    ],
+    "support": 307
+   },
+   "Healthy": {
+    "recall": [
+     1.0,
+     [
+      0.9876,
+      1
+     ]
+    ],
+    "precision": [
+     1.0,
+     [
+      0.9876,
+      1
+     ]
+    ],
+    "support": 307
+   },
+   "Non-Leaf": {
+    "recall": [
+     1.0,
+     [
+      0.9398,
+      1.0
+     ]
+    ],
+    "precision": [
+     1.0,
+     [
+      0.9398,
+      1.0
+     ]
+    ],
+    "support": 60
+   }
+  },
+  "note": "ECE/Brier/reliability require saved probabilities; run scripts/calibrate.py after adding proba dumps (P0-4)."
+ },
+ "efficientnetb0": {
+  "n": 981,
+  "correct": 980,
+  "accuracy": 0.99898,
+  "wilson95": [
+   0.99425,
+   0.99982
+  ],
+  "one_error_pp": 0.1019,
+  "bootstrap_acc95": [
+   0.99694,
+   1.0
+  ],
+  "per_class": {
+   "Early Blight": {
+    "recall": [
+     0.9967,
+     [
+      0.9818,
+      0.9994
+     ]
+    ],
+    "precision": [
+     1.0,
+     [
+      0.9876,
+      1
+     ]
+    ],
+    "support": 307
+   },
+   "Late Blight": {
+    "recall": [
+     1.0,
+     [
+      0.9876,
+      1
+     ]
+    ],
+    "precision": [
+     0.9968,
+     [
+      0.9818,
+      0.9994
+     ]
+    ],
+    "support": 307
+   },
+   "Healthy": {
+    "recall": [
+     1.0,
+     [
+      0.9876,
+      1
+     ]
+    ],
+    "precision": [
+     1.0,
+     [
+      0.9876,
+      1
+     ]
+    ],
+    "support": 307
+   },
+   "Non-Leaf": {
+    "recall": [
+     1.0,
+     [
+      0.9398,
+      1.0
+     ]
+    ],
+    "precision": [
+     1.0,
+     [
+      0.9398,
+      1.0
+     ]
+    ],
+    "support": 60
+   }
+  },
+  "note": "ECE/Brier/reliability require saved probabilities; run scripts/calibrate.py after adding proba dumps (P0-4)."
+ },
+ "ensemble": {
+  "n": 981,
+  "correct": 980,
+  "accuracy": 0.99898,
+  "wilson95": [
+   0.99425,
+   0.99982
+  ],
+  "one_error_pp": 0.1019,
+  "bootstrap_acc95": [
+   0.99694,
+   1.0
+  ],
+  "per_class": {
+   "Early Blight": {
+    "recall": [
+     0.9967,
+     [
+      0.9818,
+      0.9994
+     ]
+    ],
+    "precision": [
+     1.0,
+     [
+      0.9876,
+      1
+     ]
+    ],
+    "support": 307
+   },
+   "Late Blight": {
+    "recall": [
+     1.0,
+     [
+      0.9876,
+      1
+     ]
+    ],
+    "precision": [
+     0.9968,
+     [
+      0.9818,
+      0.9994
+     ]
+    ],
+    "support": 307
+   },
+   "Healthy": {
+    "recall": [
+     1.0,
+     [
+      0.9876,
+      1
+     ]
+    ],
+    "precision": [
+     1.0,
+     [
+      0.9876,
+      1
+     ]
+    ],
+    "support": 307
+   },
+   "Non-Leaf": {
+    "recall": [
+     1.0,
+     [
+      0.9398,
+      1.0
+     ]
+    ],
+    "precision": [
+     1.0,
+     [
+      0.9398,
+      1.0
+     ]
+    ],
+    "support": 60
+   }
+  },
+  "note": "ECE/Brier/reliability require saved probabilities; run scripts/calibrate.py after adding proba dumps (P0-4)."
+ }
+}

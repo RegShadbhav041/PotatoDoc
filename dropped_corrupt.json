@@ -1,0 +1,42 @@
+{
+ "Irish_full_grouped_train.csv": {
+  "n": 47588,
+  "dropped": 2,
+  "dropped_files": [
+   "D:\\Potato\\IrishPotato37G_full\\earlyblt\\earlyblt838.jpg",
+   "D:\\Potato\\IrishPotato37G_full\\earlyblt\\earlyblt862.jpg"
+  ]
+ },
+ "Irish_full_grouped_val.csv": {
+  "n": 5859,
+  "dropped": 0,
+  "dropped_files": []
+ },
+ "Irish_full_grouped_test.csv": {
+  "n": 5860,
+  "dropped": 0,
+  "dropped_files": []
+ },
+ "Irish_grouped_train.csv": {
+  "n": 7857,
+  "dropped": 1,
+  "dropped_files": [
+   "D:\\Potato\\IrishPotato37G_full\\earlyblt\\earlyblt838.jpg"
+  ]
+ },
+ "Irish_grouped_val.csv": {
+  "n": 981,
+  "dropped": 0,
+  "dropped_files": []
+ },
+ "Irish_grouped_test.csv": {
+  "n": 962,
+  "dropped": 0,
+  "dropped_files": []
+ },
+ "Irish_grouped_strict_test.csv": {
+  "n": 738,
+  "dropped": 0,
+  "dropped_files": []
+ }
+}

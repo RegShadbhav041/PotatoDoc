@@ -1,0 +1,82 @@
+{
+ "n": 514,
+ "overall_unknown_rate": 0.2996,
+ "overall_maxprob_mean": 0.6945,
+ "by_native": {
+  "bari_bacterial_soft_rot": {
+   "n": 7,
+   "pred_dist": {
+    "Late Blight": 3,
+    "Healthy": 3,
+    "Early Blight": 1
+   },
+   "unknown_rate": 0.7143,
+   "maxprob_mean": 0.503
+  },
+  "bari_fungal_late_blight": {
+   "n": 20,
+   "pred_dist": {
+    "Early Blight": 10,
+    "Late Blight": 7,
+    "Healthy": 3
+   },
+   "unknown_rate": 0.9,
+   "maxprob_mean": 0.4564
+  },
+  "bari_healthy": {
+   "n": 16,
+   "pred_dist": {
+    "Healthy": 16
+   },
+   "unknown_rate": 1.0,
+   "maxprob_mean": 0.4428
+  },
+  "bari_viral_leaf_roll": {
+   "n": 33,
+   "pred_dist": {
+    "Healthy": 20,
+    "Late Blight": 9,
+    "Early Blight": 3,
+    "Non-Leaf": 1
+   },
+   "unknown_rate": 0.9697,
+   "maxprob_mean": 0.4178
+  },
+  "bari_viral_pvx": {
+   "n": 6,
+   "pred_dist": {
+    "Non-Leaf": 3,
+    "Early Blight": 2,
+    "Late Blight": 1
+   },
+   "unknown_rate": 1.0,
+   "maxprob_mean": 0.4484
+  },
+  "bari_viral_pvy": {
+   "n": 2,
+   "pred_dist": {
+    "Healthy": 2
+   },
+   "unknown_rate": 1.0,
+   "maxprob_mean": 0.4622
+  },
+  "ethiopia_healthy": {
+   "n": 363,
+   "pred_dist": {
+    "Healthy": 310,
+    "Late Blight": 52,
+    "Early Blight": 1
+   },
+   "unknown_rate": 0.2039,
+   "maxprob_mean": 0.7293
+  },
+  "ethiopia_late_blight": {
+   "n": 67,
+   "pred_dist": {
+    "Late Blight": 67
+   },
+   "unknown_rate": 0.0149,
+   "maxprob_mean": 0.8226
+  }
+ }
+}

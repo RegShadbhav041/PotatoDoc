@@ -1,0 +1,26 @@
+{
+ "mids": [
+  "small_cnn",
+  "mobilenetv2",
+  "efficientnetb0"
+ ],
+ "epochs": 16,
+ "batch": 32,
+ "img": 224,
+ "seed": 42,
+ "classes_csv": [
+  "early_blight",
+  "late_blight",
+  "healthy",
+  "non_leaf"
+ ],
+ "classes_api": [
+  "Early Blight",
+  "Late Blight",
+  "Healthy",
+  "Non-Leaf"
+ ],
+ "early_stop": "val macro-F1 patience 8",
+ "resume": false,
+ "time": "2026-09-24 00:20"
+}

@@ -1,0 +1,12 @@
+{
+ "bands_with_exif": 148,
+ "median_dates_per_band": 2.0,
+ "bands_gt3_dates": 43,
+ "OLD_random_test_n": 980,
+ "OLD_random_leaked_n": 140,
+ "OLD_random_leak_rate": 0.1429,
+ "grouped_v1_test_n": 945,
+ "grouped_v1_removed_near_train": 207,
+ "strict_test_n": 738,
+ "method": "pHash<=3 cross-split neighbor; transitive chaining rejected (giant-component finding); bands validated by EXIF-date purity"
+}

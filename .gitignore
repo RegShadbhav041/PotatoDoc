@@ -1,0 +1,40 @@
+# --- datasets (tens of GB — never commit) ---
+IrishPotato37G_full/
+_staging/
+non_leaf/
+non_leaf_v2/
+PlantVillage/
+*.zip
+
+# --- training outputs: keep the two served families only ---
+outputs_combined/
+outputs_irish_full/
+outputs_irish_grouped/
+outputs_m1b_full/
+outputs_image/**/resume.pt
+outputs_image/**/last.pt
+outputs_pv/**/resume.pt
+outputs_pv/**/last.pt
+
+# --- logs (keep the incident log) ---
+*.log
+!reports/errors.log
+
+# --- runtime / dependencies / caches ---
+node_modules/
+.expo/
+__pycache__/
+*.pyc
+.pytest_cache/
+/.env
+
+# --- report scratch (canonical artifacts are kept) ---
+reports/*.png
+reports/*.xml
+reports/*.bak
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
