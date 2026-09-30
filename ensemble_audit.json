@@ -1,0 +1,15 @@
+{
+ "irish_test_n": 981,
+ "same_prediction_all_models": true,
+ "m1_errors": 36,
+ "m2_errors": 1,
+ "m3_errors": 1,
+ "ens_errors": 1,
+ "error_overlap_note": "M2/M3/Ens confusions identical -> disagreement rate 0 on Irish test; ensemble adds no measurable gain here.",
+ "cross_domain": {
+  "pv_on_irish_ens": 0.3720693170234455,
+  "irish_on_pv_ens": 0.4782608695652174
+ },
+  "recommendation": "TBD by evidence: compare accuracy, macro-F1, disease recall, rejection, CPU/GPU latency, memory, size, external-set score; mobilenetv2 is a CANDIDATE (smallest transfer model at 99.90%) not the decided default. Keep ensemble research-only until external/corrupted eval shows uncorrelated errors.",
+ "sizes_MB_note": "see outputs_pv best.pt sizes 4.62/8.71/15.56 MB scale; measure phone/backend latency next."
+}

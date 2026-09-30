@@ -1,0 +1,20 @@
+{
+ "train": {
+  "n": 47586,
+  "dropped": 2,
+  "files": [
+   "D:\\Potato\\IrishPotato37G_full\\healthy\\healthy11725.jpg",
+   "D:\\Potato\\IrishPotato37G_full\\healthy\\healthy4766.jpg"
+  ]
+ },
+ "val": {
+  "n": 5859,
+  "dropped": 0,
+  "files": []
+ },
+ "test": {
+  "n": 5860,
+  "dropped": 0,
+  "files": []
+ }
+}

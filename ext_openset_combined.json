@@ -1,0 +1,54 @@
+{
+ "n": 590,
+ "overall_unknown_rate": 0.1102,
+ "overall_maxprob_mean": 0.8254,
+ "by_native": {
+  "animals_people": {
+   "n": 215,
+   "pred_dist": {
+    "Non-Leaf": 215
+   },
+   "unknown_rate": 0.0,
+   "maxprob_mean": 0.958
+  },
+  "other_crops": {
+   "n": 51,
+   "pred_dist": {
+    "Non-Leaf": 48,
+    "Early Blight": 2,
+    "Late Blight": 1
+   },
+   "unknown_rate": 0.0588,
+   "maxprob_mean": 0.86
+  },
+  "other_leaves": {
+   "n": 98,
+   "pred_dist": {
+    "Non-Leaf": 63,
+    "Late Blight": 15,
+    "Healthy": 10,
+    "Early Blight": 10
+   },
+   "unknown_rate": 0.3163,
+   "maxprob_mean": 0.6501
+  },
+  "phone_random": {
+   "n": 76,
+   "pred_dist": {
+    "Non-Leaf": 76
+   },
+   "unknown_rate": 0.0,
+   "maxprob_mean": 0.9405
+  },
+  "soil_ground": {
+   "n": 150,
+   "pred_dist": {
+    "Healthy": 89,
+    "Non-Leaf": 60,
+    "Late Blight": 1
+   },
+   "unknown_rate": 0.2067,
+   "maxprob_mean": 0.6797
+  }
+ }
+}

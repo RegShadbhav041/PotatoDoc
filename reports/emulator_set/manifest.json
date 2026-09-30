@@ -1,0 +1,1127 @@
+[
+ {
+  "path": "D:\\Potato\\_staging\\bari\\Potato Leaf Disease Dataset\\Viral Leaf Roll\\orig_32.jpg",
+  "tag": "bari_viral_leaf_roll",
+  "native": "bari_viral_leaf_roll",
+  "expected": [
+   "Unknown"
+  ],
+  "source": "ext_ethiopia_bari",
+  "push_name": "01_bari_viral_leaf_roll.jpg",
+  "push_path": "/sdcard/Pictures/01_bari_viral_leaf_roll.jpg",
+  "api_truth": {
+   "small_cnn": {
+    "pred": "Unknown",
+    "conf": 0.9526,
+    "is_unknown": true
+   },
+   "mobilenetv2": {
+    "pred": "Unknown",
+    "conf": 0.4237,
+    "is_unknown": true
+   },
+   "efficientnetb0": {
+    "pred": "Unknown",
+    "conf": 0.3274,
+    "is_unknown": true
+   },
+   "ensemble": {
+    "pred": "Unknown",
+    "conf": 0.5413,
+    "is_unknown": true
+   }
+  }
+ },
+ {
+  "path": "D:\\Potato\\_staging\\central_java\\healthy\\20230712_121645 (1).jpg",
+  "tag": "java_healthy",
+  "native": "healthy",
+  "expected": [
+   "Healthy"
+  ],
+  "source": "ext_central_java",
+  "push_name": "02_java_healthy.jpg",
+  "push_path": "/sdcard/Pictures/02_java_healthy.jpg",
+  "api_truth": {
+   "small_cnn": {
+    "pred": "Healthy",
+    "conf": 0.8781,
+    "is_unknown": false
+   },
+   "mobilenetv2": {
+    "pred": "Healthy",
+    "conf": 0.7268,
+    "is_unknown": false
+   },
+   "efficientnetb0": {
+    "pred": "Healthy",
+    "conf": 0.821,
+    "is_unknown": false
+   },
+   "ensemble": {
+    "pred": "Healthy",
+    "conf": 0.8087,
+    "is_unknown": false
+   }
+  }
+ },
+ {
+  "path": "D:\\Potato\\PlantVillage\\Potato___Late_blight\\5239c829-457f-4e6c-b0af-ef5f58abddd0___RS_LB 5329.JPG",
+  "tag": "pv_late",
+  "native": "late_blight",
+  "expected": [
+   "Late Blight"
+  ],
+  "source": "plantvillage_test",
+  "push_name": "03_pv_late.jpg",
+  "push_path": "/sdcard/Pictures/03_pv_late.jpg",
+  "api_truth": {
+   "small_cnn": {
+    "pred": "Late Blight",
+    "conf": 0.5913,
+    "is_unknown": false
+   },
+   "mobilenetv2": {
+    "pred": "Early Blight",
+    "conf": 0.8244,
+    "is_unknown": false
+   },
+   "efficientnetb0": {
+    "pred": "Unknown",
+    "conf": 0.4624,
+    "is_unknown": true
+   },
+   "ensemble": {
+    "pred": "Unknown",
+    "conf": 0.4753,
+    "is_unknown": true
+   }
+  }
+ },
+ {
+  "path": "D:\\Potato\\non_leaf_v2\\phone_random\\oi_b8616e03bcf0175e.jpg",
+  "tag": "phone",
+  "native": "phone_random",
+  "expected": [
+   "Unknown"
+  ],
+  "source": "non_leaf_v2/phone_random",
+  "push_name": "04_phone.jpg",
+  "push_path": "/sdcard/Pictures/04_phone.jpg",
+  "api_truth": {
+   "small_cnn": {
+    "pred": "Unknown",
+    "conf": 0.9897,
+    "is_unknown": true
+   },
+   "mobilenetv2": {
+    "pred": "Unknown",
+    "conf": 0.9887,
+    "is_unknown": true
+   },
+   "efficientnetb0": {
+    "pred": "Unknown",
+    "conf": 0.9963,
+    "is_unknown": true
+   },
+   "ensemble": {
+    "pred": "Unknown",
+    "conf": 0.9916,
+    "is_unknown": true
+   }
+  }
+ },
+ {
+  "path": "D:\\Potato\\IrishPotato37G_full\\lateblt\\lateblt379.jpg",
+  "tag": "irish_late",
+  "native": "late_blight",
+  "expected": [
+   "Late Blight"
+  ],
+  "source": "irish_test",
+  "push_name": "05_irish_late.jpg",
+  "push_path": "/sdcard/Pictures/05_irish_late.jpg",
+  "api_truth": {
+   "small_cnn": {
+    "pred": "Healthy",
+    "conf": 0.5775,
+    "is_unknown": false
+   },
+   "mobilenetv2": {
+    "pred": "Early Blight",
+    "conf": 0.5977,
+    "is_unknown": false
+   },
+   "efficientnetb0": {
+    "pred": "Unknown",
+    "conf": 0.5263,
+    "is_unknown": true
+   },
+   "ensemble": {
+    "pred": "Unknown",
+    "conf": 0.4256,
+    "is_unknown": true
+   }
+  }
+ },
+ {
+  "path": "D:\\Potato\\PlantVillage\\Potato___healthy\\3a00204c-5e53-4e5d-95a6-f8819031744e___RS_HL 5420.JPG",
+  "tag": "pv_healthy",
+  "native": "healthy",
+  "expected": [
+   "Healthy"
+  ],
+  "source": "plantvillage_test",
+  "push_name": "06_pv_healthy.jpg",
+  "push_path": "/sdcard/Pictures/06_pv_healthy.jpg",
+  "api_truth": {
+   "small_cnn": {
+    "pred": "Unknown",
+    "conf": 0.4367,
+    "is_unknown": true
+   },
+   "mobilenetv2": {
+    "pred": "Unknown",
+    "conf": 0.2948,
+    "is_unknown": true
+   },
+   "efficientnetb0": {
+    "pred": "Unknown",
+    "conf": 0.3524,
+    "is_unknown": true
+   },
+   "ensemble": {
+    "pred": "Unknown",
+    "conf": 0.3187,
+    "is_unknown": true
+   }
+  }
+ },
+ {
+  "path": "D:\\Potato\\PlantVillage\\Potato___healthy\\683b04ad-7941-4819-9965-ba32c725eb22___RS_HL 1861.JPG",
+  "tag": "pv_healthy",
+  "native": "healthy",
+  "expected": [
+   "Healthy"
+  ],
+  "source": "plantvillage_test",
+  "push_name": "07_pv_healthy.jpg",
+  "push_path": "/sdcard/Pictures/07_pv_healthy.jpg",
+  "api_truth": {
+   "small_cnn": {
+    "pred": "Late Blight",
+    "conf": 0.622,
+    "is_unknown": false
+   },
+   "mobilenetv2": {
+    "pred": "Early Blight",
+    "conf": 0.6073,
+    "is_unknown": false
+   },
+   "efficientnetb0": {
+    "pred": "Healthy",
+    "conf": 0.6731,
+    "is_unknown": false
+   },
+   "ensemble": {
+    "pred": "Unknown",
+    "conf": 0.2983,
+    "is_unknown": true
+   }
+  }
+ },
+ {
+  "path": "D:\\Potato\\_staging\\central_java\\pest\\IMG_20230816_142939.jpg",
+  "tag": "java_pest",
+  "native": "pest",
+  "expected": [
+   "Unknown"
+  ],
+  "source": "ext_central_java",
+  "push_name": "08_java_pest.jpg",
+  "push_path": "/sdcard/Pictures/08_java_pest.jpg",
+  "api_truth": {
+   "small_cnn": {
+    "pred": "Healthy",
+    "conf": 0.8833,
+    "is_unknown": false
+   },
+   "mobilenetv2": {
+    "pred": "Healthy",
+    "conf": 0.7424,
+    "is_unknown": false
+   },
+   "efficientnetb0": {
+    "pred": "Healthy",
+    "conf": 0.8014,
+    "is_unknown": false
+   },
+   "ensemble": {
+    "pred": "Healthy",
+    "conf": 0.809,
+    "is_unknown": false
+   }
+  }
+ },
+ {
+  "path": "D:\\Potato\\PlantVillage\\Potato___Late_blight\\5d1486fa-750f-47ca-a973-abc45ea5b4fe___RS_LB 4281.JPG",
+  "tag": "pv_late",
+  "native": "late_blight",
+  "expected": [
+   "Late Blight"
+  ],
+  "source": "plantvillage_test",
+  "push_name": "09_pv_late.jpg",
+  "push_path": "/sdcard/Pictures/09_pv_late.jpg",
+  "api_truth": {
+   "small_cnn": {
+    "pred": "Late Blight",
+    "conf": 0.7701,
+    "is_unknown": false
+   },
+   "mobilenetv2": {
+    "pred": "Early Blight",
+    "conf": 0.8237,
+    "is_unknown": false
+   },
+   "efficientnetb0": {
+    "pred": "Early Blight",
+    "conf": 0.6702,
+    "is_unknown": false
+   },
+   "ensemble": {
+    "pred": "Unknown",
+    "conf": 0.5185,
+    "is_unknown": true
+   }
+  }
+ },
+ {
+  "path": "D:\\Potato\\non_leaf_v2\\other_leaves\\plantdoc_grape leaf black rot_Guignardia_bidwellii_%28black_rot%29_on_grape_1.jpg",
+  "tag": "other_leaf",
+  "native": "other_leaves",
+  "expected": [
+   "Unknown"
+  ],
+  "source": "non_leaf_v2/other_leaves",
+  "push_name": "10_other_leaf.jpg",
+  "push_path": "/sdcard/Pictures/10_other_leaf.jpg",
+  "api_truth": {
+   "small_cnn": {
+    "pred": "Healthy",
+    "conf": 0.8735,
+    "is_unknown": false
+   },
+   "mobilenetv2": {
+    "pred": "Unknown",
+    "conf": 0.5804,
+    "is_unknown": true
+   },
+   "efficientnetb0": {
+    "pred": "Unknown",
+    "conf": 0.4436,
+    "is_unknown": true
+   },
+   "ensemble": {
+    "pred": "Unknown",
+    "conf": 0.5176,
+    "is_unknown": true
+   }
+  }
+ },
+ {
+  "path": "D:\\Potato\\PlantVillage\\Potato___Early_blight\\d286d101-227f-48ba-b906-586879eb6a00___RS_Early.B 7095.JPG",
+  "tag": "pv_early",
+  "native": "early_blight",
+  "expected": [
+   "Early Blight"
+  ],
+  "source": "plantvillage_test",
+  "push_name": "11_pv_early.jpg",
+  "push_path": "/sdcard/Pictures/11_pv_early.jpg",
+  "api_truth": {
+   "small_cnn": {
+    "pred": "Unknown",
+    "conf": 0.4122,
+    "is_unknown": true
+   },
+   "mobilenetv2": {
+    "pred": "Early Blight",
+    "conf": 0.8517,
+    "is_unknown": false
+   },
+   "efficientnetb0": {
+    "pred": "Early Blight",
+    "conf": 0.6707,
+    "is_unknown": false
+   },
+   "ensemble": {
+    "pred": "Early Blight",
+    "conf": 0.5965,
+    "is_unknown": false
+   }
+  }
+ },
+ {
+  "path": "D:\\Potato\\_staging\\bari\\Potato Leaf Disease Dataset\\Fungal Late Blight\\orig_14.jpg",
+  "tag": "bari_fungal_late_blight",
+  "native": "bari_fungal_late_blight",
+  "expected": [
+   "Late Blight",
+   "Unknown"
+  ],
+  "source": "ext_ethiopia_bari",
+  "push_name": "12_bari_fungal_late_blight.jpg",
+  "push_path": "/sdcard/Pictures/12_bari_fungal_late_blight.jpg",
+  "api_truth": {
+   "small_cnn": {
+    "pred": "Unknown",
+    "conf": 0.4257,
+    "is_unknown": true
+   },
+   "mobilenetv2": {
+    "pred": "Early Blight",
+    "conf": 0.8405,
+    "is_unknown": false
+   },
+   "efficientnetb0": {
+    "pred": "Early Blight",
+    "conf": 0.6176,
+    "is_unknown": false
+   },
+   "ensemble": {
+    "pred": "Early Blight",
+    "conf": 0.6279,
+    "is_unknown": false
+   }
+  }
+ },
+ {
+  "path": "D:\\Potato\\_staging\\central_java\\virus\\20230815_114254.jpg",
+  "tag": "java_virus",
+  "native": "virus",
+  "expected": [
+   "Unknown"
+  ],
+  "source": "ext_central_java",
+  "push_name": "13_java_virus.jpg",
+  "push_path": "/sdcard/Pictures/13_java_virus.jpg",
+  "api_truth": {
+   "small_cnn": {
+    "pred": "Healthy",
+    "conf": 0.8864,
+    "is_unknown": false
+   },
+   "mobilenetv2": {
+    "pred": "Healthy",
+    "conf": 0.6032,
+    "is_unknown": false
+   },
+   "efficientnetb0": {
+    "pred": "Healthy",
+    "conf": 0.8364,
+    "is_unknown": false
+   },
+   "ensemble": {
+    "pred": "Healthy",
+    "conf": 0.7753,
+    "is_unknown": false
+   }
+  }
+ },
+ {
+  "path": "D:\\Potato\\_staging\\bari\\Potato Leaf Disease Dataset\\Healthy\\orig_15.jpg",
+  "tag": "bari_healthy",
+  "native": "bari_healthy",
+  "expected": [
+   "Healthy"
+  ],
+  "source": "ext_ethiopia_bari",
+  "push_name": "14_bari_healthy.jpg",
+  "push_path": "/sdcard/Pictures/14_bari_healthy.jpg",
+  "api_truth": {
+   "small_cnn": {
+    "pred": "Healthy",
+    "conf": 0.9,
+    "is_unknown": false
+   },
+   "mobilenetv2": {
+    "pred": "Early Blight",
+    "conf": 0.5899,
+    "is_unknown": false
+   },
+   "efficientnetb0": {
+    "pred": "Unknown",
+    "conf": 0.4404,
+    "is_unknown": true
+   },
+   "ensemble": {
+    "pred": "Unknown",
+    "conf": 0.3759,
+    "is_unknown": true
+   }
+  }
+ },
+ {
+  "path": "D:\\Potato\\_staging\\central_java\\virus\\20230816_114019.jpg",
+  "tag": "java_virus",
+  "native": "virus",
+  "expected": [
+   "Unknown"
+  ],
+  "source": "ext_central_java",
+  "push_name": "15_java_virus.jpg",
+  "push_path": "/sdcard/Pictures/15_java_virus.jpg",
+  "api_truth": {
+   "small_cnn": {
+    "pred": "Early Blight",
+    "conf": 0.8164,
+    "is_unknown": false
+   },
+   "mobilenetv2": {
+    "pred": "Unknown",
+    "conf": 0.4375,
+    "is_unknown": true
+   },
+   "efficientnetb0": {
+    "pred": "Unknown",
+    "conf": 0.4964,
+    "is_unknown": true
+   },
+   "ensemble": {
+    "pred": "Unknown",
+    "conf": 0.4221,
+    "is_unknown": true
+   }
+  }
+ },
+ {
+  "path": "D:\\Potato\\_staging\\plantdoc\\train\\Apple leaf\\stock-photo-red-apple-with-green-leaf-isolated-on-white-background-with-clipping-path-327512429.jpg",
+  "tag": "pd_apple",
+  "native": "Apple leaf",
+  "expected": [
+   "Unknown"
+  ],
+  "source": "plantdoc_other_crops",
+  "push_name": "16_pd_apple.jpg",
+  "push_path": "/sdcard/Pictures/16_pd_apple.jpg",
+  "api_truth": {
+   "small_cnn": {
+    "pred": "Unknown",
+    "conf": 0.9976,
+    "is_unknown": true
+   },
+   "mobilenetv2": {
+    "pred": "Unknown",
+    "conf": 0.9757,
+    "is_unknown": true
+   },
+   "efficientnetb0": {
+    "pred": "Unknown",
+    "conf": 0.9915,
+    "is_unknown": true
+   },
+   "ensemble": {
+    "pred": "Unknown",
+    "conf": 0.9883,
+    "is_unknown": true
+   }
+  }
+ },
+ {
+  "path": "D:\\Potato\\non_leaf_v2\\other_crops\\oi_6009f93969db7bd8.jpg",
+  "tag": "other_crop",
+  "native": "other_crops",
+  "expected": [
+   "Unknown"
+  ],
+  "source": "non_leaf_v2/other_crops",
+  "push_name": "17_other_crop.jpg",
+  "push_path": "/sdcard/Pictures/17_other_crop.jpg",
+  "api_truth": {
+   "small_cnn": {
+    "pred": "Unknown",
+    "conf": 0.9642,
+    "is_unknown": true
+   },
+   "mobilenetv2": {
+    "pred": "Unknown",
+    "conf": 0.9845,
+    "is_unknown": true
+   },
+   "efficientnetb0": {
+    "pred": "Unknown",
+    "conf": 0.9939,
+    "is_unknown": true
+   },
+   "ensemble": {
+    "pred": "Unknown",
+    "conf": 0.9809,
+    "is_unknown": true
+   }
+  }
+ },
+ {
+  "path": "D:\\Potato\\non_leaf_v2\\soil_ground\\we3ds_img_00648.png",
+  "tag": "soil",
+  "native": "soil_ground",
+  "expected": [
+   "Unknown"
+  ],
+  "source": "non_leaf_v2/soil_ground",
+  "push_name": "18_soil.jpg",
+  "push_path": "/sdcard/Pictures/18_soil.jpg",
+  "api_truth": {
+   "small_cnn": {
+    "pred": "Late Blight",
+    "conf": 0.6994,
+    "is_unknown": false
+   },
+   "mobilenetv2": {
+    "pred": "Late Blight",
+    "conf": 0.7012,
+    "is_unknown": false
+   },
+   "efficientnetb0": {
+    "pred": "Late Blight",
+    "conf": 0.7641,
+    "is_unknown": false
+   },
+   "ensemble": {
+    "pred": "Late Blight",
+    "conf": 0.7216,
+    "is_unknown": false
+   }
+  }
+ },
+ {
+  "path": "D:\\Potato\\non_leaf_v2\\soil_ground\\we3ds_img_00024.png",
+  "tag": "soil",
+  "native": "soil_ground",
+  "expected": [
+   "Unknown"
+  ],
+  "source": "non_leaf_v2/soil_ground",
+  "push_name": "19_soil.jpg",
+  "push_path": "/sdcard/Pictures/19_soil.jpg",
+  "api_truth": {
+   "small_cnn": {
+    "pred": "Late Blight",
+    "conf": 0.6508,
+    "is_unknown": false
+   },
+   "mobilenetv2": {
+    "pred": "Unknown",
+    "conf": 0.821,
+    "is_unknown": true
+   },
+   "efficientnetb0": {
+    "pred": "Late Blight",
+    "conf": 0.6577,
+    "is_unknown": false
+   },
+   "ensemble": {
+    "pred": "Unknown",
+    "conf": 0.4701,
+    "is_unknown": true
+   }
+  }
+ },
+ {
+  "path": "D:\\Potato\\_staging\\plantdoc\\train\\Corn leaf blight\\FJ_018_F16271-2.jpg",
+  "tag": "pd_corn",
+  "native": "Corn leaf blight",
+  "expected": [
+   "Unknown"
+  ],
+  "source": "plantdoc_other_crops",
+  "push_name": "20_pd_corn.jpg",
+  "push_path": "/sdcard/Pictures/20_pd_corn.jpg",
+  "api_truth": {
+   "small_cnn": {
+    "pred": "Early Blight",
+    "conf": 0.6128,
+    "is_unknown": false
+   },
+   "mobilenetv2": {
+    "pred": "Unknown",
+    "conf": 0.5153,
+    "is_unknown": true
+   },
+   "efficientnetb0": {
+    "pred": "Unknown",
+    "conf": 0.9838,
+    "is_unknown": true
+   },
+   "ensemble": {
+    "pred": "Unknown",
+    "conf": 0.5519,
+    "is_unknown": true
+   }
+  }
+ },
+ {
+  "path": "D:\\Potato\\_staging\\central_java\\nematode\\20230816_082906.jpg",
+  "tag": "java_nematode",
+  "native": "nematode",
+  "expected": [
+   "Unknown"
+  ],
+  "source": "ext_central_java",
+  "push_name": "21_java_nematode.jpg",
+  "push_path": "/sdcard/Pictures/21_java_nematode.jpg",
+  "api_truth": {
+   "small_cnn": {
+    "pred": "Unknown",
+    "conf": 0.9714,
+    "is_unknown": true
+   },
+   "mobilenetv2": {
+    "pred": "Early Blight",
+    "conf": 0.613,
+    "is_unknown": false
+   },
+   "efficientnetb0": {
+    "pred": "Late Blight",
+    "conf": 0.6192,
+    "is_unknown": false
+   },
+   "ensemble": {
+    "pred": "Unknown",
+    "conf": 0.5028,
+    "is_unknown": true
+   }
+  }
+ },
+ {
+  "path": "D:\\Potato\\_staging\\central_java\\fungi\\1692334247608.jpg",
+  "tag": "java_fungi",
+  "native": "fungi",
+  "expected": [
+   "Unknown"
+  ],
+  "source": "ext_central_java",
+  "push_name": "22_java_fungi.jpg",
+  "push_path": "/sdcard/Pictures/22_java_fungi.jpg",
+  "api_truth": {
+   "small_cnn": {
+    "pred": "Unknown",
+    "conf": 0.5203,
+    "is_unknown": true
+   },
+   "mobilenetv2": {
+    "pred": "Unknown",
+    "conf": 0.3564,
+    "is_unknown": true
+   },
+   "efficientnetb0": {
+    "pred": "Unknown",
+    "conf": 0.3081,
+    "is_unknown": true
+   },
+   "ensemble": {
+    "pred": "Unknown",
+    "conf": 0.3245,
+    "is_unknown": true
+   }
+  }
+ },
+ {
+  "path": "D:\\Potato\\PlantVillage\\Potato___Early_blight\\24a34259-1c47-4e87-ac83-5decf37b42e4___RS_Early.B 6896.JPG",
+  "tag": "pv_early",
+  "native": "early_blight",
+  "expected": [
+   "Early Blight"
+  ],
+  "source": "plantvillage_test",
+  "push_name": "23_pv_early.jpg",
+  "push_path": "/sdcard/Pictures/23_pv_early.jpg",
+  "api_truth": {
+   "small_cnn": {
+    "pred": "Unknown",
+    "conf": 0.4471,
+    "is_unknown": true
+   },
+   "mobilenetv2": {
+    "pred": "Early Blight",
+    "conf": 0.6019,
+    "is_unknown": false
+   },
+   "efficientnetb0": {
+    "pred": "Unknown",
+    "conf": 0.3137,
+    "is_unknown": true
+   },
+   "ensemble": {
+    "pred": "Unknown",
+    "conf": 0.3138,
+    "is_unknown": true
+   }
+  }
+ },
+ {
+  "path": "D:\\Potato\\non_leaf\\coco_person\\000000447314.jpg",
+  "tag": "nonleaf_person",
+  "native": "non_leaf",
+  "expected": [
+   "Unknown"
+  ],
+  "source": "plantvillage_test",
+  "push_name": "24_nonleaf_person.jpg",
+  "push_path": "/sdcard/Pictures/24_nonleaf_person.jpg",
+  "api_truth": {
+   "small_cnn": {
+    "pred": "Unknown",
+    "conf": 0.9937,
+    "is_unknown": true
+   },
+   "mobilenetv2": {
+    "pred": "Unknown",
+    "conf": 0.9868,
+    "is_unknown": true
+   },
+   "efficientnetb0": {
+    "pred": "Unknown",
+    "conf": 0.9931,
+    "is_unknown": true
+   },
+   "ensemble": {
+    "pred": "Unknown",
+    "conf": 0.9912,
+    "is_unknown": true
+   }
+  }
+ },
+ {
+  "path": "D:\\Potato\\_staging\\central_java\\phytophthora\\IMG_9518 (1).JPG",
+  "tag": "java_phytophthora",
+  "native": "phytophthora",
+  "expected": [
+   "Late Blight",
+   "Unknown"
+  ],
+  "source": "ext_central_java",
+  "push_name": "25_java_phytophthora.jpg",
+  "push_path": "/sdcard/Pictures/25_java_phytophthora.jpg",
+  "api_truth": {
+   "small_cnn": {
+    "pred": "Early Blight",
+    "conf": 0.7064,
+    "is_unknown": false
+   },
+   "mobilenetv2": {
+    "pred": "Early Blight",
+    "conf": 0.6708,
+    "is_unknown": false
+   },
+   "efficientnetb0": {
+    "pred": "Healthy",
+    "conf": 0.7054,
+    "is_unknown": false
+   },
+   "ensemble": {
+    "pred": "Unknown",
+    "conf": 0.482,
+    "is_unknown": true
+   }
+  }
+ },
+ {
+  "path": "D:\\Potato\\_staging\\plantdoc\\train\\Tomato Septoria leaf spot\\Tomato+leaf+spot2.jpg",
+  "tag": "pd_septoria",
+  "native": "Tomato Septoria leaf spot",
+  "expected": [
+   "Late Blight",
+   "Unknown"
+  ],
+  "source": "plantdoc_other_crops",
+  "push_name": "26_pd_septoria.jpg",
+  "push_path": "/sdcard/Pictures/26_pd_septoria.jpg",
+  "api_truth": {
+   "small_cnn": {
+    "pred": "Unknown",
+    "conf": 0.4517,
+    "is_unknown": true
+   },
+   "mobilenetv2": {
+    "pred": "Early Blight",
+    "conf": 0.597,
+    "is_unknown": false
+   },
+   "efficientnetb0": {
+    "pred": "Early Blight",
+    "conf": 0.5652,
+    "is_unknown": false
+   },
+   "ensemble": {
+    "pred": "Unknown",
+    "conf": 0.408,
+    "is_unknown": true
+   }
+  }
+ },
+ {
+  "path": "D:\\Potato\\_staging\\central_java\\bacteria\\20230816_120932.jpg",
+  "tag": "java_bacteria",
+  "native": "bacteria",
+  "expected": [
+   "Unknown"
+  ],
+  "source": "ext_central_java",
+  "push_name": "27_java_bacteria.jpg",
+  "push_path": "/sdcard/Pictures/27_java_bacteria.jpg",
+  "api_truth": {
+   "small_cnn": {
+    "pred": "Unknown",
+    "conf": 0.5203,
+    "is_unknown": true
+   },
+   "mobilenetv2": {
+    "pred": "Early Blight",
+    "conf": 0.5791,
+    "is_unknown": false
+   },
+   "efficientnetb0": {
+    "pred": "Healthy",
+    "conf": 0.6009,
+    "is_unknown": false
+   },
+   "ensemble": {
+    "pred": "Unknown",
+    "conf": 0.3874,
+    "is_unknown": true
+   }
+  }
+ },
+ {
+  "path": "D:\\Potato\\non_leaf_v2\\animals_people\\oi_d2283be501cca6dc.jpg",
+  "tag": "animal",
+  "native": "animals_people",
+  "expected": [
+   "Unknown"
+  ],
+  "source": "non_leaf_v2/animals_people",
+  "push_name": "28_animal.jpg",
+  "push_path": "/sdcard/Pictures/28_animal.jpg",
+  "api_truth": {
+   "small_cnn": {
+    "pred": "Unknown",
+    "conf": 0.9889,
+    "is_unknown": true
+   },
+   "mobilenetv2": {
+    "pred": "Unknown",
+    "conf": 0.9858,
+    "is_unknown": true
+   },
+   "efficientnetb0": {
+    "pred": "Unknown",
+    "conf": 0.9943,
+    "is_unknown": true
+   },
+   "ensemble": {
+    "pred": "Unknown",
+    "conf": 0.9897,
+    "is_unknown": true
+   }
+  }
+ },
+ {
+  "path": "D:\\Potato\\_staging\\central_java\\bacteria\\IMG_1070.JPG",
+  "tag": "java_bacteria",
+  "native": "bacteria",
+  "expected": [
+   "Unknown"
+  ],
+  "source": "ext_central_java",
+  "push_name": "29_java_bacteria.jpg",
+  "push_path": "/sdcard/Pictures/29_java_bacteria.jpg",
+  "api_truth": {
+   "small_cnn": {
+    "pred": "Unknown",
+    "conf": 0.9675,
+    "is_unknown": true
+   },
+   "mobilenetv2": {
+    "pred": "Unknown",
+    "conf": 0.9262,
+    "is_unknown": true
+   },
+   "efficientnetb0": {
+    "pred": "Unknown",
+    "conf": 0.9677,
+    "is_unknown": true
+   },
+   "ensemble": {
+    "pred": "Unknown",
+    "conf": 0.9538,
+    "is_unknown": true
+   }
+  }
+ },
+ {
+  "path": "D:\\Potato\\PlantVillage\\Potato___Early_blight\\06ac6596-8d65-46dd-a343-a2209f3480e4___RS_Early.B 6921.JPG",
+  "tag": "pv_early",
+  "native": "early_blight",
+  "expected": [
+   "Early Blight"
+  ],
+  "source": "plantvillage_test",
+  "push_name": "30_pv_early.jpg",
+  "push_path": "/sdcard/Pictures/30_pv_early.jpg",
+  "api_truth": {
+   "small_cnn": {
+    "pred": "Unknown",
+    "conf": 0.6775,
+    "is_unknown": true
+   },
+   "mobilenetv2": {
+    "pred": "Unknown",
+    "conf": 0.3233,
+    "is_unknown": true
+   },
+   "efficientnetb0": {
+    "pred": "Late Blight",
+    "conf": 0.8781,
+    "is_unknown": false
+   },
+   "ensemble": {
+    "pred": "Unknown",
+    "conf": 0.4554,
+    "is_unknown": true
+   }
+  }
+ },
+ {
+  "path": "D:\\Potato\\PlantVillage\\Potato___Late_blight\\f68e448a-c2f5-4638-a7cb-45e73083ae4a___RS_LB 3892.JPG",
+  "tag": "pv_late",
+  "native": "late_blight",
+  "expected": [
+   "Late Blight"
+  ],
+  "source": "plantvillage_test",
+  "push_name": "31_pv_late.jpg",
+  "push_path": "/sdcard/Pictures/31_pv_late.jpg",
+  "api_truth": {
+   "small_cnn": {
+    "pred": "Unknown",
+    "conf": 0.4414,
+    "is_unknown": true
+   },
+   "mobilenetv2": {
+    "pred": "Early Blight",
+    "conf": 0.8519,
+    "is_unknown": false
+   },
+   "efficientnetb0": {
+    "pred": "Unknown",
+    "conf": 0.43,
+    "is_unknown": true
+   },
+   "ensemble": {
+    "pred": "Unknown",
+    "conf": 0.4111,
+    "is_unknown": true
+   }
+  }
+ },
+ {
+  "path": "D:\\Potato\\_staging\\bari\\Potato Leaf Disease Dataset\\Bacterial Soft Rot\\orig_4.jpg",
+  "tag": "bari_bacterial_soft_rot",
+  "native": "bari_bacterial_soft_rot",
+  "expected": [
+   "Unknown"
+  ],
+  "source": "ext_ethiopia_bari",
+  "push_name": "32_bari_bacterial_soft_rot.jpg",
+  "push_path": "/sdcard/Pictures/32_bari_bacterial_soft_rot.jpg",
+  "api_truth": {
+   "small_cnn": {
+    "pred": "Healthy",
+    "conf": 0.6379,
+    "is_unknown": false
+   },
+   "mobilenetv2": {
+    "pred": "Early Blight",
+    "conf": 0.6703,
+    "is_unknown": false
+   },
+   "efficientnetb0": {
+    "pred": "Unknown",
+    "conf": 0.775,
+    "is_unknown": true
+   },
+   "ensemble": {
+    "pred": "Unknown",
+    "conf": 0.4501,
+    "is_unknown": true
+   }
+  }
+ },
+ {
+  "path": "D:\\Potato\\_staging\\central_java\\fungi\\1692334247642.jpg",
+  "tag": "java_fungi",
+  "native": "fungi",
+  "expected": [
+   "Unknown"
+  ],
+  "source": "ext_central_java",
+  "push_name": "33_java_fungi.jpg",
+  "push_path": "/sdcard/Pictures/33_java_fungi.jpg",
+  "api_truth": {
+   "small_cnn": {
+    "pred": "Healthy",
+    "conf": 0.6621,
+    "is_unknown": false
+   },
+   "mobilenetv2": {
+    "pred": "Healthy",
+    "conf": 0.6332,
+    "is_unknown": false
+   },
+   "efficientnetb0": {
+    "pred": "Healthy",
+    "conf": 0.8139,
+    "is_unknown": false
+   },
+   "ensemble": {
+    "pred": "Healthy",
+    "conf": 0.7031,
+    "is_unknown": false
+   }
+  }
+ },
+ {
+  "path": "D:\\Potato\\IrishPotato37G_full\\earlyblt\\earlyblt1385.jpg",
+  "tag": "irish_early",
+  "native": "early_blight",
+  "expected": [
+   "Early Blight"
+  ],
+  "source": "irish_test",
+  "push_name": "34_irish_early.jpg",
+  "push_path": "/sdcard/Pictures/34_irish_early.jpg",
+  "api_truth": {
+   "small_cnn": {
+    "pred": "Healthy",
+    "conf": 0.8854,
+    "is_unknown": false
+   },
+   "mobilenetv2": {
+    "pred": "Late Blight",
+    "conf": 0.7809,
+    "is_unknown": false
+   },
+   "efficientnetb0": {
+    "pred": "Late Blight",
+    "conf": 0.777,
+    "is_unknown": false
+   },
+   "ensemble": {
+    "pred": "Unknown",
+    "conf": 0.5227,
+    "is_unknown": true
+   }
+  }
+ }
+]

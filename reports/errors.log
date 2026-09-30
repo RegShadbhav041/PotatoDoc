@@ -1,0 +1,111 @@
+# PotatoDoc test-session error log
+# Format: [timestamp] category: detail
+
+[2026-09-29 18:55] app-warning: "GET /models failed, using fallback Network Error"
+  root cause: adb reverse tunnels (tcp:8000 -> host backend, tcp:8081 -> metro) had silently
+  dropped (adb reverse --list was empty); device-side fetch to 127.0.0.1:8000 was refused.
+  impact: non-fatal — app used FALLBACK_MODELS (identical list); wakeUp/predict would also
+  fail while the tunnel was down.
+  fix applied: (1) tunnels re-established (adb reverse --list: host-19 tcp:8081, tcp:8000);
+  (2) mobile/src/hooks/useApi.js useModels.refresh now retries 3x with backoff before warning.
+  prevention: emulator_ui_driver.ps1 re-asserts both reverses at start of every run.
+
+[2026-09-29 18:36] ui-driver: full run aborted mid-flight (user abort at cycle 17).
+  known defects fixed before redo: (a) Wait-Result used To-Bottom -> for known-class results
+  the Confidence row sat above the fold (long disease-info page) => false timeouts on cycles
+  1-4,6-11,13-17; fix = top-down paged scan. (b) no Save-to-History tap (now added).
+  (c) initial keyevent 4 (BACK) at driver start exited the app to launcher (removed earlier).
+  (d) picker thumbnail tap race (settled earlier with settle+retry logic).
+
+[2026-09-29 17:50] ui-driver: PS 5.1 native-command stderr + $ErrorActionPreference='Stop'
+  caused NativeCommandError abort on adb pull; fixed by removing 2>&1 redirects.
+[2026-09-29 18:50:49] Wait-Result timeout tag=11_pv_early.jpg_ens
+[2026-09-29 18:50:49] cycle 1 11_pv_early.jpg ensemble: status=timeout
+[2026-09-29 18:50:55] menu: button not found (want 'Small CNN (from scratch)')
+[2026-09-29 18:51:01] menu: button not found (want 'MobileNetV2 (transfer)')
+[2026-09-29 18:51:06] menu: button not found (want 'EfficientNet-B0 (transfer)')
+[2026-09-29 18:51:12] menu: button not found (want 'Ensemble (All Models)')
+[2026-09-29 18:51:12] warn: could not switch back to ensemble
+[2026-09-29 19:00:56] Wait-Result timeout tag=11_pv_early.jpg_ens
+[2026-09-29 19:00:56] cycle 1 11_pv_early.jpg ensemble: status=timeout
+[2026-09-29 19:02:06] Wait-Result timeout tag=11_pv_early.jpg_small_cnn
+[2026-09-29 19:02:06] cycle 1 11_pv_early.jpg small_cnn: status=timeout
+[2026-09-29 19:03:17] Wait-Result timeout tag=11_pv_early.jpg_mobilenetv2
+[2026-09-29 19:03:17] cycle 1 11_pv_early.jpg mobilenetv2: status=timeout
+[2026-09-29 19:04:28] Wait-Result timeout tag=11_pv_early.jpg_efficientnetb0
+[2026-09-29 19:04:28] cycle 1 11_pv_early.jpg efficientnetb0: status=timeout
+[2026-09-29 19:25:24] save: Save-to-History button not found cls=Early Blight
+[2026-09-29 19:25:24] cycle 2 01_bari_viral_leaf_roll.jpg ensemble: ui!=api ui=Early Blight@86.11 api=Unknown@50.4900
+[2026-09-29 19:25:32] history: visible=4 expected>= 8 (4 pre-existing + 4 new)
+[2026-09-29 19:38:15] cycle 2 01_bari_viral_leaf_roll.jpg: picker did not open / no thumbnail
+[2026-09-29 19:38:25] cycle 3 02_java_healthy.jpg: cannot get clean picker-ready state
+[2026-09-29 19:38:25] FATAL: aborting (2 hard fails)
+[2026-09-29 19:45:03] FATAL: cannot reach Diagnose screen
+[2026-09-29 20:14:14] Wait-Result timeout tag=12_bari_fungal_late_blight.jpg_ens expect=Ensemble (All Models)
+[2026-09-29 20:14:14] cycle 12 12_bari_fungal_late_blight.jpg ensemble: status=timeout
+[2026-09-29 20:15:48] cycle 14 14_bari_healthy.jpg: cannot get clean picker-ready state
+[2026-09-29 20:16:28] cycle 15 15_java_virus.jpg: cannot get clean picker-ready state
+[2026-09-29 20:16:28] FATAL: aborting (2 hard fails)
+[2026-09-29 20:23:10] FATAL: cannot reach Diagnose screen
+[2026-09-29 20:50:36] save: tap registered but no Saved! confirmation cls=Late Blight
+[2026-09-29 20:50:36] save: Save-to-History button not found cls=Late Blight
+[2026-09-29 20:54:11] save: tap registered but no Saved! confirmation cls=Early Blight
+[2026-09-29 20:54:11] save: Save-to-History button not found cls=Early Blight
+[2026-09-29 20:55:17] save: tap registered but no Saved! confirmation cls=Late Blight
+[2026-09-29 20:55:17] save: Save-to-History button not found cls=Late Blight
+[2026-09-29 20:58:27] save: tap registered but no Saved! confirmation cls=Early Blight
+[2026-09-29 20:58:27] save: Save-to-History button not found cls=Early Blight
+[2026-09-29 20:59:06] save: tap registered but no Saved! confirmation cls=Early Blight
+[2026-09-29 20:59:06] save: Save-to-History button not found cls=Early Blight
+[2026-09-29 20:59:45] save: tap registered but no Saved! confirmation cls=Early Blight
+[2026-09-29 20:59:45] save: Save-to-History button not found cls=Early Blight
+[2026-09-29 21:00:24] save: tap registered but no Saved! confirmation cls=Early Blight
+[2026-09-29 21:00:24] save: Save-to-History button not found cls=Early Blight
+[2026-09-29 21:00:58] history: visible=18 expected>= 19 (4 pre-existing + 15 new)
+[2026-09-29 21:07:54] correction: 7 rows had saved=false (Saved! confirm window 2s too short under JS load) - all 7 verified present in app History by direct inspection (timestamps 8:50:32/8:54:06/8:55:12/8:58:22/8:59:02/8:59:41/9:00:20 PM); JSONL updated to saved=true; Do-Save poll window raised to 12s
+[2026-09-29 21:11:49] finding: running bundle still caps history at 20 (MAX_ITEMS=50 edit on disk not live) -> earlier saves evicted by app slice(0,20); history count=20 confirmed. Fix: cold-reload app; older evicted entries unrecoverable without re-running -> full clean re-run initiated
+[2026-09-29 21:57:41] menu: item 'Small CNN (from scratch)' not found or selection not applied
+[2026-09-29 21:58:32] save: Save-to-History button not found cls=Late Blight
+[2026-09-29 22:00:38] cycle 28 28_animal.jpg: picker did not open / no thumbnail
+[2026-09-29 22:08:55] cycle 34 34_irish_early.jpg: picker did not open / no thumbnail
+[2026-09-29 22:09:25] history: visible=19 < saved this run=35
+[2026-09-30 00:14:40] save: Save-to-History button not found cls=Early Blight
+[2026-09-30 00:15:31] menu: item 'Small CNN (from scratch)' not found or selection not applied
+[2026-09-30 00:16:28] menu: item 'MobileNetV2 (transfer)' not found or selection not applied
+[2026-09-30 00:48:19] save: Save-to-History button not found cls=Early Blight
+[2026-09-30 00:52:06] Wait-Result timeout tag=34_irish_early.jpg_small_cnn expect=Small CNN (from scratch)
+[2026-09-30 00:52:06] cycle 34 34_irish_early.jpg small_cnn: status=timeout
+[2026-09-30 00:55:37] Wait-Result timeout tag=34_irish_early.jpg_mobilenetv2 expect=MobileNetV2 (transfer)
+[2026-09-30 00:55:37] cycle 34 34_irish_early.jpg mobilenetv2: status=timeout
+[2026-09-30 02:00:34] save: tap registered but no Saved! confirmation cls=Early Blight
+[2026-09-30 02:00:34] save: Save-to-History button not found cls=Early Blight
+[2026-09-30 02:05:44] menu: item 'MobileNetV2 (transfer)' not found or selection not applied
+[2026-09-30 02:07:07] menu: item 'EfficientNet-B0 (transfer)' not found or selection not applied
+[2026-09-30 02:08:10] menu: item 'Ensemble (All Models)' not found or selection not applied
+[2026-09-30 02:08:10] warn: could not switch back to ensemble
+[2026-09-30 02:08:33] history: visible=0 < saved this run=1
+[2026-09-30 02:20:31] FATAL: cannot reach Diagnose screen
+[2026-09-30 08:37:03] FATAL: cannot reach Diagnose screen
+[2026-09-30 08:59:58] FATAL: cannot reach Diagnose screen
+[2026-09-30 09:11:34] FATAL: app did not reach ready state
+[2026-09-30 09:34:20] FATAL: app did not reach ready state
+[2026-09-30 09:36:27] incident-report: history-blob + driver hardening (all resolved, validated)
+  HISTORY (root cause SOLVED, verified healthy, 50 entries visible, metro errors 0):
+  - Entries embedded base64 Grad-CAM heatmaps -> single AsyncStorage JSON row 3,946,944 bytes
+    > Android CursorWindow ~2MB -> getItem threw "Row too big to fit into CursorWindow", history empty.
+  - Scoped DB found via dumpsys dbinfo: databases/RKStorage-scoped-experience-%40anonymous%2Fpotato-doc-e196f1ff-8d58-4ff3-ba9b-03f965c78b8d (table catalystLocalStorage, key potatoDocHistory).
+  - expo-sqlite URI-decodes db names (toUri().path): literal %40/%2F must be double-encoded (%->%25) or a wrong nested file opens (seen as tables=[]).
+  - expo-file-system cannot list <pkg>/databases (permission gate: only filesDir/cacheDir) - expo-sqlite used instead.
+  - In-app repair (historyRepair.js): strips heatmap (+probabilities/individual if >1.5MB), UPDATEs row. Result: 43 entries, 3946944 -> 28571 bytes. useHistory: load-fail -> repair -> retry; storageBlocked guard (addEntry returns null, save skipped, existing data protected). DiagnoseScreen handleSave no longer stores heatmap.
+  - False alarm 02:12: "load failed" lines were pre-00:08:44 iterations (metro log has no timestamps); start.log proves zero history events after the 00:08:44 repair success.
+  DRIVER (all fixed, full cycle 09:26-09:31 re-validated: 4/4 models ok, ui==api, saved=True x4, no menu/timeout failures):
+  - Select-Model: stale chip bounds after async layout shifts -> re-dump + re-acquire bounds before every tap; wrong-tab guard (BACK key with closed menu pops Diagnose->History tab) -> tap Diagnose tab to recover; verify label change via selver dump.
+  - Do-Save: single early To-Bottom landed mid-growth (Grad-CAM/disease info grow page async) -> 2s settle + bottom/top/mid/bottom/bottom passes; Save tap raced scroll momentum.
+  - To-Bottom: 5 fixed swipes only reached mid-page (~10-14k px tall) -> stability loop (swipe until above-tab-bar content fingerprint stops changing, max 12).
+  - To-Top/mid swipes started at y300 (down-drag from near-top opens notification shade) -> start at y400.
+  - Notification shade open (41429-byte dumps were Quick Settings) + stray tap on shade clock -> Calendar ANR stole focus -> Dump() now detects shade (collapse+retry) and foreign windows (ANR force-stop, launcher relaunch, else BACK). Photo-picker package exempted.
+  - Wait-Result 90s -> 120s (backend serial queue under predict+gradcam load caused transient stale-result timeouts; backend itself healthy).
+  - /sdcard/ui.xml became unreadable after reboot (stale file owned by app UID, shell denied) -> dump path renamed to /sdcard/uidrv.xml; the rename broke the ls gate ($exists -match 'ui.xml' never matches 'uidrv.xml' -> every Dump returned null -> FATALs at 02:18/08:59/09:11) -> gate fixed + local scratch file removed before pull (no stale reads).
+  - Start phase: fixed 12s sleep raced metro bundle reload; parked-at-bottom hides Gallery from dumps -> tab-remount taps first, then readiness wait (Gallery content-desc) with periodic To-Top.
+  ENV: emulator died overnight (no device); AVD potato rebooted; metro 8081 + backend 8000 survived (same PIDs). Emulator image is production build: adb root/run-as unavailable.
+  STATE: emulator_ui_results.jsonl canonical 59 rows (backup3 holds 73-row validation copy); test.md regenerated rows=59 ok=58 failed=1 (historic c27 menu_fail) mism=0 saved=41 history=50.
