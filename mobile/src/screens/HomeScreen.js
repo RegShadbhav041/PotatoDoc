@@ -29,7 +29,7 @@ function DiseaseCard({ emoji, title, desc, bg, border, titleColor }) {
   );
 }
 
-export default function HomeScreen({ onScan }) {
+export default function HomeScreen({ user, onScan, onSignIn, onSignOut }) {
   return (
     <SafeAreaView style={s.safe} edges={["top", "left", "right"]}>
       <ScrollView
@@ -86,14 +86,35 @@ export default function HomeScreen({ onScan }) {
           />
         </View>
 
-        <View style={s.signinCard}>
-          <Text style={s.signinText}>
-            Sign in to save your diagnosis history and track your crops over time.
-          </Text>
-          <Pressable style={s.signinBtn}>
-            <Text style={s.signinBtnText}>Sign In</Text>
-          </Pressable>
-        </View>
+        {user ? (
+          <View style={s.signinCard}>
+            <View style={s.accountRow}>
+              <View style={s.accountAvatar}>
+                <Text style={s.accountAvatarText}>
+                  {(user.name || "?").trim().charAt(0).toUpperCase()}
+                </Text>
+              </View>
+              <View style={s.flex}>
+                <Text style={s.accountName}>{user.name || "Farmer"}</Text>
+                <Text style={s.accountContact} numberOfLines={1}>
+                  {user.contact}
+                </Text>
+              </View>
+            </View>
+            <Pressable style={s.signoutBtn} onPress={onSignOut}>
+              <Text style={s.signoutBtnText}>Sign out</Text>
+            </Pressable>
+          </View>
+        ) : (
+          <View style={s.signinCard}>
+            <Text style={s.signinText}>
+              Sign in to save your diagnosis history and track your crops over time.
+            </Text>
+            <Pressable style={s.signinBtn} onPress={onSignIn}>
+              <Text style={s.signinBtnText}>Sign In</Text>
+            </Pressable>
+          </View>
+        )}
       </ScrollView>
     </SafeAreaView>
   );
@@ -224,5 +245,54 @@ const s = StyleSheet.create({
     lineHeight: 20,
     fontWeight: "700",
     color: "#FFFFFF",
+  },
+
+  accountRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    alignSelf: "stretch",
+    gap: 12,
+  },
+  accountAvatar: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: COLORS.primary,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  accountAvatarText: {
+    fontSize: 18,
+    fontWeight: "800",
+    color: "#FFFFFF",
+  },
+  accountName: {
+    fontSize: 17,
+    lineHeight: 22,
+    fontWeight: "800",
+    color: COLORS.ink,
+  },
+  accountContact: {
+    fontSize: 13,
+    lineHeight: 17,
+    color: COLORS.gray,
+    marginTop: 2,
+  },
+  signoutBtn: {
+    marginTop: 14,
+    alignSelf: "stretch",
+    height: 42,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: COLORS.cardBorder,
+    backgroundColor: COLORS.page,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  signoutBtnText: {
+    fontSize: 15,
+    lineHeight: 20,
+    fontWeight: "700",
+    color: COLORS.primary,
   },
 });
