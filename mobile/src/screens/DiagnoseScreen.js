@@ -156,7 +156,7 @@ export default function DiagnoseScreen({ addEntry, onOpenNews, unread = 0 }) {
             <Text style={s.screenSub}>{t("AI-assisted crop check")}</Text>
           </View>
           <Pressable style={s.bellBtn} onPress={onOpenNews} hitSlop={8}>
-            <MaterialIcons name="notifications-none" size={20} color={COLORS.ink} />
+            <MaterialIcons name="notifications-none" size={20} color={C.ink} />
             {unread > 0 && (
               <View style={s.bellBadge}>
                 <Text style={s.bellBadgeText}>{unread > 9 ? "9+" : unread}</Text>
