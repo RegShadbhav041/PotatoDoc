@@ -2,6 +2,12 @@
 
 Generated: 2026-09-29
 
+> **Superseded.** The backend now lives in
+> [RegShadbhav041/PotatoDoc-Backend](https://github.com/RegShadbhav041/PotatoDoc-Backend)
+> (`app:app`, not `backend.app:app`), which adds `/auth/*` and `/history`.
+> This file is kept as the model/weights inventory for the historical
+> `D:\Potato` layout; its deploy commands no longer describe the live service.
+
 ## 1. Which models does the FastAPI backend serve?
 
 Service: `D:\Potato\backend\app.py` (FastAPI, run with

@@ -38,8 +38,13 @@ ensemble 100%, Non-Leaf recall 60/60 on the ensemble. See
 ## Quick start
 
 ```bash
-# Backend (serves ensemble on :8000)
-uvicorn backend.app:app --host 0.0.0.0 --port 8000
+# Backend — run the standalone repo (has /auth/* + /history)
+#   https://github.com/RegShadbhav041/PotatoDoc-Backend
+git clone https://github.com/RegShadbhav041/PotatoDoc-Backend.git
+cd PotatoDoc-Backend && pip install -r requirements.txt
+uvicorn app:app --host 0.0.0.0 --port 8000
+# Windows + free Cloudflare tunnel in one step:
+#   powershell -ExecutionPolicy Bypass -File start_backend.ps1
 
 # Smoke test
 curl http://127.0.0.1:8000/ping
@@ -51,6 +56,10 @@ cd mobile && npm install && npx expo start --port 8081
 
 Phone/emulator reach the PC via `adb reverse tcp:8081 tcp:8081` + `adb reverse tcp:8000 tcp:8000`
 (or set `EXPO_PUBLIC_API_URL` in `mobile/.env`).
+
+> `backend/app.py` in this repo is **superseded** — kept only for the historical
+> `D:\Potato` setup. It has no `/auth/*`, so sign-in will 404 against it. Use
+> `PotatoDoc-Backend`.
 
 ---
 
@@ -107,13 +116,20 @@ with a retake message, and is skipped for heatmap + save.
 
 | Tab | What it does |
 |-----|--------------|
-| **Home** | Scan entry card, disease reference (Healthy / Early / Late Blight), sign-in banner |
+| **Home** | Scan entry card, disease reference (Healthy / Early / Late Blight), signed-out "Sign In" card or signed-in account card with Sign out |
 | **Diagnose** | Pick/take photo → choose model (or Ensemble) → predict → Grad-CAM heatmaps per model → Save |
-| **History** | Last 50 predictions with thumbnails/confidence/model/timestamp, Clear button |
+| **History** | **Gated behind sign-in.** Last 50 predictions with thumbnails/confidence/model/timestamp, Clear button |
 | **Location** | Field-location card |
 | **About** | App info |
 
 Engineering notes:
+- **Auth** (`useAuth`) — opaque server token held in AsyncStorage, 30-day TTL;
+  sign-in is local-first so a failed or offline session never blocks saving a
+  prediction. History is locked until signed in; everything else stays open.
+- **History sync** (`useHistorySync`) — device is the source of truth: server
+  copy is unioned in once per sign-in (device wins on id collision, `imageUri`
+  never syncs), then pushed back on a 1.5 s debounce. A 401 re-locks the tab
+  without discarding local rows.
 - History persisted in AsyncStorage with a **max-50 cap** and **oversized-row repair**
   (`historyRepair`) — base64 heatmap rows previously blew past Android's `CursorWindow`
   and made history unreadable; heatmaps are never stored, only metadata + thumbnail URI.
@@ -165,7 +181,7 @@ python train_image.py --epochs 25 --resume
 
 ```
 PotatoDoc/
-├── backend/app.py          # FastAPI: /ping /models /predict /gradcam (+ rejection logic)
+├── backend/app.py          # superseded — see PotatoDoc-Backend (no /auth/* here)
 ├── mobile/                 # Expo app (screens, hooks, history repair)
 ├── train_image.py          # Irish field trainer (resume-safe)
 ├── train_image_pv.py       # PlantVillage trainer (resume-safe)
@@ -181,8 +197,10 @@ PotatoDoc/
 
 - Field negatives (soil/hands-only shots) as a second negative source.
 - Collect user-submitted Unknown cases into a growing negative set.
-- Server-side history sync (auth + Postgres) — designed and prototyped, intentionally not
-  part of the current offline-first build.
+
+Shipped (was listed as future work): **server-side history sync with auth** —
+implemented 2026-10-01 with opaque server tokens and SQLite (not Postgres) in
+[PotatoDoc-Backend](https://github.com/RegShadbhav041/PotatoDoc-Backend).
 
 ## License
 
