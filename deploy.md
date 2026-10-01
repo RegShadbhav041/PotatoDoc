@@ -1,6 +1,23 @@
 # PotatoDoc — Backend Models, Sizes & Free Deployment
 
-Generated: 2026-09-29
+Generated: 2026-09-29 · **Updated: 2026-10-01**
+
+> **2026-10-01 status (supersedes the HF recommendation below):**
+> - **Hugging Face is out:** since ~July 2026 free accounts can only create
+>   Static Spaces; Gradio/Docker Spaces on CPU Basic require PRO ($9/mo).
+> - **Backend now lives in its own repo:** `D:\PotatoBackend` →
+>   https://github.com/RegShadbhav041/PotatoDoc-Backend (private). Verified
+>   byte-identical API responses vs this repo's `backend/app.py`.
+> - **Active deployment: Cloudflare quick tunnel** (free, no card):
+>   `powershell -ExecutionPolicy Bypass -File D:\PotatoBackend\start_backend.ps1`
+>   prints the URL → set `EXPO_PUBLIC_API_URL` in `mobile/.env`.
+>   PC must stay on; URL changes each restart.
+> - **Cloud Run (preferred long-term):** project `potatodoc-backend-041` is
+>   created, but GCP requires an open billing account even for the $0
+>   always-free tier — deploy when a funded card is available (commands in
+>   the backend repo's README).
+> - Port **5554/5555 was hijacked by LDPlayer**; its adbd rejects the SDK adb.
+>   Run the Android Studio AVD (`potato`) for Expo tooling, or close LDPlayer.
 
 > **Superseded.** The backend now lives in
 > [RegShadbhav041/PotatoDoc-Backend](https://github.com/RegShadbhav041/PotatoDoc-Backend)

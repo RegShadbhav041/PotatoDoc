@@ -1,0 +1,162 @@
+{
+ "small_cnn": {
+  "accuracy": 0.9927536231884058,
+  "balanced_accuracy": 0.995,
+  "f1_macro": 0.9878328741965106,
+  "f1_weighted": 0.9927868939726648,
+  "mcc": 0.9895337261707068,
+  "per_class_f1": {
+   "Early Blight": 1.0,
+   "Late Blight": 0.98989898989899,
+   "Healthy": 0.9696969696969697,
+   "Non-Leaf": 0.9917355371900827
+  },
+  "confusion": [
+   [
+    100,
+    0,
+    0,
+    0
+   ],
+   [
+    0,
+    98,
+    1,
+    1
+   ],
+   [
+    0,
+    0,
+    16,
+    0
+   ],
+   [
+    0,
+    0,
+    0,
+    60
+   ]
+  ],
+  "roc_auc_ovr": 0.9998944304152637
+ },
+ "mobilenetv2": {
+  "accuracy": 1.0,
+  "balanced_accuracy": 1.0,
+  "f1_macro": 1.0,
+  "f1_weighted": 1.0,
+  "mcc": 1.0,
+  "per_class_f1": {
+   "Early Blight": 1.0,
+   "Late Blight": 1.0,
+   "Healthy": 1.0,
+   "Non-Leaf": 1.0
+  },
+  "confusion": [
+   [
+    100,
+    0,
+    0,
+    0
+   ],
+   [
+    0,
+    100,
+    0,
+    0
+   ],
+   [
+    0,
+    0,
+    16,
+    0
+   ],
+   [
+    0,
+    0,
+    0,
+    60
+   ]
+  ],
+  "roc_auc_ovr": 1.0
+ },
+ "efficientnetb0": {
+  "accuracy": 1.0,
+  "balanced_accuracy": 1.0,
+  "f1_macro": 1.0,
+  "f1_weighted": 1.0,
+  "mcc": 1.0,
+  "per_class_f1": {
+   "Early Blight": 1.0,
+   "Late Blight": 1.0,
+   "Healthy": 1.0,
+   "Non-Leaf": 1.0
+  },
+  "confusion": [
+   [
+    100,
+    0,
+    0,
+    0
+   ],
+   [
+    0,
+    100,
+    0,
+    0
+   ],
+   [
+    0,
+    0,
+    16,
+    0
+   ],
+   [
+    0,
+    0,
+    0,
+    60
+   ]
+  ],
+  "roc_auc_ovr": 1.0
+ },
+ "ensemble": {
+  "accuracy": 1.0,
+  "balanced_accuracy": 1.0,
+  "f1_macro": 1.0,
+  "f1_weighted": 1.0,
+  "mcc": 1.0,
+  "per_class_f1": {
+   "Early Blight": 1.0,
+   "Late Blight": 1.0,
+   "Healthy": 1.0,
+   "Non-Leaf": 1.0
+  },
+  "confusion": [
+   [
+    100,
+    0,
+    0,
+    0
+   ],
+   [
+    0,
+    100,
+    0,
+    0
+   ],
+   [
+    0,
+    0,
+    16,
+    0
+   ],
+   [
+    0,
+    0,
+    0,
+    60
+   ]
+  ],
+  "roc_auc_ovr": 1.0
+ }
+}
