@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { View, ScrollView, Image, Platform, StyleSheet, Pressable } from "react-native";
 import { Text, Button, Card } from "react-native-paper";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -9,9 +9,14 @@ import ImagePickerSection from "../components/ImagePickerSection";
 import LoadingIndicator from "../components/LoadingIndicator";
 import PredictionResult from "../components/PredictionResult";
 import { useWakeUp, useModels, usePrediction, fetchGradcam } from "../hooks/useApi";
-import { COLORS } from "../constants/colors";
+import { useColors } from "../theme";
+import { useT } from "../i18n";
 
 export default function DiagnoseScreen({ addEntry, onOpenNews, unread = 0 }) {
+  const C = useColors();
+  const t = useT();
+  const s = useMemo(() => makeStyles(C), [C]);
+
   const [imageUri, setImageUri] = useState(null);
   const [selectedModel, setSelectedModel] = useState("convnext_plantvillage");
   const [result, setResult] = useState(null);
@@ -142,13 +147,13 @@ export default function DiagnoseScreen({ addEntry, onOpenNews, unread = 0 }) {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.pageGreen }} edges={["top", "left", "right"]}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: C.pageGreen }} edges={["top", "left", "right"]}>
       <ScrollView>
         {/* Designer mockup "diagnosis": title + subtitle left, bell right */}
         <View style={s.header}>
           <View style={s.flex}>
-            <Text style={s.screenTitle}>Diagnose a leaf</Text>
-            <Text style={s.screenSub}>AI-assisted crop check</Text>
+            <Text style={s.screenTitle}>{t("Diagnose a leaf")}</Text>
+            <Text style={s.screenSub}>{t("AI-assisted crop check")}</Text>
           </View>
           <Pressable style={s.bellBtn} onPress={onOpenNews} hitSlop={8}>
             <MaterialIcons name="notifications-none" size={20} color={COLORS.ink} />
@@ -163,10 +168,10 @@ export default function DiagnoseScreen({ addEntry, onOpenNews, unread = 0 }) {
         {wakeStatus !== "Ready" && (
           <Card style={{ margin: 16 }}>
             <Card.Content>
-              <Text>{wakeStatus || "Connecting..."}</Text>
+              <Text>{t(wakeStatus || "Connecting...")}</Text>
               {warmupProgress && (
                 <Text>
-                  Loading models... {warmupProgress.done}/{warmupProgress.total}
+                  {t("Loading models...")} {warmupProgress.done}/{warmupProgress.total}
                 </Text>
               )}
             </Card.Content>
@@ -210,10 +215,10 @@ export default function DiagnoseScreen({ addEntry, onOpenNews, unread = 0 }) {
         {(result || imageUri) && (
           <View style={{ flexDirection: "row", justifyContent: "space-evenly", margin: 16 }}>
             <Button mode="outlined" onPress={handleNext}>
-              Next Image
+              {t("Next Image")}
             </Button>
             <Button mode="contained" onPress={handleSave} disabled={!saveable}>
-              {saved ? "Saved!" : "Save to History"}
+              {saved ? t("Saved!") : t("Save to History")}
             </Button>
           </View>
         )}
@@ -223,51 +228,52 @@ export default function DiagnoseScreen({ addEntry, onOpenNews, unread = 0 }) {
   );
 }
 
-const s = StyleSheet.create({
-  flex: { flex: 1 },
-  header: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginHorizontal: 16,
-    marginTop: 10,
-  },
-  screenTitle: {
-    fontSize: 22,
-    lineHeight: 28,
-    fontWeight: "800",
-    color: COLORS.ink,
-    letterSpacing: -0.3,
-  },
-  screenSub: {
-    fontSize: 13,
-    lineHeight: 18,
-    fontWeight: "500",
-    color: COLORS.gray,
-    marginTop: 2,
-  },
-  bellBtn: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: "#FFFFFF",
-    borderWidth: 1,
-    borderColor: COLORS.cardBorder,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  bellBadge: {
-    position: "absolute",
-    top: -4,
-    right: -4,
-    minWidth: 18,
-    height: 18,
-    borderRadius: 9,
-    paddingHorizontal: 4,
-    backgroundColor: COLORS.bellBadge,
-    alignItems: "center",
-    justifyContent: "center",
-    borderWidth: 1.5,
-    borderColor: COLORS.pageGreen,
-  },
-  bellBadgeText: { fontSize: 10, fontWeight: "800", color: "#FFFFFF" },
-});
+const makeStyles = (C) =>
+  StyleSheet.create({
+    flex: { flex: 1 },
+    header: {
+      flexDirection: "row",
+      alignItems: "center",
+      marginHorizontal: 16,
+      marginTop: 10,
+    },
+    screenTitle: {
+      fontSize: 22,
+      lineHeight: 28,
+      fontWeight: "800",
+      color: C.ink,
+      letterSpacing: -0.3,
+    },
+    screenSub: {
+      fontSize: 13,
+      lineHeight: 18,
+      fontWeight: "500",
+      color: C.gray,
+      marginTop: 2,
+    },
+    bellBtn: {
+      width: 40,
+      height: 40,
+      borderRadius: 20,
+      backgroundColor: C.card,
+      borderWidth: 1,
+      borderColor: C.cardBorder,
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    bellBadge: {
+      position: "absolute",
+      top: -4,
+      right: -4,
+      minWidth: 18,
+      height: 18,
+      borderRadius: 9,
+      paddingHorizontal: 4,
+      backgroundColor: C.bellBadge,
+      alignItems: "center",
+      justifyContent: "center",
+      borderWidth: 1.5,
+      borderColor: C.pageGreen,
+    },
+    bellBadgeText: { fontSize: 10, fontWeight: "800", color: "#FFFFFF" },
+  });

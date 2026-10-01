@@ -17,33 +17,39 @@ import NewsScreen from "./src/screens/NewsScreen";
 import SignInScreen from "./src/screens/SignInScreen";
 import SignUpScreen from "./src/screens/SignUpScreen";
 import BottomNav from "./src/components/BottomNav";
-import { COLORS } from "./src/constants/colors";
+import { ThemeProvider, useTheme } from "./src/theme";
+import { LanguageProvider, useT } from "./src/i18n";
 import { useHistory } from "./src/hooks/useHistory";
 import { useAuth } from "./src/hooks/useAuth";
 import { useHistorySync } from "./src/hooks/useHistorySync";
 import { useNotices } from "./src/hooks/useNotices";
 
-const theme = {
-  ...DefaultTheme,
-  colors: {
-    ...DefaultTheme.colors,
-    primary: COLORS.primary,
-    accent: COLORS.accent,
-  },
-};
-
-function Splash() {
+function Splash({ C }) {
+  const t = useT();
   return (
-    <View style={styles.splash}>
-      <Text style={styles.splashTitle}>PotatoDoc</Text>
-      <Text style={styles.splashSub}>Diagnose. Protect. Grow.</Text>
+    <View style={[styles.splash, { backgroundColor: C.authBg }]}>
+      <Text style={[styles.splashTitle, { color: C.authBtn }]}>PotatoDoc</Text>
+      <Text style={[styles.splashSub, { color: C.gray }]}>
+        {t("Diagnose. Protect. Grow.")}
+      </Text>
     </View>
   );
 }
 
 export default function App() {
+  return (
+    <ThemeProvider>
+      <LanguageProvider>
+        <AppShell />
+      </LanguageProvider>
+    </ThemeProvider>
+  );
+}
+
+function AppShell() {
   const [tab, setTab] = useState("home");
   const [overlay, setOverlay] = useState(null); // 'signin' | 'signup' | 'news' | 'about' | null
+  const { colors: C, isDark } = useTheme();
   const { user, token, ready, signIn, signUp, signOut, clearSession, updateProfile } = useAuth();
   const { history, addEntry, clearHistory, replaceHistory, storageBlocked } =
     useHistory();
@@ -69,7 +75,7 @@ export default function App() {
     markAllRead,
   } = useNotices(token);
 
-  if (!ready) return <Splash />;
+  if (!ready) return <Splash C={C} />;
 
   const historyLocked = !token;
 
@@ -118,9 +124,23 @@ export default function App() {
   );
 
   return (
-    <PaperProvider theme={theme}>
+    <PaperProvider
+      theme={{
+        ...DefaultTheme,
+        dark: isDark,
+        colors: {
+          ...DefaultTheme.colors,
+          primary: C.primary,
+          accent: C.accent,
+          background: C.page,
+          surface: C.card,
+          text: C.ink,
+          onSurface: C.ink,
+        },
+      }}
+    >
       <SafeAreaProvider>
-        <View style={styles.root}>
+        <View style={[styles.root, { backgroundColor: C.page }]}>
           <View style={styles.screen}>
             {overlay === "signin" ? (
               <SignInScreen
@@ -188,7 +208,7 @@ export default function App() {
               </>
             )}
           </View>
-          <BottomNav active={tab} onChange={changeTab} dark={tab === "profile"} />
+          <BottomNav active={tab} onChange={changeTab} />
         </View>
       </SafeAreaProvider>
     </PaperProvider>
@@ -196,14 +216,13 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  root: { flex: 1, backgroundColor: COLORS.page },
+  root: { flex: 1 },
   screen: { flex: 1 },
   splash: {
     flex: 1,
-    backgroundColor: COLORS.authBg,
     alignItems: "center",
     justifyContent: "center",
   },
-  splashTitle: { fontSize: 30, fontWeight: "800", color: COLORS.authBtn },
-  splashSub: { marginTop: 4, fontSize: 14, color: COLORS.gray },
+  splashTitle: { fontSize: 30, fontWeight: "800" },
+  splashSub: { marginTop: 4, fontSize: 14 },
 });
