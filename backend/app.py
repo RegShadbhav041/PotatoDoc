@@ -1,4 +1,10 @@
 """
+SUPERSEDED — use https://github.com/RegShadbhav041/PotatoDoc-Backend instead.
+  That repo is the one start_backend.ps1 launches and the one the app's
+  EXPO_PUBLIC_API_URL tunnel points at. This copy has NO /auth/* and NO
+  /history, so farmer sign-in 404s here. It is kept only for the original
+  D:\Potato layout (see BASE below), and README/deploy.md now point elsewhere.
+
 PotatoDoc backend — serves M1/M2/M3 + Ensemble to the Expo app.
 Contract (must not break mobile):
   GET  /ping   -> "Hello, I am alive" (text)
