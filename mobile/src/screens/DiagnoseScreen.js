@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { View, ScrollView, Image, Platform, StyleSheet } from "react-native";
+import { View, ScrollView, Image, Platform, StyleSheet, Pressable } from "react-native";
 import { Text, Button, Card } from "react-native-paper";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { MaterialIcons } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
 import ModelPicker from "../components/ModelPicker";
 import ImagePickerSection from "../components/ImagePickerSection";
@@ -10,7 +11,7 @@ import PredictionResult from "../components/PredictionResult";
 import { useWakeUp, useModels, usePrediction, fetchGradcam } from "../hooks/useApi";
 import { COLORS } from "../constants/colors";
 
-export default function DiagnoseScreen({ addEntry }) {
+export default function DiagnoseScreen({ addEntry, onOpenNews, unread = 0 }) {
   const [imageUri, setImageUri] = useState(null);
   const [selectedModel, setSelectedModel] = useState("convnext_plantvillage");
   const [result, setResult] = useState(null);
@@ -141,9 +142,23 @@ export default function DiagnoseScreen({ addEntry }) {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.page }} edges={["top", "left", "right"]}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.pageGreen }} edges={["top", "left", "right"]}>
       <ScrollView>
-        <Text style={s.screenTitle}>Diagnose</Text>
+        {/* Designer mockup "diagnosis": title + subtitle left, bell right */}
+        <View style={s.header}>
+          <View style={s.flex}>
+            <Text style={s.screenTitle}>Diagnose a leaf</Text>
+            <Text style={s.screenSub}>AI-assisted crop check</Text>
+          </View>
+          <Pressable style={s.bellBtn} onPress={onOpenNews} hitSlop={8}>
+            <MaterialIcons name="notifications-none" size={20} color={COLORS.ink} />
+            {unread > 0 && (
+              <View style={s.bellBadge}>
+                <Text style={s.bellBadgeText}>{unread > 9 ? "9+" : unread}</Text>
+              </View>
+            )}
+          </Pressable>
+        </View>
 
         {wakeStatus !== "Ready" && (
           <Card style={{ margin: 16 }}>
@@ -209,12 +224,50 @@ export default function DiagnoseScreen({ addEntry }) {
 }
 
 const s = StyleSheet.create({
+  flex: { flex: 1 },
+  header: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginHorizontal: 16,
+    marginTop: 10,
+  },
   screenTitle: {
-    fontSize: 19,
-    lineHeight: 24,
+    fontSize: 22,
+    lineHeight: 28,
     fontWeight: "800",
     color: COLORS.ink,
-    marginHorizontal: 16,
-    marginTop: 8,
+    letterSpacing: -0.3,
   },
+  screenSub: {
+    fontSize: 13,
+    lineHeight: 18,
+    fontWeight: "500",
+    color: COLORS.gray,
+    marginTop: 2,
+  },
+  bellBtn: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: "#FFFFFF",
+    borderWidth: 1,
+    borderColor: COLORS.cardBorder,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  bellBadge: {
+    position: "absolute",
+    top: -4,
+    right: -4,
+    minWidth: 18,
+    height: 18,
+    borderRadius: 9,
+    paddingHorizontal: 4,
+    backgroundColor: COLORS.bellBadge,
+    alignItems: "center",
+    justifyContent: "center",
+    borderWidth: 1.5,
+    borderColor: COLORS.pageGreen,
+  },
+  bellBadgeText: { fontSize: 10, fontWeight: "800", color: "#FFFFFF" },
 });

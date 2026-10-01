@@ -17,6 +17,10 @@ export const COLORS = {
   divider: "#E0E0E0",
 
   page: "#FAFAF7",
+  // Pale-green pages (History + News mockups)
+  pageGreen: "#EDF5E6",
+  bellBadge: "#E53935",
+  greenDot: "#43A047",
   ink: "#1A1A1A",
   gray: "#6B7280",
   leafBg: "#E9EFE7",
@@ -32,6 +36,15 @@ export const COLORS = {
   lateBg: "#F5E8E6",
   lateBorder: "#EAB8B6",
   lateText: "#C62828",
+
+  // Dark Profile mockup (2026-10-01)
+  darkPage: "#121412",
+  darkCard: "#262A25",
+  darkTile: "#31352F",
+  darkLine: "#3A3F38",
+  darkText: "#F3F5F1",
+  darkMuted: "#9AA19A",
+  danger: "#E53935",
 
   // Auth screens only (the rest of the app keeps page: "#FAFAF7")
   authBg: "#E5F1DD",

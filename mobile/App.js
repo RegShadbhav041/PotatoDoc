@@ -12,6 +12,8 @@ import DiagnoseScreen from "./src/screens/DiagnoseScreen";
 import HistoryScreen from "./src/screens/HistoryScreen";
 import LocationScreen from "./src/screens/LocationScreen";
 import AboutScreen from "./src/screens/AboutScreen";
+import ProfileScreen from "./src/screens/ProfileScreen";
+import NewsScreen from "./src/screens/NewsScreen";
 import SignInScreen from "./src/screens/SignInScreen";
 import SignUpScreen from "./src/screens/SignUpScreen";
 import BottomNav from "./src/components/BottomNav";
@@ -19,6 +21,7 @@ import { COLORS } from "./src/constants/colors";
 import { useHistory } from "./src/hooks/useHistory";
 import { useAuth } from "./src/hooks/useAuth";
 import { useHistorySync } from "./src/hooks/useHistorySync";
+import { useNotices } from "./src/hooks/useNotices";
 
 const theme = {
   ...DefaultTheme,
@@ -40,8 +43,8 @@ function Splash() {
 
 export default function App() {
   const [tab, setTab] = useState("home");
-  const [overlay, setOverlay] = useState(null); // 'signin' | 'signup' | null
-  const { user, token, ready, signIn, signUp, signOut, clearSession } = useAuth();
+  const [overlay, setOverlay] = useState(null); // 'signin' | 'signup' | 'news' | 'about' | null
+  const { user, token, ready, signIn, signUp, signOut, clearSession, updateProfile } = useAuth();
   const { history, addEntry, clearHistory, replaceHistory, storageBlocked } =
     useHistory();
 
@@ -53,12 +56,27 @@ export default function App() {
     onUnauthorized: clearSession,
   });
 
+  // Single owner of the feed: the bell badges and the News screen share one
+  // unread counter (same rule as useAuth).
+  const {
+    items: notices,
+    unread,
+    loading: noticesLoading,
+    refreshing: noticesRefreshing,
+    error: noticesError,
+    refresh: refreshNotices,
+    markRead,
+    markAllRead,
+  } = useNotices(token);
+
   if (!ready) return <Splash />;
 
   const historyLocked = !token;
 
   const goSignIn = () => setOverlay("signin");
   const goSignUp = () => setOverlay("signup");
+  const openNews = () => setOverlay("news");
+  const openAbout = () => setOverlay("about");
   const closeOverlay = () => setOverlay(null);
 
   const changeTab = (next) => {
@@ -67,15 +85,35 @@ export default function App() {
     if (next === "history" && historyLocked) setOverlay("signin");
   };
 
+  const handleSignOut = () => {
+    signOut();
+    setTab("home");
+  };
+
   const signedInHome = (
     <HomeScreen
       user={user}
+      unread={unread}
       onScan={() => setTab("diagnose")}
       onSignIn={goSignIn}
-      onSignOut={() => {
-        signOut();
-        setTab("home");
-      }}
+      onSignOut={handleSignOut}
+      onOpenNews={openNews}
+      onOpenLocation={() => setTab("location")}
+      onOpenHistory={() => setTab("history")}
+    />
+  );
+
+  const newsOverlay = (
+    <NewsScreen
+      notices={notices}
+      unread={unread}
+      loading={noticesLoading}
+      refreshing={noticesRefreshing}
+      error={noticesError}
+      onRefresh={() => refreshNotices({ silent: false })}
+      onMarkRead={(notice) => markRead(notice.id)}
+      onMarkAllRead={markAllRead}
+      onBack={closeOverlay}
     />
   );
 
@@ -103,10 +141,20 @@ export default function App() {
                 onSuccess={closeOverlay}
                 onGoToSignIn={goSignIn}
               />
+            ) : overlay === "news" ? (
+              newsOverlay
+            ) : overlay === "about" ? (
+              <AboutScreen onBack={closeOverlay} />
             ) : (
               <>
                 {tab === "home" && signedInHome}
-                {tab === "diagnose" && <DiagnoseScreen addEntry={addEntry} />}
+                {tab === "diagnose" && (
+                  <DiagnoseScreen
+                    addEntry={addEntry}
+                    onOpenNews={openNews}
+                    unread={unread}
+                  />
+                )}
                 {tab === "history" && historyLocked && (
                   <SignInScreen
                     signIn={signIn}
@@ -117,14 +165,30 @@ export default function App() {
                   />
                 )}
                 {tab === "history" && !historyLocked && (
-                  <HistoryScreen history={history} onClear={clearHistory} />
+                  <HistoryScreen
+                    history={history}
+                    onClear={clearHistory}
+                    onOpenNews={openNews}
+                    unread={unread}
+                  />
                 )}
                 {tab === "location" && <LocationScreen />}
-                {tab === "about" && <AboutScreen />}
+                {tab === "profile" && (
+                  <ProfileScreen
+                    user={user}
+                    historyCount={history.length}
+                    unread={unread}
+                    onSignIn={goSignIn}
+                    onSignOut={handleSignOut}
+                    onOpenNews={openNews}
+                    onOpenAbout={openAbout}
+                    onSaveProfile={updateProfile}
+                  />
+                )}
               </>
             )}
           </View>
-          <BottomNav active={tab} onChange={changeTab} />
+          <BottomNav active={tab} onChange={changeTab} dark={tab === "profile"} />
         </View>
       </SafeAreaProvider>
     </PaperProvider>

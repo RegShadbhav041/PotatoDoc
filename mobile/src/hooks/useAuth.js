@@ -93,6 +93,20 @@ export function useAuth() {
     [persist]
   );
 
+  /** Persist the Profile tab's "Your details" edits (PUT /auth/me). */
+  const updateProfile = useCallback(
+    async ({ name, contact }) => {
+      const res = await axios.put(
+        `${API_BASE}/auth/me`,
+        { name, contact },
+        { headers: { Authorization: `Bearer ${token}` }, timeout: 20000 }
+      );
+      setUser(res.data);
+      return res.data;
+    },
+    [token]
+  );
+
   /** Drop a dead session (401) without touching local history. */
   const clearSession = useCallback(() => {
     setToken(null);
@@ -116,5 +130,5 @@ export function useAuth() {
     }
   }, [token]);
 
-  return { user, token, ready, signIn, signUp, signOut, clearSession };
+  return { user, token, ready, signIn, signUp, signOut, clearSession, updateProfile };
 }

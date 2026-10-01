@@ -1,13 +1,23 @@
 import React from "react";
-import { View, ScrollView, StyleSheet } from "react-native";
+import { View, ScrollView, StyleSheet, Pressable } from "react-native";
 import { Text } from "react-native-paper";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { MaterialIcons } from "@expo/vector-icons";
 import { COLORS } from "../constants/colors";
 
-export default function AboutScreen() {
+export default function AboutScreen({ onBack }) {
   return (
     <SafeAreaView style={s.safe} edges={["top", "left", "right"]}>
       <ScrollView contentContainerStyle={s.scroll}>
+        <View style={s.headRow}>
+          {onBack ? (
+            <Pressable style={s.backBtn} onPress={onBack} hitSlop={8}>
+              <MaterialIcons name="arrow-back" size={20} color={COLORS.ink} />
+            </Pressable>
+          ) : (
+            <View />
+          )}
+        </View>
         <Text style={s.title}>About</Text>
         <View style={s.card}>
           <View style={s.logoWrap}>
@@ -30,6 +40,17 @@ export default function AboutScreen() {
 const s = StyleSheet.create({
   safe: { flex: 1, backgroundColor: COLORS.page },
   scroll: { paddingHorizontal: 16, paddingTop: 8, paddingBottom: 24 },
+  headRow: { flexDirection: "row", alignItems: "center", marginBottom: 8 },
+  backBtn: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: "#FFFFFF",
+    borderWidth: 1,
+    borderColor: COLORS.cardBorder,
+    alignItems: "center",
+    justifyContent: "center",
+  },
   title: {
     fontSize: 19,
     lineHeight: 24,
