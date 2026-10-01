@@ -67,5 +67,13 @@ export function useHistory() {
     await persist([]);
   }, []);
 
-  return { history, addEntry, clearHistory };
+  const replaceHistory = useCallback(
+    async (next) => {
+      if (storageBlocked) return;
+      await persist(Array.isArray(next) ? next.slice(0, MAX_ITEMS) : []);
+    },
+    [storageBlocked]
+  );
+
+  return { history, addEntry, clearHistory, replaceHistory, storageBlocked };
 }
