@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { View, StyleSheet, Text, TextInput } from "react-native";
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import { Animated, View, StyleSheet, Text, TextInput } from "react-native";
 
 Text.defaultProps = Text.defaultProps || {};
 Text.defaultProps.allowFontScaling = false;
@@ -18,21 +18,79 @@ import SignInScreen from "./src/screens/SignInScreen";
 import SignUpScreen from "./src/screens/SignUpScreen";
 import BottomNav from "./src/components/BottomNav";
 import { ThemeProvider, useTheme } from "./src/theme";
-import { LanguageProvider, useT } from "./src/i18n";
+import { LanguageProvider } from "./src/i18n";
+import { useVideoPlayer, VideoView } from "expo-video";
+import * as SplashScreen from "expo-splash-screen";
 import { useHistory } from "./src/hooks/useHistory";
 import { useAuth } from "./src/hooks/useAuth";
 import { useHistorySync } from "./src/hooks/useHistorySync";
 import { useNotices } from "./src/hooks/useNotices";
 
-function Splash({ C }) {
-  const t = useT();
+// Hold the native splash (still frame) until the video paints its first
+// frame, so launch reads as one continuous animation.
+SplashScreen.preventAutoHideAsync().catch(() => {});
+
+const SPLASH_MIN_MS = 4000; // one full loop of the 4s video
+
+function Splash({ ready, onDone }) {
+  const startedAt = useRef(Date.now()).current;
+  const visibleAt = useRef(null); // first video frame — min-time starts HERE,
+  // not at mount: the native splash covers us for the first ~1-2s.
+  const opacity = useRef(new Animated.Value(1)).current;
+  const [frameShown, setFrameShown] = useState(false);
+  const player = useVideoPlayer(require("./assets/splash.mp4"), (p) => {
+    p.loop = true;
+    p.volume = 0; // splash must never make noise (video ships an AAC track)
+    p.play(); // expo-video has no autoplay — without this, frame 0 freezes
+  });
+
+  const showFirstFrame = useCallback(() => {
+    if (!visibleAt.current) visibleAt.current = Date.now();
+    setFrameShown(true);
+  }, []);
+
+  // Safety net: if the video fails to render, don't trap the user on the
+  // native splash — release it (min-time then falls back to mount time).
+  useEffect(() => {
+    const t = setTimeout(showFirstFrame, 6000);
+    return () => clearTimeout(t);
+  }, [showFirstFrame]);
+
+  useEffect(() => {
+    if (frameShown) SplashScreen.hideAsync().catch(() => {});
+  }, [frameShown]);
+
+  useEffect(() => {
+    if (!ready || !frameShown) return;
+    const sinceVisible = Date.now() - (visibleAt.current || startedAt);
+    const wait = Math.max(0, SPLASH_MIN_MS - sinceVisible);
+    const timer = setTimeout(() => {
+      Animated.timing(opacity, {
+        toValue: 0,
+        duration: 300,
+        useNativeDriver: true,
+      }).start(({ finished }) => {
+        if (finished) onDone();
+      });
+    }, wait);
+    return () => clearTimeout(timer);
+  }, [ready, frameShown, startedAt, opacity, onDone]);
+
   return (
-    <View style={[styles.splash, { backgroundColor: C.authBg }]}>
-      <Text style={[styles.splashTitle, { color: C.authBtn }]}>PotatoDoc</Text>
-      <Text style={[styles.splashSub, { color: C.gray }]}>
-        {t("Diagnose. Protect. Grow.")}
-      </Text>
-    </View>
+    <Animated.View
+      style={[
+        StyleSheet.absoluteFill,
+        { backgroundColor: "#FFFFFF", opacity },
+      ]}
+    >
+      <VideoView
+        player={player}
+        style={StyleSheet.absoluteFill}
+        contentFit="contain"
+        nativeControls={false}
+        onFirstFrameRender={showFirstFrame}
+      />
+    </Animated.View>
   );
 }
 
@@ -49,6 +107,8 @@ export default function App() {
 function AppShell() {
   const [tab, setTab] = useState("home");
   const [overlay, setOverlay] = useState(null); // 'signin' | 'signup' | 'news' | 'about' | null
+  const [splashGone, setSplashGone] = useState(false);
+  const handleSplashDone = useCallback(() => setSplashGone(true), []);
   const { colors: C, isDark } = useTheme();
   const { user, token, ready, signIn, signUp, signOut, clearSession, updateProfile } = useAuth();
   const { history, addEntry, clearHistory, replaceHistory, storageBlocked } =
@@ -75,7 +135,7 @@ function AppShell() {
     markAllRead,
   } = useNotices(token);
 
-  if (!ready) return <Splash C={C} />;
+  if (!splashGone) return <Splash ready={ready} onDone={handleSplashDone} />;
 
   const historyLocked = !token;
 
@@ -218,11 +278,4 @@ function AppShell() {
 const styles = StyleSheet.create({
   root: { flex: 1 },
   screen: { flex: 1 },
-  splash: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  splashTitle: { fontSize: 30, fontWeight: "800" },
-  splashSub: { marginTop: 4, fontSize: 14 },
 });
