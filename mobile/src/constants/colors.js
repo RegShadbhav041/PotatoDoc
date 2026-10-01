@@ -32,6 +32,12 @@ export const COLORS = {
   lateBg: "#F5E8E6",
   lateBorder: "#EAB8B6",
   lateText: "#C62828",
+
+  // Auth screens only (the rest of the app keeps page: "#FAFAF7")
+  authBg: "#E5F1DD",
+  authBtn: "#023422",
+  authPill: "#C0EEC9",
+  authField: "#F6FAF4",
 };
 
 export const CLASS_COLORS = {
