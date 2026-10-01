@@ -28,6 +28,9 @@ __pycache__/
 .pytest_cache/
 /.env
 
+# --- backend deployed separately (its own git repo) ---
+backend-standalone/
+
 # --- report scratch (canonical artifacts are kept) ---
 reports/*.png
 reports/*.xml
