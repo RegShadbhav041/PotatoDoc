@@ -76,7 +76,7 @@ Additive only — no existing endpoint changes.
 | Method | Path | Behavior |
 |---|---|---|
 | GET | `/history` | `{items:[...]}`, newest first |
-| PUT | `/history` | `{items:[...]}` → mirror: upsert these ids, delete absent ids → `{upserted, removed}` |
+| PUT | `/history` | `{items:[...]}` → **upsert-only** (idempotent) → `{upserted}`. The only deletion path is `DELETE /history`, so a client bug or an empty local list can never wipe the server copy. |
 | DELETE | `/history` | clear the user's server copy → **204** |
 
 **Errors** — FastAPI default `{detail}` shape (mobile reads
