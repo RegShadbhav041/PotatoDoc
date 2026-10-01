@@ -315,13 +315,13 @@ def main():
              "f1_macro": float(f1_score(true, pred, average="macro", zero_division=0)),
              "f1_weighted": float(f1_score(true, pred, average="weighted", zero_division=0)),
              "mcc": float(matthews_corrcoef(true, pred)),
-             "per_class_f1": {a: float(v) for a, v in zip(CLASSES_API, f1_score(true, pred, average=None, zero_division=0))},
+             "per_class_f1": {a: float(v) for a, v in zip(CLASSES_API, f1_score(true, pred, average=None, labels=list(range(n)), zero_division=0))},
              "confusion": confusion_matrix(true, pred, labels=list(range(n))).tolist()}
         try: m["roc_auc_ovr"] = float(roc_auc_score(true, P, multi_class="ovr"))
         except Exception: pass
         metrics[name] = m
         print(f"\n[{name}] acc={m['accuracy']:.4f} F1macro={m['f1_macro']:.4f} MCC={m['mcc']:.4f}")
-        print(classification_report(true, pred, target_names=CLASSES_API, zero_division=0))
+        print(classification_report(true, pred, labels=list(range(n)), target_names=CLASSES_API, zero_division=0))
     (OUT / "ensemble_config.json").write_text(json.dumps({"members": mids, "rule": "soft_vote_mean"}, indent=1))
     (OUT / "metrics.json").write_text(json.dumps(metrics, indent=1))
     # W4: VAL logits dump — temperature + threshold are fitted on VAL only, never test

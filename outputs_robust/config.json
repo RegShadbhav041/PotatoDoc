@@ -1,0 +1,33 @@
+{
+ "mids": [
+  "small_cnn",
+  "mobilenetv2",
+  "efficientnetb0"
+ ],
+ "epochs": 25,
+ "batch": 64,
+ "img": 224,
+ "seed": 42,
+ "classes_csv": [
+  "early_blight",
+  "late_blight",
+  "healthy",
+  "non_leaf"
+ ],
+ "classes_api": [
+  "Early Blight",
+  "Late Blight",
+  "Healthy",
+  "Non-Leaf"
+ ],
+ "train_csv": "robust_train.csv",
+ "val_csv": "robust_val.csv",
+ "test_csv": "Irish_grouped_test.csv",
+ "out_dir": "outputs_robust",
+ "oversample": false,
+ "loss": "ce",
+ "drop": 0.4,
+ "m1_lr": 0.001,
+ "full_epochs": false,
+ "time": "2026-10-02 00:17"
+}

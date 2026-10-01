@@ -1,0 +1,23 @@
+{
+ "fitted_on": "VAL only",
+ "models": {
+  "small_cnn": {
+   "T": 0.55,
+   "ece_before": 0.0965077446915685,
+   "ece_after": 0.015234042012166797,
+   "brier_after": 0.081298828125
+  },
+  "mobilenetv2": {
+   "T": 0.6,
+   "ece_before": 0.06828657175100743,
+   "ece_after": 0.007352371357718493,
+   "brier_after": 0.03411865234375
+  },
+  "efficientnetb0": {
+   "T": 0.6,
+   "ece_before": 0.07511327640654067,
+   "ece_after": 0.005842120175914473,
+   "brier_after": 0.030853271484375
+  }
+ }
+}

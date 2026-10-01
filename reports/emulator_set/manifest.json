@@ -11,23 +11,23 @@
   "push_path": "/sdcard/Pictures/01_bari_viral_leaf_roll.jpg",
   "api_truth": {
    "small_cnn": {
-    "pred": "Unknown",
-    "conf": 0.9526,
-    "is_unknown": true
+    "pred": "Late Blight",
+    "conf": 0.732,
+    "is_unknown": false
    },
    "mobilenetv2": {
-    "pred": "Unknown",
-    "conf": 0.4237,
-    "is_unknown": true
+    "pred": "Healthy",
+    "conf": 0.8446,
+    "is_unknown": false
    },
    "efficientnetb0": {
-    "pred": "Unknown",
-    "conf": 0.3274,
-    "is_unknown": true
+    "pred": "Healthy",
+    "conf": 0.6145,
+    "is_unknown": false
    },
    "ensemble": {
     "pred": "Unknown",
-    "conf": 0.5413,
+    "conf": 0.5049,
     "is_unknown": true
    }
   }
@@ -44,23 +44,23 @@
   "push_path": "/sdcard/Pictures/02_java_healthy.jpg",
   "api_truth": {
    "small_cnn": {
-    "pred": "Healthy",
-    "conf": 0.8781,
+    "pred": "Late Blight",
+    "conf": 0.5974,
     "is_unknown": false
    },
    "mobilenetv2": {
-    "pred": "Healthy",
-    "conf": 0.7268,
-    "is_unknown": false
+    "pred": "Unknown",
+    "conf": 0.3677,
+    "is_unknown": true
    },
    "efficientnetb0": {
-    "pred": "Healthy",
-    "conf": 0.821,
+    "pred": "Late Blight",
+    "conf": 0.7723,
     "is_unknown": false
    },
    "ensemble": {
-    "pred": "Healthy",
-    "conf": 0.8087,
+    "pred": "Late Blight",
+    "conf": 0.5791,
     "is_unknown": false
    }
   }
@@ -78,23 +78,23 @@
   "api_truth": {
    "small_cnn": {
     "pred": "Late Blight",
-    "conf": 0.5913,
+    "conf": 0.8707,
     "is_unknown": false
    },
    "mobilenetv2": {
-    "pred": "Early Blight",
-    "conf": 0.8244,
+    "pred": "Late Blight",
+    "conf": 0.9045,
     "is_unknown": false
    },
    "efficientnetb0": {
-    "pred": "Unknown",
-    "conf": 0.4624,
-    "is_unknown": true
+    "pred": "Late Blight",
+    "conf": 0.8651,
+    "is_unknown": false
    },
    "ensemble": {
-    "pred": "Unknown",
-    "conf": 0.4753,
-    "is_unknown": true
+    "pred": "Late Blight",
+    "conf": 0.8801,
+    "is_unknown": false
    }
   }
  },
@@ -111,22 +111,22 @@
   "api_truth": {
    "small_cnn": {
     "pred": "Unknown",
-    "conf": 0.9897,
+    "conf": 0.9607,
     "is_unknown": true
    },
    "mobilenetv2": {
     "pred": "Unknown",
-    "conf": 0.9887,
+    "conf": 0.9711,
     "is_unknown": true
    },
    "efficientnetb0": {
     "pred": "Unknown",
-    "conf": 0.9963,
+    "conf": 0.956,
     "is_unknown": true
    },
    "ensemble": {
     "pred": "Unknown",
-    "conf": 0.9916,
+    "conf": 0.9626,
     "is_unknown": true
    }
   }
@@ -143,24 +143,24 @@
   "push_path": "/sdcard/Pictures/05_irish_late.jpg",
   "api_truth": {
    "small_cnn": {
-    "pred": "Healthy",
-    "conf": 0.5775,
+    "pred": "Late Blight",
+    "conf": 0.8416,
     "is_unknown": false
    },
    "mobilenetv2": {
-    "pred": "Early Blight",
-    "conf": 0.5977,
+    "pred": "Late Blight",
+    "conf": 0.8868,
     "is_unknown": false
    },
    "efficientnetb0": {
-    "pred": "Unknown",
-    "conf": 0.5263,
-    "is_unknown": true
+    "pred": "Late Blight",
+    "conf": 0.8396,
+    "is_unknown": false
    },
    "ensemble": {
-    "pred": "Unknown",
-    "conf": 0.4256,
-    "is_unknown": true
+    "pred": "Late Blight",
+    "conf": 0.856,
+    "is_unknown": false
    }
   }
  },
@@ -176,24 +176,24 @@
   "push_path": "/sdcard/Pictures/06_pv_healthy.jpg",
   "api_truth": {
    "small_cnn": {
-    "pred": "Unknown",
-    "conf": 0.4367,
-    "is_unknown": true
+    "pred": "Healthy",
+    "conf": 0.9026,
+    "is_unknown": false
    },
    "mobilenetv2": {
-    "pred": "Unknown",
-    "conf": 0.2948,
-    "is_unknown": true
+    "pred": "Healthy",
+    "conf": 0.9249,
+    "is_unknown": false
    },
    "efficientnetb0": {
-    "pred": "Unknown",
-    "conf": 0.3524,
-    "is_unknown": true
+    "pred": "Healthy",
+    "conf": 0.8902,
+    "is_unknown": false
    },
    "ensemble": {
-    "pred": "Unknown",
-    "conf": 0.3187,
-    "is_unknown": true
+    "pred": "Healthy",
+    "conf": 0.9059,
+    "is_unknown": false
    }
   }
  },
@@ -209,24 +209,24 @@
   "push_path": "/sdcard/Pictures/07_pv_healthy.jpg",
   "api_truth": {
    "small_cnn": {
-    "pred": "Late Blight",
-    "conf": 0.622,
+    "pred": "Healthy",
+    "conf": 0.9242,
     "is_unknown": false
    },
    "mobilenetv2": {
-    "pred": "Early Blight",
-    "conf": 0.6073,
+    "pred": "Healthy",
+    "conf": 0.9336,
     "is_unknown": false
    },
    "efficientnetb0": {
     "pred": "Healthy",
-    "conf": 0.6731,
+    "conf": 0.9072,
     "is_unknown": false
    },
    "ensemble": {
-    "pred": "Unknown",
-    "conf": 0.2983,
-    "is_unknown": true
+    "pred": "Healthy",
+    "conf": 0.9217,
+    "is_unknown": false
    }
   }
  },
@@ -243,22 +243,22 @@
   "api_truth": {
    "small_cnn": {
     "pred": "Healthy",
-    "conf": 0.8833,
+    "conf": 0.8808,
     "is_unknown": false
    },
    "mobilenetv2": {
     "pred": "Healthy",
-    "conf": 0.7424,
+    "conf": 0.628,
     "is_unknown": false
    },
    "efficientnetb0": {
-    "pred": "Healthy",
-    "conf": 0.8014,
-    "is_unknown": false
+    "pred": "Unknown",
+    "conf": 0.5169,
+    "is_unknown": true
    },
    "ensemble": {
     "pred": "Healthy",
-    "conf": 0.809,
+    "conf": 0.6753,
     "is_unknown": false
    }
   }
@@ -276,23 +276,23 @@
   "api_truth": {
    "small_cnn": {
     "pred": "Late Blight",
-    "conf": 0.7701,
+    "conf": 0.704,
     "is_unknown": false
    },
    "mobilenetv2": {
-    "pred": "Early Blight",
-    "conf": 0.8237,
+    "pred": "Late Blight",
+    "conf": 0.9013,
     "is_unknown": false
    },
    "efficientnetb0": {
-    "pred": "Early Blight",
-    "conf": 0.6702,
+    "pred": "Late Blight",
+    "conf": 0.8751,
     "is_unknown": false
    },
    "ensemble": {
-    "pred": "Unknown",
-    "conf": 0.5185,
-    "is_unknown": true
+    "pred": "Late Blight",
+    "conf": 0.8268,
+    "is_unknown": false
    }
   }
  },
@@ -308,24 +308,24 @@
   "push_path": "/sdcard/Pictures/10_other_leaf.jpg",
   "api_truth": {
    "small_cnn": {
-    "pred": "Healthy",
-    "conf": 0.8735,
+    "pred": "Early Blight",
+    "conf": 0.6836,
     "is_unknown": false
    },
    "mobilenetv2": {
-    "pred": "Unknown",
-    "conf": 0.5804,
-    "is_unknown": true
+    "pred": "Late Blight",
+    "conf": 0.8598,
+    "is_unknown": false
    },
    "efficientnetb0": {
-    "pred": "Unknown",
-    "conf": 0.4436,
-    "is_unknown": true
+    "pred": "Late Blight",
+    "conf": 0.8875,
+    "is_unknown": false
    },
    "ensemble": {
-    "pred": "Unknown",
-    "conf": 0.5176,
-    "is_unknown": true
+    "pred": "Late Blight",
+    "conf": 0.634,
+    "is_unknown": false
    }
   }
  },
@@ -341,23 +341,23 @@
   "push_path": "/sdcard/Pictures/11_pv_early.jpg",
   "api_truth": {
    "small_cnn": {
-    "pred": "Unknown",
-    "conf": 0.4122,
-    "is_unknown": true
+    "pred": "Early Blight",
+    "conf": 0.9002,
+    "is_unknown": false
    },
    "mobilenetv2": {
     "pred": "Early Blight",
-    "conf": 0.8517,
+    "conf": 0.8924,
     "is_unknown": false
    },
    "efficientnetb0": {
     "pred": "Early Blight",
-    "conf": 0.6707,
+    "conf": 0.8611,
     "is_unknown": false
    },
    "ensemble": {
     "pred": "Early Blight",
-    "conf": 0.5965,
+    "conf": 0.8845,
     "is_unknown": false
    }
   }
@@ -376,23 +376,23 @@
   "api_truth": {
    "small_cnn": {
     "pred": "Unknown",
-    "conf": 0.4257,
+    "conf": 0.4863,
     "is_unknown": true
    },
    "mobilenetv2": {
-    "pred": "Early Blight",
-    "conf": 0.8405,
+    "pred": "Healthy",
+    "conf": 0.571,
     "is_unknown": false
    },
    "efficientnetb0": {
     "pred": "Early Blight",
-    "conf": 0.6176,
+    "conf": 0.7578,
     "is_unknown": false
    },
    "ensemble": {
-    "pred": "Early Blight",
-    "conf": 0.6279,
-    "is_unknown": false
+    "pred": "Unknown",
+    "conf": 0.4553,
+    "is_unknown": true
    }
   }
  },
@@ -408,23 +408,23 @@
   "push_path": "/sdcard/Pictures/13_java_virus.jpg",
   "api_truth": {
    "small_cnn": {
-    "pred": "Healthy",
-    "conf": 0.8864,
+    "pred": "Late Blight",
+    "conf": 0.7203,
     "is_unknown": false
    },
    "mobilenetv2": {
-    "pred": "Healthy",
-    "conf": 0.6032,
+    "pred": "Late Blight",
+    "conf": 0.781,
     "is_unknown": false
    },
    "efficientnetb0": {
-    "pred": "Healthy",
-    "conf": 0.8364,
+    "pred": "Late Blight",
+    "conf": 0.8776,
     "is_unknown": false
    },
    "ensemble": {
-    "pred": "Healthy",
-    "conf": 0.7753,
+    "pred": "Late Blight",
+    "conf": 0.793,
     "is_unknown": false
    }
   }
@@ -441,23 +441,23 @@
   "push_path": "/sdcard/Pictures/14_bari_healthy.jpg",
   "api_truth": {
    "small_cnn": {
-    "pred": "Healthy",
-    "conf": 0.9,
-    "is_unknown": false
+    "pred": "Unknown",
+    "conf": 0.4627,
+    "is_unknown": true
    },
    "mobilenetv2": {
-    "pred": "Early Blight",
-    "conf": 0.5899,
+    "pred": "Healthy",
+    "conf": 0.9113,
     "is_unknown": false
    },
    "efficientnetb0": {
     "pred": "Unknown",
-    "conf": 0.4404,
+    "conf": 0.3129,
     "is_unknown": true
    },
    "ensemble": {
     "pred": "Unknown",
-    "conf": 0.3759,
+    "conf": 0.4463,
     "is_unknown": true
    }
   }
@@ -474,23 +474,23 @@
   "push_path": "/sdcard/Pictures/15_java_virus.jpg",
   "api_truth": {
    "small_cnn": {
-    "pred": "Early Blight",
-    "conf": 0.8164,
+    "pred": "Late Blight",
+    "conf": 0.838,
     "is_unknown": false
    },
    "mobilenetv2": {
     "pred": "Unknown",
-    "conf": 0.4375,
+    "conf": 0.5502,
     "is_unknown": true
    },
    "efficientnetb0": {
     "pred": "Unknown",
-    "conf": 0.4964,
+    "conf": 0.4923,
     "is_unknown": true
    },
    "ensemble": {
     "pred": "Unknown",
-    "conf": 0.4221,
+    "conf": 0.4557,
     "is_unknown": true
    }
   }
@@ -508,22 +508,22 @@
   "api_truth": {
    "small_cnn": {
     "pred": "Unknown",
-    "conf": 0.9976,
+    "conf": 0.8014,
     "is_unknown": true
    },
    "mobilenetv2": {
     "pred": "Unknown",
-    "conf": 0.9757,
+    "conf": 0.9851,
     "is_unknown": true
    },
    "efficientnetb0": {
     "pred": "Unknown",
-    "conf": 0.9915,
+    "conf": 0.9836,
     "is_unknown": true
    },
    "ensemble": {
     "pred": "Unknown",
-    "conf": 0.9883,
+    "conf": 0.9234,
     "is_unknown": true
    }
   }
@@ -541,22 +541,22 @@
   "api_truth": {
    "small_cnn": {
     "pred": "Unknown",
-    "conf": 0.9642,
+    "conf": 0.4554,
     "is_unknown": true
    },
    "mobilenetv2": {
     "pred": "Unknown",
-    "conf": 0.9845,
+    "conf": 0.9812,
     "is_unknown": true
    },
    "efficientnetb0": {
     "pred": "Unknown",
-    "conf": 0.9939,
+    "conf": 0.9786,
     "is_unknown": true
    },
    "ensemble": {
     "pred": "Unknown",
-    "conf": 0.9809,
+    "conf": 0.7258,
     "is_unknown": true
    }
   }
@@ -573,23 +573,23 @@
   "push_path": "/sdcard/Pictures/18_soil.jpg",
   "api_truth": {
    "small_cnn": {
-    "pred": "Late Blight",
-    "conf": 0.6994,
-    "is_unknown": false
+    "pred": "Unknown",
+    "conf": 0.9337,
+    "is_unknown": true
    },
    "mobilenetv2": {
-    "pred": "Late Blight",
-    "conf": 0.7012,
+    "pred": "Healthy",
+    "conf": 0.9039,
     "is_unknown": false
    },
    "efficientnetb0": {
-    "pred": "Late Blight",
-    "conf": 0.7641,
+    "pred": "Healthy",
+    "conf": 0.8847,
     "is_unknown": false
    },
    "ensemble": {
-    "pred": "Late Blight",
-    "conf": 0.7216,
+    "pred": "Healthy",
+    "conf": 0.606,
     "is_unknown": false
    }
   }
@@ -606,23 +606,23 @@
   "push_path": "/sdcard/Pictures/19_soil.jpg",
   "api_truth": {
    "small_cnn": {
-    "pred": "Late Blight",
-    "conf": 0.6508,
-    "is_unknown": false
+    "pred": "Unknown",
+    "conf": 0.4869,
+    "is_unknown": true
    },
    "mobilenetv2": {
     "pred": "Unknown",
-    "conf": 0.821,
+    "conf": 0.6872,
     "is_unknown": true
    },
    "efficientnetb0": {
-    "pred": "Late Blight",
-    "conf": 0.6577,
-    "is_unknown": false
+    "pred": "Unknown",
+    "conf": 0.8401,
+    "is_unknown": true
    },
    "ensemble": {
     "pred": "Unknown",
-    "conf": 0.4701,
+    "conf": 0.6714,
     "is_unknown": true
    }
   }
@@ -639,23 +639,23 @@
   "push_path": "/sdcard/Pictures/20_pd_corn.jpg",
   "api_truth": {
    "small_cnn": {
-    "pred": "Early Blight",
-    "conf": 0.6128,
+    "pred": "Late Blight",
+    "conf": 0.768,
     "is_unknown": false
    },
    "mobilenetv2": {
     "pred": "Unknown",
-    "conf": 0.5153,
+    "conf": 0.7169,
     "is_unknown": true
    },
    "efficientnetb0": {
     "pred": "Unknown",
-    "conf": 0.9838,
+    "conf": 0.9635,
     "is_unknown": true
    },
    "ensemble": {
     "pred": "Unknown",
-    "conf": 0.5519,
+    "conf": 0.6004,
     "is_unknown": true
    }
   }
@@ -672,23 +672,23 @@
   "push_path": "/sdcard/Pictures/21_java_nematode.jpg",
   "api_truth": {
    "small_cnn": {
-    "pred": "Unknown",
-    "conf": 0.9714,
-    "is_unknown": true
+    "pred": "Late Blight",
+    "conf": 0.7213,
+    "is_unknown": false
    },
    "mobilenetv2": {
     "pred": "Early Blight",
-    "conf": 0.613,
+    "conf": 0.7907,
     "is_unknown": false
    },
    "efficientnetb0": {
-    "pred": "Late Blight",
-    "conf": 0.6192,
+    "pred": "Early Blight",
+    "conf": 0.6044,
     "is_unknown": false
    },
    "ensemble": {
     "pred": "Unknown",
-    "conf": 0.5028,
+    "conf": 0.5027,
     "is_unknown": true
    }
   }
@@ -705,24 +705,24 @@
   "push_path": "/sdcard/Pictures/22_java_fungi.jpg",
   "api_truth": {
    "small_cnn": {
-    "pred": "Unknown",
-    "conf": 0.5203,
-    "is_unknown": true
+    "pred": "Late Blight",
+    "conf": 0.8639,
+    "is_unknown": false
    },
    "mobilenetv2": {
-    "pred": "Unknown",
-    "conf": 0.3564,
-    "is_unknown": true
+    "pred": "Late Blight",
+    "conf": 0.8787,
+    "is_unknown": false
    },
    "efficientnetb0": {
-    "pred": "Unknown",
-    "conf": 0.3081,
-    "is_unknown": true
+    "pred": "Late Blight",
+    "conf": 0.8497,
+    "is_unknown": false
    },
    "ensemble": {
-    "pred": "Unknown",
-    "conf": 0.3245,
-    "is_unknown": true
+    "pred": "Late Blight",
+    "conf": 0.8641,
+    "is_unknown": false
    }
   }
  },
@@ -738,24 +738,24 @@
   "push_path": "/sdcard/Pictures/23_pv_early.jpg",
   "api_truth": {
    "small_cnn": {
-    "pred": "Unknown",
-    "conf": 0.4471,
-    "is_unknown": true
+    "pred": "Early Blight",
+    "conf": 0.9343,
+    "is_unknown": false
    },
    "mobilenetv2": {
     "pred": "Early Blight",
-    "conf": 0.6019,
+    "conf": 0.9111,
     "is_unknown": false
    },
    "efficientnetb0": {
-    "pred": "Unknown",
-    "conf": 0.3137,
-    "is_unknown": true
+    "pred": "Early Blight",
+    "conf": 0.8544,
+    "is_unknown": false
    },
    "ensemble": {
-    "pred": "Unknown",
-    "conf": 0.3138,
-    "is_unknown": true
+    "pred": "Early Blight",
+    "conf": 0.8999,
+    "is_unknown": false
    }
   }
  },
@@ -772,22 +772,22 @@
   "api_truth": {
    "small_cnn": {
     "pred": "Unknown",
-    "conf": 0.9937,
+    "conf": 0.892,
     "is_unknown": true
    },
    "mobilenetv2": {
     "pred": "Unknown",
-    "conf": 0.9868,
+    "conf": 0.9828,
     "is_unknown": true
    },
    "efficientnetb0": {
     "pred": "Unknown",
-    "conf": 0.9931,
+    "conf": 0.9707,
     "is_unknown": true
    },
    "ensemble": {
     "pred": "Unknown",
-    "conf": 0.9912,
+    "conf": 0.9485,
     "is_unknown": true
    }
   }
@@ -805,24 +805,24 @@
   "push_path": "/sdcard/Pictures/25_java_phytophthora.jpg",
   "api_truth": {
    "small_cnn": {
-    "pred": "Early Blight",
-    "conf": 0.7064,
+    "pred": "Late Blight",
+    "conf": 0.8071,
     "is_unknown": false
    },
    "mobilenetv2": {
-    "pred": "Early Blight",
-    "conf": 0.6708,
+    "pred": "Late Blight",
+    "conf": 0.8118,
     "is_unknown": false
    },
    "efficientnetb0": {
-    "pred": "Healthy",
-    "conf": 0.7054,
+    "pred": "Late Blight",
+    "conf": 0.8362,
     "is_unknown": false
    },
    "ensemble": {
-    "pred": "Unknown",
-    "conf": 0.482,
-    "is_unknown": true
+    "pred": "Late Blight",
+    "conf": 0.8184,
+    "is_unknown": false
    }
   }
  },
@@ -839,23 +839,23 @@
   "push_path": "/sdcard/Pictures/26_pd_septoria.jpg",
   "api_truth": {
    "small_cnn": {
-    "pred": "Unknown",
-    "conf": 0.4517,
-    "is_unknown": true
+    "pred": "Late Blight",
+    "conf": 0.6668,
+    "is_unknown": false
    },
    "mobilenetv2": {
     "pred": "Early Blight",
-    "conf": 0.597,
+    "conf": 0.6238,
     "is_unknown": false
    },
    "efficientnetb0": {
     "pred": "Early Blight",
-    "conf": 0.5652,
+    "conf": 0.8636,
     "is_unknown": false
    },
    "ensemble": {
     "pred": "Unknown",
-    "conf": 0.408,
+    "conf": 0.5444,
     "is_unknown": true
    }
   }
@@ -872,24 +872,24 @@
   "push_path": "/sdcard/Pictures/27_java_bacteria.jpg",
   "api_truth": {
    "small_cnn": {
-    "pred": "Unknown",
-    "conf": 0.5203,
-    "is_unknown": true
+    "pred": "Late Blight",
+    "conf": 0.6566,
+    "is_unknown": false
    },
    "mobilenetv2": {
-    "pred": "Early Blight",
-    "conf": 0.5791,
+    "pred": "Late Blight",
+    "conf": 0.8642,
     "is_unknown": false
    },
    "efficientnetb0": {
-    "pred": "Healthy",
-    "conf": 0.6009,
+    "pred": "Late Blight",
+    "conf": 0.8655,
     "is_unknown": false
    },
    "ensemble": {
-    "pred": "Unknown",
-    "conf": 0.3874,
-    "is_unknown": true
+    "pred": "Late Blight",
+    "conf": 0.7954,
+    "is_unknown": false
    }
   }
  },
@@ -906,22 +906,22 @@
   "api_truth": {
    "small_cnn": {
     "pred": "Unknown",
-    "conf": 0.9889,
+    "conf": 0.9884,
     "is_unknown": true
    },
    "mobilenetv2": {
     "pred": "Unknown",
-    "conf": 0.9858,
+    "conf": 0.9833,
     "is_unknown": true
    },
    "efficientnetb0": {
     "pred": "Unknown",
-    "conf": 0.9943,
+    "conf": 0.9767,
     "is_unknown": true
    },
    "ensemble": {
     "pred": "Unknown",
-    "conf": 0.9897,
+    "conf": 0.9828,
     "is_unknown": true
    }
   }
@@ -939,22 +939,22 @@
   "api_truth": {
    "small_cnn": {
     "pred": "Unknown",
-    "conf": 0.9675,
+    "conf": 0.9037,
     "is_unknown": true
    },
    "mobilenetv2": {
     "pred": "Unknown",
-    "conf": 0.9262,
+    "conf": 0.9494,
     "is_unknown": true
    },
    "efficientnetb0": {
     "pred": "Unknown",
-    "conf": 0.9677,
+    "conf": 0.9845,
     "is_unknown": true
    },
    "ensemble": {
     "pred": "Unknown",
-    "conf": 0.9538,
+    "conf": 0.9459,
     "is_unknown": true
    }
   }
@@ -971,24 +971,24 @@
   "push_path": "/sdcard/Pictures/30_pv_early.jpg",
   "api_truth": {
    "small_cnn": {
-    "pred": "Unknown",
-    "conf": 0.6775,
-    "is_unknown": true
+    "pred": "Early Blight",
+    "conf": 0.8834,
+    "is_unknown": false
    },
    "mobilenetv2": {
-    "pred": "Unknown",
-    "conf": 0.3233,
-    "is_unknown": true
+    "pred": "Early Blight",
+    "conf": 0.8804,
+    "is_unknown": false
    },
    "efficientnetb0": {
-    "pred": "Late Blight",
-    "conf": 0.8781,
+    "pred": "Early Blight",
+    "conf": 0.8529,
     "is_unknown": false
    },
    "ensemble": {
-    "pred": "Unknown",
-    "conf": 0.4554,
-    "is_unknown": true
+    "pred": "Early Blight",
+    "conf": 0.8722,
+    "is_unknown": false
    }
   }
  },
@@ -1004,24 +1004,24 @@
   "push_path": "/sdcard/Pictures/31_pv_late.jpg",
   "api_truth": {
    "small_cnn": {
-    "pred": "Unknown",
-    "conf": 0.4414,
-    "is_unknown": true
+    "pred": "Late Blight",
+    "conf": 0.7279,
+    "is_unknown": false
    },
    "mobilenetv2": {
-    "pred": "Early Blight",
-    "conf": 0.8519,
+    "pred": "Late Blight",
+    "conf": 0.9102,
     "is_unknown": false
    },
    "efficientnetb0": {
-    "pred": "Unknown",
-    "conf": 0.43,
-    "is_unknown": true
+    "pred": "Late Blight",
+    "conf": 0.8598,
+    "is_unknown": false
    },
    "ensemble": {
-    "pred": "Unknown",
-    "conf": 0.4111,
-    "is_unknown": true
+    "pred": "Late Blight",
+    "conf": 0.8326,
+    "is_unknown": false
    }
   }
  },
@@ -1037,23 +1037,23 @@
   "push_path": "/sdcard/Pictures/32_bari_bacterial_soft_rot.jpg",
   "api_truth": {
    "small_cnn": {
-    "pred": "Healthy",
-    "conf": 0.6379,
+    "pred": "Late Blight",
+    "conf": 0.7928,
     "is_unknown": false
    },
    "mobilenetv2": {
-    "pred": "Early Blight",
-    "conf": 0.6703,
+    "pred": "Healthy",
+    "conf": 0.8321,
     "is_unknown": false
    },
    "efficientnetb0": {
     "pred": "Unknown",
-    "conf": 0.775,
+    "conf": 0.4162,
     "is_unknown": true
    },
    "ensemble": {
     "pred": "Unknown",
-    "conf": 0.4501,
+    "conf": 0.3759,
     "is_unknown": true
    }
   }
@@ -1070,24 +1070,24 @@
   "push_path": "/sdcard/Pictures/33_java_fungi.jpg",
   "api_truth": {
    "small_cnn": {
-    "pred": "Healthy",
-    "conf": 0.6621,
-    "is_unknown": false
+    "pred": "Unknown",
+    "conf": 0.5059,
+    "is_unknown": true
    },
    "mobilenetv2": {
-    "pred": "Healthy",
-    "conf": 0.6332,
-    "is_unknown": false
+    "pred": "Unknown",
+    "conf": 0.4789,
+    "is_unknown": true
    },
    "efficientnetb0": {
-    "pred": "Healthy",
-    "conf": 0.8139,
-    "is_unknown": false
+    "pred": "Unknown",
+    "conf": 0.5375,
+    "is_unknown": true
    },
    "ensemble": {
-    "pred": "Healthy",
-    "conf": 0.7031,
-    "is_unknown": false
+    "pred": "Unknown",
+    "conf": 0.4727,
+    "is_unknown": true
    }
   }
  },
@@ -1103,24 +1103,24 @@
   "push_path": "/sdcard/Pictures/34_irish_early.jpg",
   "api_truth": {
    "small_cnn": {
-    "pred": "Healthy",
-    "conf": 0.8854,
+    "pred": "Early Blight",
+    "conf": 0.8693,
     "is_unknown": false
    },
    "mobilenetv2": {
-    "pred": "Late Blight",
-    "conf": 0.7809,
+    "pred": "Early Blight",
+    "conf": 0.87,
     "is_unknown": false
    },
    "efficientnetb0": {
-    "pred": "Late Blight",
-    "conf": 0.777,
+    "pred": "Early Blight",
+    "conf": 0.8634,
     "is_unknown": false
    },
    "ensemble": {
-    "pred": "Unknown",
-    "conf": 0.5227,
-    "is_unknown": true
+    "pred": "Early Blight",
+    "conf": 0.8676,
+    "is_unknown": false
    }
   }
  }
