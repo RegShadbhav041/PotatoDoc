@@ -46,6 +46,15 @@ export const COLORS = {
   darkMuted: "#9AA19A",
   danger: "#E53935",
 
+  // Accent tokens shared by both themes (News screen chips/banners)
+  deepGreen: "#023422",
+  authAction: "#023422",
+  updateTile: "#1B5E20",
+  annTile: "#E3F2FD",
+  annInk: "#1565C0",
+  alertInk: "#F57F17",
+  cardUnread: "#FDFEFC",
+
   // Auth screens only (the rest of the app keeps page: "#FAFAF7")
   authBg: "#E5F1DD",
   authBtn: "#023422",
@@ -59,3 +68,13 @@ export const CLASS_COLORS = {
   Healthy: COLORS.healthy,
   Unknown: COLORS.unknownOrange,
 };
+
+/** Same map, but from a theme palette (use with `const C = useColors()`). */
+export function classColors(C = COLORS) {
+  return {
+    "Early Blight": C.earlyBlight,
+    "Late Blight": C.lateBlight,
+    Healthy: C.healthy,
+    Unknown: C.unknownOrange,
+  };
+}
