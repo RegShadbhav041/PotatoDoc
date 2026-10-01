@@ -7,9 +7,9 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/icon.png",
+      "image": "./assets/splash-still.png",
       "resizeMode": "contain",
-      "backgroundColor": "#2E7D32"
+      "backgroundColor": "#FFFFFF"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -42,7 +42,9 @@
           "cameraPermission": "PotatoDoc needs camera access to photograph potato leaves for disease analysis."
         }
       ],
-      "expo-sqlite"
+      "expo-sqlite",
+      "expo-video",
+      "expo-splash-screen"
     ],
     "extra": {
       "eas": {

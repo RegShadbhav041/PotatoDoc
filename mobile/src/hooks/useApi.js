@@ -29,9 +29,9 @@ export const API_BASE =
 const API_CANDIDATES = [
   ...new Set([
     API_BASE,
-    "http://10.0.2.2:8000",
-    "http://192.168.1.65:8000",
-    "http://127.0.0.1:8000",
+    "http://10.0.2.2:8010",
+    "http://192.168.18.3:8010",
+    "http://127.0.0.1:8010",
   ]),
 ];
 let activeBaseIdx = 0;
