@@ -27,5 +27,8 @@ CONTENTS
   with leak assertions (7/7 OK)
 - data/ : robust_{train,val,ext_test}.csv (exact file lists)
 
-DEPLOY: deferred — flip server + rerun varied_eval vs 83.3% baseline tomorrow
-after user tests. Live server still runs outputs_combined weights.
+DEPLOY: DEFERRED 2026-10-02 by user — submission uses live outputs_combined only.
+This folder moved to Unused/release_robust_v1/. To promote later:
+copy weights/ as D:/PotatoBackend/outputs_robust/ + restart uvicorn
+with POTATO_WEIGHTS_DIR=<that dir>, then rerun varied_eval vs 83.3% baseline.
+Live server still runs outputs_combined weights.
