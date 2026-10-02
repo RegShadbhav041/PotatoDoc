@@ -351,7 +351,7 @@ export default function LocationScreen() {
               <Text style={s.recTitle}>{t("Recommendation")}</Text>
               <Text style={s.recBody}>
                 {fmt(t(data.recommendation), {
-                  zone: data.region || data.rainfall_zone,
+                  zone: t(data.region || data.rainfall_zone),
                 })}
               </Text>
             </View>

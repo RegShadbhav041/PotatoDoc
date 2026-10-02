@@ -230,6 +230,8 @@ const NE = {
   "e.g. Field A, Pokhara": "जस्तै: खेत A, पोखरा",
   "Works without GPS": "GPS बिना पनि काम गर्छ",
   "How tagging works": "ट्याग कसरी काम गर्छ",
+  "Every diagnosis you save stores this tag — coordinates and/or the name above. Open it in History to see where and when it was taken, and support staff see the same tag when helping you.":
+    "तपाईंले सुरक्षित गर्नुहुने हरेक निदानमा यो ट्याग रहन्छ — निर्देशांक र/वा माथिको नाम। यो कहाँ र कहिले लिइयो भनेर इतिहासमा खोलेर हेर्नुहोस्, र सहयोग स्टाफले पनि मद्दत गर्दा उही ट्याग देख्छन्।",
 
   // History detail / report modal
   "Diagnosis report": "निदान प्रतिवेदन",
@@ -306,6 +308,7 @@ const NE = {
   Poor: "कमजोर",
   "Last analyzed": "अन्तिम विश्लेषण:",
   "{n}m altitude": "{n} मिटर उचाइ",
+  "Your location": "तपाईंको स्थान",
   "Analyzing your location…": "तपाईंको स्थान विश्लेषण गर्दै…",
   "Location permission is needed to analyze your area.":
     "क्षेत्र विश्लेषण गर्न स्थान अनुमति आवश्यक छ।",
@@ -315,6 +318,10 @@ const NE = {
     "सर्भरसम्म पुग्न सकिएन। तपाईंको जडान जाँच गर्नुहोस्।",
   "Something went wrong. Please try again.":
     "केही गडबड भयो। कृपया पुनः प्रयास गर्नुहोस्।",
+  // Backend /location/analyze error details (HTTPException detail strings)
+  "Invalid coordinates": "अमान्य निर्देशांक",
+  "Location service unavailable": "स्थान सेवा उपलब्ध छैन",
+  "Location service timeout": "स्थान सेवाको समय सीमा सकियो",
   // Backend analysis strings passed through t() then fmt() (translate once,
   // substitute {placeholders} after — see locationText.fmt).
   // Factor labels
@@ -388,6 +395,20 @@ const NE = {
     "राम्रो अंकुरित बीउ कन्द प्रयोग गर्नुहोस् र चिसो रातबाट जोगाउन मल्च गर्नुहोस्",
   "Apply agricultural lime 2–3 weeks before planting to lift pH":
     "pH बढाउन रोपाइँभन्दा २–३ हप्ता अघि कृषि चुनो प्रयोग गर्नुहोस्",
+  // Factor why templates (FactorRow: t(why) then fmt() with factor.vars —
+  // placeholders stay literal in both languages; source: location_rules.py)
+  "{alt} m — potato in Nepal spans 100–4000 m; optimum 800–3000 m":
+    "{alt} मिटर — नेपालमा आलो १००–४००० मिटरसम्म फैलिन्छ; उपयुक्त ८००–३००० मिटर",
+  "~{temp}°C — tuber initiation prefers a cool 8–20°C":
+    "~{temp}°C — कन्द विकासका लागि चिसो ८–२०°C उपयुक्त",
+  "{rain} mm typical — Nepal's monsoon delivers most of it Jun–Sep":
+    "{rain} मिमी सामान्य — नेपालको मनसुनले अधिकांश वर्षा असार–असोजमै दिन्छ",
+  "{texture}, pH {ph} — loam family drains best for tubers":
+    "{texture}, pH {ph} — लोम माटो परिवारले कन्दका लागि सबैभन्दा राम्रो जलनिकास गर्छ",
+  "{zone} regime — coldest month near {coldest}°C":
+    "{zone} जलवायु व्यवस्था — सबैभन्दा चिसो महिना करिब {coldest}°C",
+  "Rainfall data unavailable — zone estimated from altitude":
+    "वर्षा डाटा उपलब्ध छैन — क्षेत्र अग्लाइबाट अनुमान गरिएको",
   // Recommendation templates (keep {zone} literal — fmt substitutes it after t())
   "Your location is excellent for potato cultivation — typical of Nepal's {zone}. Conditions closely match the ideal agronomic requirements. Focus on disease prevention and variety selection for maximum yield.":
     "तपाईंको स्थान आलो खेतीका लागि उत्कृष्ट छ — नेपालको {zone} को परम्परागत। अवस्थाहरू आदर्श कृषि आवश्यकतासँग मिल्दोजुल्दो छन्। अधिकतम उत्पादनका लागि रोग नियन्त्रण र किस्म छनोटमा ध्यान दिनुहोस्।",
