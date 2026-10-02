@@ -83,6 +83,7 @@ All non-commercial free usage, no API keys. SoilGrids values are g/kg
   ],
   "challenges": ["Monsoon disease pressure (Jun–Sep)"],
   "rainfall_zone": "Warm Temperate",
+  "region": "mid-hills",
   "varieties": ["Khumal Seto-1", "Desiree", "Janakdev", "Diamant"],
   "tips": ["Plant in well-prepared ridges…"]
 }
@@ -136,6 +137,11 @@ Linear interpolation between breakpoints. `factor.why` cites the band.
   `1000–1500` Sub-humid · `1500–2500` Humid · `>2500` Per-humid.
 - **`rainfall_zone` factor value = agro-ecological belt name** (see zones
   table) — matches the screenshot's "Rainfall Zone: Warm Temperate" style.
+  The payload carries the **short** name (`Warm Temperate`, not
+  `Warm temperate (mid-hills)`). Additive `region` key
+  (`Terai`/`low hills`/`mid-hills`/`high hills`/`Himalaya`, from altitude;
+  811 m → `mid-hills`) feeds the recommendation `{zone}` placeholder — the
+  screenshot's "…typical of Nepal's mid−hills".
 - Rainfall score: **600–2000 mm = 100**; 400–600 / 2000–2800 → 80;
   200–400 / 2800–3500 → 60; else 30.
 
