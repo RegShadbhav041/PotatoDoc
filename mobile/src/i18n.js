@@ -115,6 +115,10 @@ const NE = {
   Updates: "अपडेटहरू",
   Announcements: "घोषणाहरू",
   "Crop alerts": "बाली चेतावनी",
+  "New products": "नयाँ उत्पादनहरू",
+  Medicines: "औषधिहरू",
+  "New product": "नयाँ उत्पादन",
+  Medicine: "औषधि",
   Update: "अपडेट",
   Announcement: "घोषणा",
   "Crop alert": "बाली चेतावनी",
@@ -143,6 +147,10 @@ const NE = {
   Logout: "लगआउट",
   "Sign in to save your diagnosis history and receive crop alerts.":
     "निदान इतिहास सुरक्षित गर्न र बाली चेतावनी पाउन लगइन गर्नुहोस्।",
+  Camera: "क्यामेरा",
+  Gallery: "ग्यालरी",
+  Remove: "हटाउनुहोस्",
+  "Permission needed to choose a photo.": "फोटो छान्न अनुमति चाहिन्छ।",
 
   // Your details modal
   "Your details": "तपाईंको विवरण",

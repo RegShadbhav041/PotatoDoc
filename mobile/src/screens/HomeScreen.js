@@ -55,6 +55,7 @@ const makeStyles = (C) =>
     },
     avatarText: { fontSize: 17, fontWeight: "800", color: "#FFFFFF" },
     avatarLogo: { width: 44, height: 44 },
+    avatarImg: { width: 44, height: 44, borderRadius: 22 },
     brand: {
       flex: 1,
       fontSize: 21,
@@ -303,7 +304,9 @@ export default function HomeScreen({
         {/* Brand header: avatar + name + bell badge */}
         <View style={s.header}>
           <View style={s.avatar}>
-            {user ? (
+            {user?.photo ? (
+              <Image source={{ uri: user.photo }} style={s.avatarImg} />
+            ) : user ? (
               <Text style={s.avatarText}>
                 {name.trim().charAt(0).toUpperCase()}
               </Text>
