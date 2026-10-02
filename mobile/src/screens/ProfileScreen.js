@@ -8,12 +8,15 @@ import {
   TextInput,
   Switch,
   ActivityIndicator,
+  Image,
 } from "react-native";
 import { Text } from "react-native-paper";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useColors, useTheme } from "../theme";
 import { LANGUAGES, useLang, useT } from "../i18n";
+import * as ImagePicker from "expo-image-picker";
+import { authErrorMessage } from "../hooks/useAuth";
 
 // Layout follows the designer's "profile" + "profile dark mode" mockups
 // (2026-10-01); the palette decides which one you see.
@@ -87,6 +90,7 @@ const makeStyles = (C) =>
       justifyContent: "center",
     },
     avatarText: { fontSize: 18, fontWeight: "800", color: "#FFFFFF" },
+    avatarImg: { width: 50, height: 50, borderRadius: 25 },
     name: {
       fontSize: 16.5,
       lineHeight: 21,
@@ -242,6 +246,24 @@ const makeStyles = (C) =>
       marginBottom: 14,
     },
     modalAvatarText: { fontSize: 19, fontWeight: "800", color: "#FFFFFF" },
+    modalAvatarImg: { width: 54, height: 54, borderRadius: 27 },
+    photoActions: { flexDirection: "row", gap: 8, marginBottom: 14 },
+    photoBtn: {
+      flex: 1,
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "center",
+      gap: 6,
+      height: 40,
+      borderRadius: 10,
+      backgroundColor: "#FFFFFF",
+      borderWidth: 1,
+      borderColor: "#C9DCC4",
+    },
+    photoBtnText: { fontSize: 13, fontWeight: "700", color: "#12301C" },
+    photoBtnDanger: { backgroundColor: "#FDECEC", borderColor: "#F5C6C6" },
+    photoBtnDangerText: { color: "#B3261E" },
+    photoBusy: { opacity: 0.6 },
     modalTitle: {
       fontSize: 21,
       lineHeight: 27,
@@ -321,7 +343,21 @@ function Toggle({ value, onChange, C }) {
   );
 }
 
-function DetailsModal({ s, t, visible, user, onClose, onSave, saving, error }) {
+function DetailsModal({
+  s,
+  t,
+  visible,
+  user,
+  onClose,
+  onSave,
+  saving,
+  error,
+  photoBusy,
+  photoError,
+  onPickGallery,
+  onPickCamera,
+  onRemovePhoto,
+}) {
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
 
@@ -341,9 +377,39 @@ function DetailsModal({ s, t, visible, user, onClose, onSave, saving, error }) {
             <MaterialIcons name="close" size={18} color="#12301C" />
           </Pressable>
 
-          <View style={s.modalAvatar}>
-            <Text style={s.modalAvatarText}>{initials(name || user?.name)}</Text>
+          <Pressable
+            style={[s.modalAvatar, photoBusy && s.photoBusy]}
+            onPress={onPickGallery}
+            disabled={photoBusy}
+          >
+            {user?.photo ? (
+              <Image source={{ uri: user.photo }} style={s.modalAvatarImg} />
+            ) : (
+              <Text style={s.modalAvatarText}>{initials(name || user?.name)}</Text>
+            )}
+          </Pressable>
+
+          <View style={s.photoActions}>
+            <Pressable style={s.photoBtn} onPress={onPickCamera} disabled={photoBusy}>
+              <MaterialIcons name="photo-camera" size={15} color="#12301C" />
+              <Text style={s.photoBtnText}>{t("Camera")}</Text>
+            </Pressable>
+            <Pressable style={s.photoBtn} onPress={onPickGallery} disabled={photoBusy}>
+              <MaterialIcons name="image" size={15} color="#12301C" />
+              <Text style={s.photoBtnText}>{t("Gallery")}</Text>
+            </Pressable>
+            {!!user?.photo && (
+              <Pressable
+                style={[s.photoBtn, s.photoBtnDanger]}
+                onPress={onRemovePhoto}
+                disabled={photoBusy}
+              >
+                <MaterialIcons name="delete-outline" size={15} color="#B3261E" />
+                <Text style={[s.photoBtnText, s.photoBtnDangerText]}>{t("Remove")}</Text>
+              </Pressable>
+            )}
           </View>
+          {!!photoError && <Text style={s.modalError}>{photoError}</Text>}
 
           <Text style={s.modalTitle}>{t("Your details")}</Text>
           <Text style={s.modalSub}>
@@ -401,6 +467,8 @@ export default function ProfileScreen({
   onOpenNews,
   onOpenAbout,
   onSaveProfile,
+  onUploadPhoto,
+  onRemovePhoto,
 }) {
   const C = useColors();
   const t = useT();
@@ -412,6 +480,8 @@ export default function ProfileScreen({
   const [editing, setEditing] = useState(false);
   const [saving, setSaving] = useState(false);
   const [saveError, setSaveError] = useState(null);
+  const [photoBusy, setPhotoBusy] = useState(false);
+  const [photoError, setPhotoError] = useState(null);
 
   const isLight = mode === "light";
 
@@ -428,6 +498,44 @@ export default function ProfileScreen({
       );
     } finally {
       setSaving(false);
+    }
+  };
+
+  const pickAndUpload = async (fromCamera) => {
+    if (!onUploadPhoto) return;
+    try {
+      const perm = fromCamera
+        ? await ImagePicker.requestCameraPermissionsAsync()
+        : await ImagePicker.requestMediaLibraryPermissionsAsync();
+      if (!perm.granted) {
+        setPhotoError(t("Permission needed to choose a photo."));
+        return;
+      }
+      const opts = { allowsEditing: true, aspect: [1, 1], quality: 0.8 };
+      const res = fromCamera
+        ? await ImagePicker.launchCameraAsync(opts)
+        : await ImagePicker.launchImageLibraryAsync(opts);
+      if (res.canceled || !res.assets?.[0]?.uri) return;
+      setPhotoBusy(true);
+      setPhotoError(null);
+      await onUploadPhoto(res.assets[0].uri);
+    } catch (e) {
+      setPhotoError(authErrorMessage(e));
+    } finally {
+      setPhotoBusy(false);
+    }
+  };
+
+  const handleRemovePhoto = async () => {
+    if (!onRemovePhoto) return;
+    setPhotoBusy(true);
+    setPhotoError(null);
+    try {
+      await onRemovePhoto();
+    } catch (e) {
+      setPhotoError(authErrorMessage(e));
+    } finally {
+      setPhotoBusy(false);
     }
   };
 
@@ -453,7 +561,11 @@ export default function ProfileScreen({
           <>
             <View style={s.card}>
               <View style={s.avatar}>
-                <Text style={s.avatarText}>{initials(user.name)}</Text>
+                {user.photo ? (
+                  <Image source={{ uri: user.photo }} style={s.avatarImg} />
+                ) : (
+                  <Text style={s.avatarText}>{initials(user.name)}</Text>
+                )}
               </View>
               <View style={s.flex}>
                 <Text style={s.name}>{user.name || t("Farmer")}</Text>
@@ -562,10 +674,16 @@ export default function ProfileScreen({
         onClose={() => {
           setEditing(false);
           setSaveError(null);
+          setPhotoError(null);
         }}
         onSave={handleSave}
         saving={saving}
         error={saveError}
+        photoBusy={photoBusy}
+        photoError={photoError}
+        onPickGallery={() => pickAndUpload(false)}
+        onPickCamera={() => pickAndUpload(true)}
+        onRemovePhoto={handleRemovePhoto}
       />
     </SafeAreaView>
   );
