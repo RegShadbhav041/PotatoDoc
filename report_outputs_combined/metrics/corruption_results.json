@@ -1,0 +1,44 @@
+{
+ "clean": {
+  "small_cnn": 0.94,
+  "mobilenetv2": 0.9767,
+  "efficientnetb0": 0.99,
+  "ensemble": 0.98
+ },
+ "blur": {
+  "small_cnn": 0.95,
+  "mobilenetv2": 0.98,
+  "efficientnetb0": 0.99,
+  "ensemble": 0.9833
+ },
+ "dark": {
+  "small_cnn": 0.9233,
+  "mobilenetv2": 0.98,
+  "efficientnetb0": 0.9867,
+  "ensemble": 0.9867
+ },
+ "bright": {
+  "small_cnn": 0.8833,
+  "mobilenetv2": 0.9733,
+  "efficientnetb0": 0.9833,
+  "ensemble": 0.98
+ },
+ "jpeg": {
+  "small_cnn": 0.9367,
+  "mobilenetv2": 0.9733,
+  "efficientnetb0": 0.9867,
+  "ensemble": 0.98
+ },
+ "rotate15": {
+  "small_cnn": 0.9467,
+  "mobilenetv2": 0.9767,
+  "efficientnetb0": 0.99,
+  "ensemble": 0.9833
+ },
+ "occlude": {
+  "small_cnn": 0.9333,
+  "mobilenetv2": 0.98,
+  "efficientnetb0": 0.9867,
+  "ensemble": 0.9833
+ }
+}
