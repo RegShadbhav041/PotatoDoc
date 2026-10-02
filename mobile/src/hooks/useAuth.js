@@ -4,7 +4,7 @@
 import { useCallback, useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
-import { API_BASE } from "./useApi";
+import { API_BASE, uploadAuthed } from "./useApi";
 
 const TOKEN_KEY = "potatoDocAuth";
 const REMEMBER_KEY = "potatoDocAuthRemember";
@@ -107,6 +107,26 @@ export function useAuth() {
     [token]
   );
 
+  /** Replace the profile picture from a local file:// uri (expo-image-picker). */
+  const uploadPhoto = useCallback(
+    async (uri) => {
+      const data = await uploadAuthed(uri, "/auth/me/photo", token);
+      setUser(data);
+      return data;
+    },
+    [token]
+  );
+
+  /** Remove the profile picture. */
+  const removePhoto = useCallback(async () => {
+    const res = await axios.delete(`${API_BASE}/auth/me/photo`, {
+      headers: { Authorization: `Bearer ${token}` },
+      timeout: 20000,
+    });
+    setUser(res.data);
+    return res.data;
+  }, [token]);
+
   /** Drop a dead session (401) without touching local history. */
   const clearSession = useCallback(() => {
     setToken(null);
@@ -130,5 +150,16 @@ export function useAuth() {
     }
   }, [token]);
 
-  return { user, token, ready, signIn, signUp, signOut, clearSession, updateProfile };
+  return {
+    user,
+    token,
+    ready,
+    signIn,
+    signUp,
+    signOut,
+    clearSession,
+    updateProfile,
+    uploadPhoto,
+    removePhoto,
+  };
 }

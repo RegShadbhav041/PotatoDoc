@@ -129,6 +129,68 @@ export async function uploadNative(uri, endpoint, { model_id, timeoutMs = PREDIC
   });
 }
 
+/**
+ * Authed variant of uploadNative for profile photos: bearer header, no
+ * ?model_id=, and non-2xx responses thrown as axios-shaped errors
+ * ({response: {status, data}}) so authErrorMessage()/detail rendering works.
+ * Same native expo-file-system path as uploadNative — FormData stays avoided.
+ */
+export async function uploadAuthed(uri, endpoint, token, { timeoutMs = 30000 } = {}) {
+  const filename = filenameOf(uri);
+  const mimeType = mimeOf(filename);
+
+  const parse = (res) => {
+    let body;
+    try {
+      body = JSON.parse(res.body ?? "");
+    } catch {
+      body = { raw: res.body };
+    }
+    if (res.status >= 400) {
+      const err = new Error(body?.detail || `Upload failed (${res.status})`);
+      err.response = { status: res.status, data: body };
+      throw err;
+    }
+    return body;
+  };
+
+  const doUpload = async (url) => {
+    if (FileSystem.File && FileSystem.UploadType) {
+      const src = new FileSystem.File(uri);
+      const res = await src.upload(url, {
+        uploadType: FileSystem.UploadType.MULTIPART,
+        fieldName: "file",
+        mimeType,
+        parameters: {},
+        headers: { Authorization: `Bearer ${token}` },
+        httpMethod: "POST",
+      });
+      return parse(res);
+    }
+    const res = await FileSystemLegacy.uploadAsync(url, uri, {
+      httpMethod: "POST",
+      uploadType: FileSystemLegacy.FileSystemUploadType.MULTIPART,
+      fieldName: "file",
+      mimeType,
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    return parse(res);
+  };
+
+  return await callWithFailover((base) => {
+    const url = `${base}${endpoint}`;
+    return Promise.race([
+      doUpload(url),
+      new Promise((_, reject) =>
+        setTimeout(
+          () => reject(new Error("Request timed out (30s). Check backend / network.")),
+          timeoutMs
+        )
+      ),
+    ]);
+  });
+}
+
 /** Startup warmup: GET /ping up to 3x, then pre-load server with bundled icon.png probe. Non-fatal on fail. */
 export function useWakeUp() {
   const [wakeStatus, setWakeStatus] = useState("idle"); // idle | Connecting... | Retrying... | Ready | error

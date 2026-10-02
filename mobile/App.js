@@ -110,7 +110,7 @@ function AppShell() {
   const [splashGone, setSplashGone] = useState(false);
   const handleSplashDone = useCallback(() => setSplashGone(true), []);
   const { colors: C, isDark } = useTheme();
-  const { user, token, ready, signIn, signUp, signOut, clearSession, updateProfile } = useAuth();
+  const { user, token, ready, signIn, signUp, signOut, clearSession, updateProfile, uploadPhoto, removePhoto } = useAuth();
   const { history, addEntry, clearHistory, replaceHistory, storageBlocked } =
     useHistory();
 
@@ -263,6 +263,8 @@ function AppShell() {
                     onOpenNews={openNews}
                     onOpenAbout={openAbout}
                     onSaveProfile={updateProfile}
+                    onUploadPhoto={uploadPhoto}
+                    onRemovePhoto={removePhoto}
                   />
                 )}
               </>
