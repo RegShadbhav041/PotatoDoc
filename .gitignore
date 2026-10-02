@@ -27,6 +27,8 @@ __pycache__/
 *.pyc
 .pytest_cache/
 /.env
+# machine-specific API base (LAN IP / tunnel) — each dev keeps their own
+mobile/.env
 
 # --- backend deployed separately (its own git repo) ---
 backend-standalone/
