@@ -4,7 +4,7 @@
 import { useCallback, useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
-import { API_BASE, uploadAuthed } from "./useApi";
+import { API_BASE, apiGet, apiPost, apiPut, uploadAuthed } from "./useApi";
 
 const TOKEN_KEY = "potatoDocAuth";
 const REMEMBER_KEY = "potatoDocAuthRemember";
@@ -28,7 +28,7 @@ export function useAuth() {
         const stored = await AsyncStorage.getItem(TOKEN_KEY);
         const remember = await AsyncStorage.getItem(REMEMBER_KEY);
         if (stored && remember === "1") {
-          const res = await axios.get(`${API_BASE}/auth/me`, {
+          const res = await apiGet("/auth/me", {
             headers: { Authorization: `Bearer ${stored}` },
             timeout: 15000,
           });
@@ -64,8 +64,8 @@ export function useAuth() {
   const signIn = useCallback(
     async (contact, password, options = {}) => {
       const remember = options.remember !== false;
-      const res = await axios.post(
-        `${API_BASE}/auth/login`,
+      const res = await apiPost(
+        "/auth/login",
         { contact, password },
         { timeout: 20000 }
       );
@@ -80,8 +80,8 @@ export function useAuth() {
   const signUp = useCallback(
     async (contact, name, password, options = {}) => {
       const remember = options.remember !== false;
-      const res = await axios.post(
-        `${API_BASE}/auth/register`,
+      const res = await apiPost(
+        "/auth/register",
         { contact, name, password },
         { timeout: 20000 }
       );
@@ -96,8 +96,8 @@ export function useAuth() {
   /** Persist the Profile tab's "Your details" edits (PUT /auth/me). */
   const updateProfile = useCallback(
     async ({ name, contact }) => {
-      const res = await axios.put(
-        `${API_BASE}/auth/me`,
+      const res = await apiPut(
+        "/auth/me",
         { name, contact },
         { headers: { Authorization: `Bearer ${token}` }, timeout: 20000 }
       );
@@ -141,12 +141,10 @@ export function useAuth() {
     AsyncStorage.multiRemove([TOKEN_KEY, REMEMBER_KEY]).catch(() => {});
     // Fire-and-forget: local sign-out must never depend on the network.
     if (dead) {
-      axios
-        .post(`${API_BASE}/auth/logout`, null, {
-          headers: { Authorization: `Bearer ${dead}` },
-          timeout: 10000,
-        })
-        .catch(() => {});
+      apiPost("/auth/logout", null, {
+        headers: { Authorization: `Bearer ${dead}` },
+        timeout: 10000,
+      }).catch(() => {});
     }
   }, [token]);
 
