@@ -305,6 +305,7 @@ const NE = {
   Fair: "मध्यम",
   Poor: "कमजोर",
   "Last analyzed": "अन्तिम विश्लेषण:",
+  "{n}m altitude": "{n} मिटर उचाइ",
   "Analyzing your location…": "तपाईंको स्थान विश्लेषण गर्दै…",
   "Location permission is needed to analyze your area.":
     "क्षेत्र विश्लेषण गर्न स्थान अनुमति आवश्यक छ।",
