@@ -2,6 +2,7 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { useColors } from "../../theme";
+import { fmt } from "../../utils/locationText";
 
 const BAND_EMOJI = { Excellent: "🌞", Good: "😊", Fair: "😐", Poor: "😟" };
 
@@ -48,7 +49,7 @@ export default function ScoreCard({ data, t }) {
       <View style={s.info}>
         <Text style={s.band}>{t(data.band)}</Text>
         <Text style={s.place}>📍 {data.place}</Text>
-        <Text style={s.alt}>⛰️ {data.altitude_m}m altitude</Text>
+        <Text style={s.alt}>⛰️ {fmt(t("{n}m altitude"), { n: data.altitude_m })}</Text>
         <Text style={s.coords}>
           {data.coords.lat.toFixed(4)}°, {data.coords.lon.toFixed(4)}°
         </Text>
