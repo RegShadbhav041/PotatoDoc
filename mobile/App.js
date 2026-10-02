@@ -142,7 +142,7 @@ function AppShell() {
   // an open thread all share this one hook.
   const tickets = useTickets(token);
 
-  // Field-location tag: Location tab edits it, Diagnose stamps it on save.
+  // Field-location tag: Profile's settings modal edits it, Diagnose stamps it on save.
   const locationTag = useLocationTag();
 
   if (!splashGone) return <Splash ready={ready} onDone={handleSplashDone} />;
@@ -272,10 +272,11 @@ function AppShell() {
                     token={token}
                   />
                 )}
-                {tab === "location" && <LocationScreen tag={locationTag} />}
+                {tab === "location" && <LocationScreen />}
                 {tab === "profile" && (
                   <ProfileScreen
                     user={user}
+                    locationTag={locationTag}
                     historyCount={history.length}
                     unread={unread}
                     onSignIn={goSignIn}
