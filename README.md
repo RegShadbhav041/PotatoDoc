@@ -84,6 +84,9 @@ Phone/emulator reach the PC via `adb reverse tcp:8081 tcp:8081` + `adb reverse t
 | `/models` | GET | `{models, modelNames, default}` |
 | `/predict?model_id=<id>` | POST | multipart `file` → `{class, confidence, probabilities}`; unknown → `{class:"Unknown", is_unknown:true, entropy, message}` |
 | `/gradcam?model_id=<id>` | POST | single `{overlay: data-uri}` or ensemble `{heatmaps:{id:{overlay}}}` |
+| `/auth/me/photo` | POST/DELETE | multipart `file` → `user.photo` data-URI / clears it (auth) |
+| `/notices` | GET | `{items:[{…, image_count}], unread}`; categories `+ new_product + medicine` |
+| `/notices/{id}/images/{i}` | GET | notice picture bytes (public) |
 
 - Model IDs: `small_cnn` · `mobilenetv2` · `efficientnetb0` · `ensemble` (default)
   (+ legacy alias `convnext_plantvillage` → `efficientnetb0`).
