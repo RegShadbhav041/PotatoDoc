@@ -1,268 +1,400 @@
-// Location tab — turn field tagging on and see what a diagnosis will store.
-//
-// Two independent, optional tags (see useLocationTag):
-//   • GPS auto-tagging: foreground coordinates captured on every save.
-//   • A field/village label that works even with no permission.
-// Everything shown here is exactly what History and the superadmin panel
-// will display next to a diagnosis.
+// Location Suitability tab — exact replica of the designer screenshots.
+// GPS + GET + cache live in useLocationAnalysis(); tagger UI moved to Profile.
 import React, { useMemo, useState } from "react";
 import {
   ActivityIndicator,
-  Linking,
-  Platform,
   Pressable,
   ScrollView,
   StyleSheet,
-  Switch,
-  TextInput,
+  Text,
   View,
 } from "react-native";
-import { Text } from "react-native-paper";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { MaterialIcons } from "@expo/vector-icons";
 import { useColors } from "../theme";
 import { useT } from "../i18n";
 import { relativeTime } from "../utils/relativeTime";
+import { fmt } from "../utils/locationText";
+import { useLocationAnalysis } from "../hooks/useLocationAnalysis";
+import ScoreCard from "../components/location/ScoreCard";
+import FactorRow from "../components/location/FactorRow";
+import SegTabs from "../components/location/SegTabs";
+
+const TABS = ["Overview", "Factors", "Varieties", "Tips"];
+
+const FACTOR_ICONS = {
+  altitude: "⛰️",
+  temp: "🌡️",
+  rainfall: "🌧️",
+  soil: "🪨",
+  climate: "🌍",
+};
+
+const FEATURES = [
+  "⛰️",
+  "🌡️",
+  "🌧️",
+  "🪨",
+  "🥔",
+  "💡",
+];
+const FEATURE_ROWS = [
+  "Altitude analysis (optimal: 800—3000m)",
+  "Temperature estimation",
+  "Rainfall zone classification",
+  "Soil type estimation",
+  "Variety recommendations",
+  "Local growing tips",
+];
 
 const makeStyles = (C) =>
   StyleSheet.create({
-    safe: { flex: 1, backgroundColor: C.page },
+    safe: { flex: 1, backgroundColor: C.pageGreen },
     scroll: { paddingHorizontal: 16, paddingTop: 8, paddingBottom: 24 },
     title: {
-      fontSize: 19,
-      lineHeight: 24,
-      fontWeight: "800",
-      color: C.ink,
-      letterSpacing: -0.2,
+      fontSize: 27,
+      lineHeight: 33,
+      fontWeight: "900",
+      color: C.primaryDark,
+      letterSpacing: -0.5,
     },
     sub: {
-      fontSize: 13,
-      lineHeight: 18,
-      fontWeight: "500",
-      color: C.gray,
-      marginTop: 2,
-      marginBottom: 14,
+      fontSize: 15.5,
+      fontWeight: "700",
+      color: C.healthyText,
+      marginTop: 4,
+      marginBottom: 16,
     },
-    card: {
-      backgroundColor: C.card,
-      borderRadius: 16,
+    analyzeBtn: {
+      backgroundColor: C.primary,
+      borderRadius: 14,
+      paddingVertical: 16,
+      alignItems: "center",
+      marginBottom: 16,
+    },
+    analyzeText: { fontSize: 17, fontWeight: "900", color: "#FFFFFF" },
+    banner: {
+      backgroundColor: C.lateBg || C.card,
       borderWidth: 1,
-      borderColor: C.cardBorder,
-      padding: 16,
+      borderColor: C.lateBorder || C.cardBorder,
+      borderRadius: 12,
+      padding: 12,
       marginBottom: 12,
     },
-    row: { flexDirection: "row", alignItems: "center", gap: 12 },
-    iconWrap: {
-      width: 42,
-      height: 42,
-      borderRadius: 12,
-      backgroundColor: C.leafBg,
-      alignItems: "center",
-      justifyContent: "center",
-    },
-    cardTitle: { fontSize: 15, fontWeight: "800", color: C.ink },
-    cardBody: {
-      fontSize: 12.5,
-      lineHeight: 17,
-      fontWeight: "500",
-      color: C.gray,
-      marginTop: 2,
-    },
-    fixBox: {
-      marginTop: 12,
-      backgroundColor: C.page,
-      borderWidth: 1,
-      borderColor: C.cardBorder,
+    bannerText: { fontSize: 13.5, fontWeight: "700", color: C.lateText || C.ink },
+    retryBtn: {
+      marginTop: 8,
+      alignSelf: "flex-start",
+      backgroundColor: C.primary,
       borderRadius: 10,
-      padding: 10,
+      paddingVertical: 8,
+      paddingHorizontal: 16,
     },
-    fixText: {
-      fontSize: 13,
-      fontWeight: "700",
-      color: C.ink,
-      fontVariant: ["tabular-nums"],
-    },
-    fixMeta: { fontSize: 12, fontWeight: "500", color: C.gray, marginTop: 3 },
-    hint: {
+    retryText: { fontSize: 13.5, fontWeight: "800", color: "#FFFFFF" },
+    stale: {
       fontSize: 12.5,
-      lineHeight: 17,
-      fontWeight: "600",
-      color: C.earlyText || "#FFB74D",
-      marginTop: 10,
+      fontWeight: "700",
+      color: C.gray,
+      marginBottom: 12,
     },
-    smallBtn: {
+    loadingBox: { alignItems: "center", paddingVertical: 40 },
+    loadingText: { fontSize: 14, fontWeight: "700", color: C.gray, marginTop: 10 },
+    idle: { alignItems: "center" },
+    mapEmoji: { fontSize: 56, marginTop: 24 },
+    idleTitle: {
+      fontSize: 24,
+      fontWeight: "900",
+      color: C.primaryDark,
+      marginTop: 14,
+    },
+    idleBody: {
+      fontSize: 15.5,
+      lineHeight: 24,
+      fontWeight: "600",
+      color: C.gray,
+      textAlign: "center",
+      marginTop: 12,
+      marginBottom: 22,
+    },
+    featureRow: {
       flexDirection: "row",
       alignItems: "center",
-      justifyContent: "center",
-      gap: 6,
-      marginTop: 10,
-      borderWidth: 1,
-      borderColor: C.cardBorder,
-      backgroundColor: C.page,
-      borderRadius: 10,
-      paddingVertical: 9,
-      paddingHorizontal: 12,
-      alignSelf: "flex-start",
-    },
-    smallBtnText: { fontSize: 13, fontWeight: "800", color: C.ink },
-    label: {
-      fontSize: 13,
-      fontWeight: "800",
-      color: C.ink,
-      marginBottom: 8,
-    },
-    input: {
-      backgroundColor: C.page,
-      borderWidth: 1,
-      borderColor: C.cardBorder,
-      borderRadius: 12,
-      paddingHorizontal: 12,
-      paddingVertical: Platform.OS === "ios" ? 12 : 9,
-      fontSize: 14,
-      fontWeight: "500",
-      color: C.ink,
-    },
-    howTitle: { fontSize: 13.5, fontWeight: "800", color: C.ink, marginBottom: 6 },
-    howBody: {
-      fontSize: 13,
-      lineHeight: 19,
-      fontWeight: "500",
-      color: C.gray,
-    },
-    pill: {
-      marginTop: 10,
-      alignSelf: "flex-start",
-      fontSize: 11.5,
-      fontWeight: "800",
-      color: C.primary,
+      gap: 12,
       backgroundColor: C.healthyBg,
-      paddingHorizontal: 10,
-      paddingVertical: 5,
-      borderRadius: 999,
+      borderRadius: 12,
+      paddingHorizontal: 16,
+      paddingVertical: 15,
+      marginBottom: 10,
+      width: "100%",
+    },
+    featureEmoji: { fontSize: 20 },
+    featureText: { fontSize: 15, fontWeight: "800", color: C.healthyText, flex: 1 },
+    recCard: {
+      backgroundColor: C.healthyBg,
+      borderLeftWidth: 4,
+      borderLeftColor: C.primary,
+      borderRadius: 12,
+      padding: 16,
+      marginBottom: 14,
+    },
+    recTitle: { fontSize: 16, fontWeight: "900", color: C.ink, marginBottom: 8 },
+    recBody: {
+      fontSize: 15,
+      lineHeight: 23,
+      fontWeight: "600",
+      color: C.text,
+    },
+    chips: { flexDirection: "row", gap: 10, marginBottom: 14 },
+    chip: {
+      flex: 1,
+      backgroundColor: C.card,
+      borderRadius: 14,
+      borderWidth: 1,
+      borderColor: C.cardBorder,
+      paddingVertical: 14,
+      alignItems: "center",
+    },
+    chipEmoji: { fontSize: 22 },
+    chipLabel: { fontSize: 13.5, fontWeight: "700", color: C.gray, marginTop: 6 },
+    chipValue: {
+      fontSize: 15,
+      fontWeight: "900",
+      color: C.healthyText,
+      marginTop: 4,
+      textAlign: "center",
+      paddingHorizontal: 4,
+    },
+    sectionTitle: {
+      fontSize: 20,
+      fontWeight: "900",
+      color: C.primaryDark,
+      marginBottom: 4,
+    },
+    sectionSub: {
+      fontSize: 14,
+      fontWeight: "600",
+      color: C.gray,
+      marginBottom: 14,
+    },
+    challenge: {
+      flexDirection: "row",
+      gap: 10,
+      marginBottom: 12,
+      alignItems: "flex-start",
+    },
+    dot: { fontSize: 18, lineHeight: 22, color: C.unknownOrange },
+    challengeText: { flex: 1, fontSize: 15, fontWeight: "600", color: C.ink, lineHeight: 22 },
+    zoneCard: {
+      flexDirection: "row",
+      alignItems: "center",
+      backgroundColor: C.card,
+      borderRadius: 12,
+      borderWidth: 1,
+      borderColor: C.cardBorder,
+      padding: 14,
+      marginTop: 4,
+    },
+    zoneLabel: { flex: 1, fontSize: 15, fontWeight: "800", color: C.ink },
+    zoneValue: { fontSize: 15, fontWeight: "900", color: C.healthyText },
+    varietyCard: {
+      flexDirection: "row",
+      alignItems: "center",
+      gap: 14,
+      backgroundColor: C.card,
+      borderRadius: 12,
+      borderWidth: 1,
+      borderColor: C.cardBorder,
+      padding: 14,
+      marginBottom: 10,
+    },
+    num: {
+      width: 34,
+      height: 34,
+      borderRadius: 17,
+      backgroundColor: C.primary,
+      color: "#FFFFFF",
+      fontSize: 15,
+      fontWeight: "900",
+      textAlign: "center",
+      lineHeight: 34,
       overflow: "hidden",
     },
+    varietyName: { fontSize: 16, fontWeight: "900", color: C.healthyText },
+    tipRow: { flexDirection: "row", gap: 10, marginBottom: 16, alignItems: "flex-start" },
+    check: { fontSize: 17, lineHeight: 23, color: C.healthyText, fontWeight: "900" },
+    tipText: { flex: 1, fontSize: 15.5, lineHeight: 23, fontWeight: "600", color: C.ink },
   });
 
-export default function LocationScreen({ tag }) {
+export default function LocationScreen() {
   const C = useColors();
   const t = useT();
   const s = useMemo(() => makeStyles(C), [C]);
-  const [toggling, setToggling] = useState(false);
+  const { status, data, analyzedAt, stale, error, analyze } = useLocationAnalysis();
+  const [tab, setTab] = useState("Overview");
+  const [openFactor, setOpenFactor] = useState(null);
 
-  // Defensive: renders a stub if the hook was not wired (keeps the tab safe).
-  if (!tag) {
-    return (
-      <SafeAreaView style={s.safe} edges={["top", "left", "right"]}>
-        <View style={s.scroll}>
-          <Text style={s.title}>{t("Location")}</Text>
+  const loading = status === "loading";
+
+  const renderIdle = () => (
+    <View style={s.idle}>
+      <Text style={s.mapEmoji}>🗺️</Text>
+      <Text style={s.idleTitle}>{t("Location Analysis")}</Text>
+      <Text style={s.idleBody}>
+        {t(
+          "Using your GPS location, our AI will analyze potato growing suitability based on altitude, temperature, soil type, rainfall, and other agronomic factors."
+        )}
+      </Text>
+      {FEATURE_ROWS.map((row, i) => (
+        <View key={row} style={s.featureRow}>
+          <Text style={s.featureEmoji}>{FEATURES[i]}</Text>
+          <Text style={s.featureText}>{t(row)}</Text>
         </View>
-      </SafeAreaView>
-    );
-  }
+      ))}
+    </View>
+  );
 
-  const { enabled, label, coords, updatedAt, permission, busy } = tag;
+  const renderOverview = () => (
+    <View>
+      <Text style={s.sectionTitle}>⚠️ {t("Local Challenges")}</Text>
+      {(data.challenges || []).map((item) => (
+        <View key={item} style={s.challenge}>
+          <Text style={s.dot}>•</Text>
+          <Text style={s.challengeText}>{t(item)}</Text>
+        </View>
+      ))}
+      <View style={s.zoneCard}>
+        <Text style={s.zoneLabel}>🌧️ {t("Rainfall Zone")}</Text>
+        <Text style={s.zoneValue}>{t(data.rainfall_zone)}</Text>
+      </View>
+    </View>
+  );
 
-  const onToggle = async (value) => {
-    setToggling(true);
-    try {
-      await tag.setEnabled(value);
-    } finally {
-      setToggling(false);
-    }
-  };
+  const renderFactors = () => (
+    <View>
+      <Text style={s.sectionTitle}>📊 {t("Suitability Factors")}</Text>
+      <Text style={s.sectionSub}>{t("Tap each factor to expand")}</Text>
+      {(data.factors || []).map((factor, i) => (
+        <FactorRow
+          key={factor.key}
+          factor={factor}
+          icon={FACTOR_ICONS[factor.key] || "❓"}
+          expanded={openFactor === i}
+          onToggle={() => setOpenFactor(openFactor === i ? null : i)}
+          t={t}
+        />
+      ))}
+    </View>
+  );
 
-  const onRefresh = async () => {
-    await tag.refresh();
-  };
+  const renderVarieties = () => (
+    <View>
+      <Text style={s.sectionTitle}>🥔 {t("Recommended Varieties")}</Text>
+      <Text style={s.sectionSub}>
+        {t("Varieties best adapted to your location")}
+      </Text>
+      {(data.varieties || []).map((name, i) => (
+        <View key={name} style={s.varietyCard}>
+          <Text style={s.num}>{i + 1}</Text>
+          <Text style={s.varietyName}>{t(name)}</Text>
+        </View>
+      ))}
+    </View>
+  );
 
-  const denied = permission === "denied" && !enabled;
+  const renderTips = () => (
+    <View>
+      <Text style={s.sectionTitle}>💡 {t("Growing Tips")}</Text>
+      <View style={{ height: 8 }} />
+      {(data.tips || []).map((item) => (
+        <View key={item} style={s.tipRow}>
+          <Text style={s.check}>✓</Text>
+          <Text style={s.tipText}>{t(item)}</Text>
+        </View>
+      ))}
+    </View>
+  );
 
   return (
     <SafeAreaView style={s.safe} edges={["top", "left", "right"]}>
       <ScrollView contentContainerStyle={s.scroll}>
-        <Text style={s.title}>{t("Location")}</Text>
-        <Text style={s.sub}>{t("Tag where you scan")}</Text>
+        <Text style={s.title}>{t("Location Suitability")}</Text>
+        <Text style={s.sub}>
+          {t("Potato Growing Analysis for Your Location")}
+        </Text>
 
-        {/* --- GPS --- */}
-        <View style={s.card}>
-          <View style={s.row}>
-            <View style={s.iconWrap}>
-              <MaterialIcons name="gps-fixed" size={20} color={C.primary} />
-            </View>
-            <View style={{ flex: 1 }}>
-              <Text style={s.cardTitle}>{t("GPS auto-tagging")}</Text>
-              <Text style={s.cardBody}>
-                {t("Attach your coordinates to every saved diagnosis.")}
-              </Text>
-            </View>
-            <Switch
-              value={!!enabled}
-              onValueChange={onToggle}
-              disabled={toggling || busy}
-              trackColor={{ false: C.cardBorder, true: C.primary }}
-              thumbColor="#FFFFFF"
-            />
-          </View>
-
-          {enabled && coords && (
-            <View style={s.fixBox}>
-              <Text style={s.fixText}>
-                {coords.latitude.toFixed(5)}, {coords.longitude.toFixed(5)}
-              </Text>
-              <Text style={s.fixMeta}>
-                {t("Accuracy")}: ±{Math.round(coords.accuracy || 0)} m
-                {updatedAt ? ` · ${relativeTime(updatedAt)}` : ""}
-              </Text>
-            </View>
+        <Pressable style={s.analyzeBtn} onPress={analyze} disabled={loading}>
+          {loading ? (
+            <ActivityIndicator color="#FFFFFF" />
+          ) : (
+            <Text style={s.analyzeText}>📍 {t("Analyze My Location")}</Text>
           )}
+        </Pressable>
 
-          {denied && (
-            <>
-              <Text style={s.hint}>
-                {t("Location permission is off. Allow it in Settings to auto-tag scans.")}
-              </Text>
-              <Pressable style={s.smallBtn} onPress={() => Linking.openSettings()}>
-                <MaterialIcons name="settings" size={15} color={C.ink} />
-                <Text style={s.smallBtnText}>{t("Open Settings")}</Text>
-              </Pressable>
-            </>
-          )}
-
-          {enabled && (
-            <Pressable style={s.smallBtn} onPress={onRefresh} disabled={busy}>
-              {busy ? (
-                <ActivityIndicator size="small" color={C.primary} />
-              ) : (
-                <MaterialIcons name="my-location" size={15} color={C.ink} />
-              )}
-              <Text style={s.smallBtnText}>{t("Refresh fix")}</Text>
+        {error && (
+          <View style={s.banner}>
+            <Text style={s.bannerText}>{t(error)}</Text>
+            <Pressable style={s.retryBtn} onPress={analyze} disabled={loading}>
+              <Text style={s.retryText}>{t("Retry")}</Text>
             </Pressable>
-          )}
-        </View>
+          </View>
+        )}
 
-        {/* --- Manual label --- */}
-        <View style={s.card}>
-          <Text style={s.label}>{t("Field or village name")}</Text>
-          <TextInput
-            style={s.input}
-            value={label || ""}
-            onChangeText={tag.setLabel}
-            placeholder={t("e.g. Field A, Pokhara")}
-            placeholderTextColor={C.gray}
-            maxLength={80}
-          />
-          <Text style={s.pill}>{t("Works without GPS")}</Text>
-        </View>
-
-        {/* --- How it works --- */}
-        <View style={s.card}>
-          <Text style={s.howTitle}>{t("How tagging works")}</Text>
-          <Text style={s.howBody}>
-            {t(
-              "Every diagnosis you save stores this tag — coordinates and/or the name above. Open it in History to see where and when it was taken, and support staff see the same tag when helping you."
-            )}
+        {stale && analyzedAt && (
+          <Text style={s.stale}>
+            {t("Last analyzed")} {relativeTime(analyzedAt)}
           </Text>
-        </View>
+        )}
+
+        {data ? (
+          <>
+            <ScoreCard data={data} t={t} />
+            <View style={s.recCard}>
+              <Text style={s.recTitle}>{t("Recommendation")}</Text>
+              <Text style={s.recBody}>
+                {fmt(t(data.recommendation), {
+                  zone: data.region || data.rainfall_zone,
+                })}
+              </Text>
+            </View>
+            <View style={s.chips}>
+              <View style={s.chip}>
+                <Text style={s.chipEmoji}>🌡️</Text>
+                <Text style={s.chipLabel}>{t("Temp")}</Text>
+                <Text style={s.chipValue}>~{data.summary.temp_c}°C</Text>
+              </View>
+              <View style={s.chip}>
+                <Text style={s.chipEmoji}>🌱</Text>
+                <Text style={s.chipLabel}>{t("Season")}</Text>
+                <Text style={s.chipValue} numberOfLines={2}>
+                  {t(data.summary.season)}
+                </Text>
+              </View>
+              <View style={s.chip}>
+                <Text style={s.chipEmoji}>🪨</Text>
+                <Text style={s.chipLabel}>{t("Soil")}</Text>
+                <Text style={s.chipValue}>{t(data.summary.soil)}</Text>
+              </View>
+            </View>
+
+            <SegTabs
+              tabs={TABS.map((x) => t(x))}
+              active={t(tab)}
+              onChange={(label) =>
+                setTab(TABS.find((x) => t(x) === label) || tab)
+              }
+            />
+            {tab === "Overview" && renderOverview()}
+            {tab === "Factors" && renderFactors()}
+            {tab === "Varieties" && renderVarieties()}
+            {tab === "Tips" && renderTips()}
+          </>
+        ) : loading ? (
+          <View style={s.loadingBox}>
+            <ActivityIndicator size="large" color={C.primary} />
+            <Text style={s.loadingText}>{t("Analyzing your location…")}</Text>
+          </View>
+        ) : (
+          renderIdle()
+        )}
       </ScrollView>
     </SafeAreaView>
   );
