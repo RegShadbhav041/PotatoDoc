@@ -1,9 +1,28 @@
 {
-  "entropy_max": 0.85,
-  "entropy_type": "normalized (H / log(n_classes); backend/app.py norm_entropy)",
-  "entropy_hmax_note": "4-class Hmax = log(4); 0.85 is on the normalized 0-1 scale, not raw nats",
-  "prob_min": 0.55,
-  "source": "validation set only (frozen; never tuned on test)",
-  "status": "heuristic-carryover pending val refit in P0-4",
-  "next": "run scripts/calibrate.py on val probas to fit temperature T + threshold, then lock"
+ "entropy_max": 0.8,
+ "prob_min": 0.55,
+ "entropy_type": "normalized (H / log(4)) on RAW ensemble softmax (matches app.py)",
+ "method": "near-heuristic gates (v3): field/web photos over-rejected at coverage97; user folder test drove e=0.80 p=0.55",
+ "fitted_on": "robust_val sanity stats (n=1613)",
+ "val_pass_rate": 0.9919,
+ "val_correct_rejected_rate": 0.005,
+ "val_error_caught_rate": 0.1852,
+ "val_selective_accuracy": 0.9862,
+ "history": [
+  "v1 Youden e=0.40 p=0.84 -> mass Unknown",
+  "v2 coverage97 e=0.588 p=0.697 -> still 7/11 web photos Unknown",
+  "v3 e=0.80 p=0.55 active"
+ ],
+ "status": "active for outputs_robust (audit 2026-10-02: too permissive, see reports/gate_audit.md)",
+ "served_by": "NOT production. Production gates live in the PotatoDoc-Backend repo (D:/PotatoBackend/calibration/thresholds.json) and are the only file any server loads. This file documents the outputs_robust experiment for the superseded D:/Potato backend -- do not copy values between them by hand.",
+ "val_n": 1613,
+ "val_n_correct": 1586,
+ "val_n_error": 27,
+ "val_correct_rejected_counts": "8/1586",
+ "val_error_caught_counts": "5/27",
+ "val_error_caught_ci95": [
+  0.0818,
+  0.367
+ ],
+ "stats_provenance": "recomputed from predictions by scripts/gate_stats.py (counts + Wilson CI + reconcile self-check); previous val_correct_rejected_rate 0.0139 was a hand-pasted error, corrected 2026-10-02 -- see reports/gate_audit.md"
 }
