@@ -271,6 +271,131 @@ const NE = {
   "Don't have an account?": "खाता छैन?",
   "Already have an account?": "पहिले नै खाता छ?",
   "Create account": "खाता बनाउनुहोस्",
+
+  // Location Suitability tab (designer screenshots, 2026-10-02)
+  "Location Suitability": "स्थान उपयुक्तता",
+  "Potato Growing Analysis for Your Location": "तपाईंको स्थानको आलो उत्पादन विश्लेषण",
+  "Analyze My Location": "मेरो स्थान विश्लेषण गर्नुहोस्",
+  "Location Analysis": "स्थान विश्लेषण",
+  "Using your GPS location, our AI will analyze potato growing suitability based on altitude, temperature, soil type, rainfall, and other agronomic factors.":
+    "तपाईंको GPS स्थान प्रयोग गरी हाम्रो AI ले अग्लाइ, तापक्रम, माटोको प्रकार, वर्षा र अन्य कृषि कारकहरूमा आधारित आलो उत्पादनको उपयुक्तता विश्लेषण गर्नेछ।",
+  "Altitude analysis (optimal: 800—3000m)": "अग्लाइ विश्लेषण (उपयुक्त: ८००—३००० मिटर)",
+  "Temperature estimation": "तापक्रम अनुमान",
+  "Rainfall zone classification": "वर्षा क्षेत्र वर्गीकरण",
+  "Soil type estimation": "माटोको प्रकार अनुमान",
+  "Variety recommendations": "किस्म सिफारिसहरू",
+  "Local growing tips": "स्थानीय खेती सुझावहरू",
+  Recommendation: "सिफारिस",
+  Overview: "अवलोकन",
+  Factors: "कारकहरू",
+  Varieties: "किस्महरू",
+  Tips: "सुझावहरू",
+  "Local Challenges": "स्थानीय चुनौतीहरू",
+  "Rainfall Zone": "वर्षा क्षेत्र",
+  "Suitability Factors": "उपयुक्तता कारकहरू",
+  "Tap each factor to expand": "विस्तार गर्न प्रत्येक कारकमा थिच्नुहोस्",
+  "Recommended Varieties": "सिफारिस गरिएका किस्महरू",
+  "Varieties best adapted to your location": "तपाईंको स्थानका लागि उपयुक्त किस्महरू",
+  "Growing Tips": "खेती सुझावहरू",
+  Temp: "तापक्रम",
+  Season: "मौसम",
+  Soil: "माटो",
+  Excellent: "उत्कृष्ट",
+  Good: "राम्रो",
+  Fair: "मध्यम",
+  Poor: "कमजोर",
+  "Last analyzed": "अन्तिम विश्लेषण:",
+  "Analyzing your location…": "तपाईंको स्थान विश्लेषण गर्दै…",
+  "Location permission is needed to analyze your area.":
+    "क्षेत्र विश्लेषण गर्न स्थान अनुमति आवश्यक छ।",
+  "Couldn't get a GPS fix. Try again outside.":
+    "GPS फिक्स पाउन सकिएन। बाहिर पुनः प्रयास गर्नुहोस्।",
+  "Can't reach the server. Check your connection.":
+    "सर्भरसम्म पुग्न सकिएन। तपाईंको जडान जाँच गर्नुहोस्।",
+  "Something went wrong. Please try again.":
+    "केही गडबड भयो। कृपया पुनः प्रयास गर्नुहोस्।",
+  // Backend analysis strings passed through t() then fmt() (translate once,
+  // substitute {placeholders} after — see locationText.fmt).
+  // Factor labels
+  Altitude: "अग्लाइ",
+  "Est. Temperature": "अनुमानित तापक्रम",
+  "Est. Soil Type": "अनुमानित माटोको प्रकार",
+  "Climate Zone": "जलवायु क्षेत्र",
+  // Rainfall / altitude belt names (ZONES in location_rules.py)
+  Tropical: "उष्ण",
+  "Sub-tropical": "उप-उष्ण",
+  "Warm Temperate": "न्यानो शीतोष्ण",
+  "Cool Temperate": "चिसो शीतोष्ण",
+  "Sub-alpine": "उप-अल्पाइन",
+  Alpine: "अल्पाइन",
+  // Temperature-regime names (climate_zone) — "Tropical"/"Alpine" share keys above
+  Subtropical: "उप-उष्ण",
+  Temperate: "शीतोष्ण",
+  Cold: "चिसो",
+  // Region words for the recommendation {zone} (REGIONS in location_rules.py)
+  Terai: "तराई",
+  "low hills": "निचला पहाड",
+  "mid-hills": "मध्य पहाड",
+  "high hills": "उच्च पहाड",
+  Himalaya: "हिमाल",
+  // USDA texture names + zonal heuristic
+  Loam: "लोम माटो",
+  "Sandy Loam": "बालुवा लोम माटो",
+  "Silt Loam": "सिल्ट लोम माटो",
+  "Clay Loam": "चिकनी लोम माटो",
+  "Sandy Clay Loam": "बालुवा चिकनी लोम माटो",
+  "Loamy Sand": "लोम बालुवा",
+  Sand: "बालुवा",
+  "Silty Clay Loam": "सिल्ट चिकनी लोम माटो",
+  Clay: "चिकनी माटो",
+  "Silty Clay": "सिल्ट चिकनी माटो",
+  "Sandy Clay": "बालुवा चिकनी माटो",
+  Silt: "सिल्ट",
+  "Alluvial Sandy Loam": "जलोढ़ बालुवा लोम माटो",
+  // Seasons (feasible_seasons)
+  "Winter (Oct–Feb)": "जाडो (असोज–फागुन)",
+  "Spring (Mar–May)": "वसन्त (चैत–जेठ)",
+  "Winter (Oct–Feb) & Spring (Mar–May)":
+    "जाडो (असोज–फागुन) र वसन्त (चैत–जेठ)",
+  "Off-season": "बाहिरी मौसम",
+  // Local challenges
+  "Monsoon disease pressure (Jun–Sep)": "मनसुनको रोग दबाब (असार–असोज)",
+  "Frost risk at planting or harvest": "रोपाइँ वा कटनीमा पालो जोखिम",
+  "Waterlogging on heavy soils": "गाह्रो माटोमा पानी जम्ने",
+  "Low rainfall — irrigation needed": "कम वर्षा — सिँचाइ आवश्यक",
+  "Heat stress in late crop (Mar–May)": "चरीको ढिलोअवस्थामा तातो तनाव (चैत–जेठ)",
+  "Soil too acidic — apply lime before planting":
+    "माटो धेरै अम्लीय — रोपाइँअघि चुनो प्रयोग गर्नुहोस्",
+  // Growing tips
+  "Plant in well-prepared ridges or raised beds for optimal drainage":
+    "जलनिकासका लागि राम्रोसँग तयार गरिएका गाँठो वा उचालितबेडमा रोप्नुहोस्",
+  "Hill up soil around plants when they reach 20–25cm to prevent greening":
+    "बिरुवा २०–२५ सेमी पुगेपछि वरिपरि माटो लगाउनुहोस् — हरियो पारिनबाट जोगाउन",
+  "Rotate crops — avoid planting potatoes in the same field for 3+ years":
+    "बाली फेर्नुहोस् — ३ वर्षभन्दा बढी एउटै खेतमा आलो नरोप्नुहोस्",
+  "Test soil pH (ideal: 5.5–6.5) and adjust with lime or sulfur as needed":
+    "माटोको pH परीक्षण गर्नुहोस् (उपयुक्त: ५.५–६.५) र आवश्यक अनुसार चुनो वा सल्फर प्रयोग गर्नुहोस्",
+  "In Nepal: plant Khumal varieties for best local adaptation and yield":
+    "नेपालमा: राम्रो स्थानीय अनुकूलन र उत्पादनका लागि खुमाल किस्महरू रोप्नुहोस्",
+  "Add compost and open drainage channels — heavy soil compacts easily":
+    "कम्पोस्ट थप्नुहोस् र जलनिकास खोल्नुहोस् — गाह्रो माटो सजिलै साँघुरिन्छ",
+  "Plan drip or furrow irrigation — rainfall alone will not carry the crop":
+    "ड्रिप वा फरोवाखालेको सिँचाइ योजना बनाउनुहोस् — वर्षामात्रै पर्याप्त हुँदैन",
+  "Watch for late blight in the humid months — remove affected leaves early":
+    "आर्द्र महिनाहरूमा ढिलो ब्लाइट हेर्नुहोस् — प्रभावित पातहरू छिटो हटाउनुहोस्",
+  "Use well-sprouted seed tubers and mulch to protect against cold nights":
+    "राम्रो अंकुरित बीउ कन्द प्रयोग गर्नुहोस् र चिसो रातबाट जोगाउन मल्च गर्नुहोस्",
+  "Apply agricultural lime 2–3 weeks before planting to lift pH":
+    "pH बढाउन रोपाइँभन्दा २–३ हप्ता अघि कृषि चुनो प्रयोग गर्नुहोस्",
+  // Recommendation templates (keep {zone} literal — fmt substitutes it after t())
+  "Your location is excellent for potato cultivation — typical of Nepal's {zone}. Conditions closely match the ideal agronomic requirements. Focus on disease prevention and variety selection for maximum yield.":
+    "तपाईंको स्थान आलो खेतीका लागि उत्कृष्ट छ — नेपालको {zone} को परम्परागत। अवस्थाहरू आदर्श कृषि आवश्यकतासँग मिल्दोजुल्दो छन्। अधिकतम उत्पादनका लागि रोग नियन्त्रण र किस्म छनोटमा ध्यान दिनुहोस्।",
+  "Your location suits potato well — conditions are close to Nepal's ideal for {zone}. Manage soil fertility and watch the monsoon for disease pressure.":
+    "तपाईंको स्थान आलोका लागि उपयुक्त छ — अवस्थाहरू नेपालको {zone} का लागि आदर्श नजिक छन्। माटोको उर्वरता व्यवस्थापन गर्नुहोस् र रोग दबाबका लागि मनसुनमा ध्यान दिनुहोस्।",
+  "Potato can be grown here, but conditions are only moderately suitable in this {zone} zone. Choose tolerant varieties, improve drainage or irrigation, and expect lower yields.":
+    "यहाँ आलो उत्पादन गर्न सकिन्छ, तर यस {zone} क्षेत्रमा अवस्था केवल मध्यम उपयुक्त छ। सहनशील किस्महरू छान्नुहोस्, जलनिकास वा सिँचाइ सुधार गर्नुहोस्, र कम उत्पादन अपेक्षा गर्नुहोस्।",
+  "This location is poorly suited to potato under natural conditions. Consider another crop, or invest in irrigation, soil amendment and microclimate protection before planting.":
+    "यो स्थान प्राकृतिक अवस्थामा आलोका लागि कमजोर छ। अर्को बाली विचार गर्नुहोस्, वा रोपाइँअघि सिँचाइ, माटो सुधार र माइक्रोक्लाइमेट संरक्षणमा लगानी गर्नुहोस्।",
 };
 
 const LangContext = createContext({
