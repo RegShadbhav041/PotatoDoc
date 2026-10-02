@@ -397,6 +397,9 @@ const NE = {
     "यहाँ आलो उत्पादन गर्न सकिन्छ, तर यस {zone} क्षेत्रमा अवस्था केवल मध्यम उपयुक्त छ। सहनशील किस्महरू छान्नुहोस्, जलनिकास वा सिँचाइ सुधार गर्नुहोस्, र कम उत्पादन अपेक्षा गर्नुहोस्।",
   "This location is poorly suited to potato under natural conditions. Consider another crop, or invest in irrigation, soil amendment and microclimate protection before planting.":
     "यो स्थान प्राकृतिक अवस्थामा आलोका लागि कमजोर छ। अर्को बाली विचार गर्नुहोस्, वा रोपाइँअघि सिँचाइ, माटो सुधार र माइक्रोक्लाइमेट संरक्षणमा लगानी गर्नुहोस्।",
+
+  "Field & location settings": "खेत र स्थान सेटिङहरू",
+  "GPS auto-tagging and field label": "GPS स्वचालित ट्याग र खेतको नाम",
 };
 
 const LangContext = createContext({
