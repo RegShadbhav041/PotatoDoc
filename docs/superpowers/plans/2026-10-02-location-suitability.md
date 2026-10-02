@@ -160,7 +160,7 @@ class SoilTest(unittest.TestCase):
         self.assertEqual(ph_score(4.8), 65)
         self.assertEqual(ph_score(7.8), 40)
         self.assertEqual(ph_score(None), 75)
-        self.assertEqual(soil_score("Loam", 5.8), 95)
+        self.assertEqual(soil_score("Loam", 5.8), 97)  # 0.6*95 + 0.4*100, uncapped per spec
         self.assertEqual(soil_score("Sand", 4.8), round(0.6 * 70 + 0.4 * 65))
         self.assertEqual(soil_score("Clay", None), round(0.6 * 55 + 0.4 * 75))
 
@@ -531,7 +531,7 @@ def challenges(annual_rain, alt, coldest_c, clay_pct, ph, climate_zone_name):
         out.append("Monsoon disease pressure (Jun–Sep)")
     if alt > 2000 or (coldest_c is not None and coldest_c < 3):
         out.append("Frost risk at planting or harvest")
-    if clay_pct and annual_rain and annual_rain > 2000:
+    if clay_pct is not None and clay_pct > 30 and annual_rain and annual_rain > 2000:
         out.append("Waterlogging on heavy soils")
     if annual_rain is not None and annual_rain < 800:
         out.append("Low rainfall — irrigation needed")
