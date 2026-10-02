@@ -1556,6 +1556,7 @@ export default function SegTabs({ tabs, active, onChange }) {
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { useColors } from "../../theme";
+import { fmt } from "../../utils/locationText";
 
 const BAND_EMOJI = { Excellent: "🌞", Good: "😊", Fair: "😐", Poor: "😟" };
 
@@ -1602,7 +1603,7 @@ export default function ScoreCard({ data, t }) {
       <View style={s.info}>
         <Text style={s.band}>{t(data.band)}</Text>
         <Text style={s.place}>📍 {data.place}</Text>
-        <Text style={s.alt}>⛰️ {data.altitude_m}m altitude</Text>
+        <Text style={s.alt}>⛰️ {fmt(t("{n}m altitude"), { n: data.altitude_m })}</Text>
         <Text style={s.coords}>
           {data.coords.lat.toFixed(4)}°, {data.coords.lon.toFixed(4)}°
         </Text>
@@ -2141,6 +2142,7 @@ Append to the `NE` dictionary in `mobile/src/i18n.js` (Nepali; English falls bac
   Fair: "मध्यम",
   Poor: "कमजोर",
   "Last analyzed": "अन्तिम विश्लेषण:",
+  "{n}m altitude": "{n} मिटर उचाइ",
   "Analyzing your location…": "तपाईंको स्थान विश्लेषण गर्दै…",
   "Location permission is needed to analyze your area.":
     "क्षेत्र विश्लेषण गर्न स्थान अनुमति आवश्यक छ।",
