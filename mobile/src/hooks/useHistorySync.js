@@ -2,7 +2,7 @@
 // copy is unioned in at sign-in and pushed back up afterwards.
 import { useCallback, useEffect, useRef } from "react";
 import axios from "axios";
-import { API_BASE } from "./useApi";
+import { API_BASE, uploadAuthed } from "./useApi";
 import {
   mergeHistory,
   historyEquals,
@@ -34,8 +34,8 @@ export function useHistorySync({
 
   const push = useCallback(async (items) => {
     const current = tokenRef.current;
-    if (!current || inFlightRef.current) return;
-    if (!Array.isArray(items) || items.length === 0) return;
+    if (!current || inFlightRef.current) return false;
+    if (!Array.isArray(items) || items.length === 0) return false;
     inFlightRef.current = true;
     try {
       await axios.put(
@@ -43,16 +43,61 @@ export function useHistorySync({
         { items: items.slice(0, MAX_HISTORY_ITEMS).map(stripLocalKeys) },
         { headers: { Authorization: `Bearer ${current}` }, timeout: 20000 }
       );
+      return true;
     } catch (e) {
       // Stale session: re-lock the history tab, keep every local row.
       if (e?.response?.status === 401) {
         onUnauthorizedRef.current?.();
-        return;
+        return false;
       }
       // Local-first: a failed push never rolls back or blocks the local write.
       console.warn("history push failed", e?.message);
+      return false;
     } finally {
       inFlightRef.current = false;
+    }
+  }, []);
+
+  /**
+   * Upload the scan photo for every local entry the server copy lacks
+   * (has_photo from GET /history is the source of truth — a failed upload
+   * self-heals on the next sync instead of leaving the panel photo-less).
+   * Runs right after a successful push, so the history row definitely exists.
+   */
+  const uploadMissingPhotos = useCallback(async (items) => {
+    const current = tokenRef.current;
+    if (!current || !Array.isArray(items) || items.length === 0) return;
+    let serverPhotos;
+    try {
+      const res = await axios.get(`${API_BASE}/history`, {
+        headers: { Authorization: `Bearer ${current}` },
+        timeout: 20000,
+      });
+      serverPhotos = new Set(
+        (Array.isArray(res.data?.items) ? res.data.items : [])
+          .filter((i) => i && i.has_photo && i.id != null)
+          .map((i) => String(i.id))
+      );
+    } catch (e) {
+      return; // offline: next sync retries
+    }
+    for (const item of items) {
+      if (!item?.imageUri || serverPhotos.has(String(item.id))) continue;
+      try {
+        await uploadAuthed(
+          item.imageUri,
+          `/history/${encodeURIComponent(item.id)}/photo`,
+          current
+        );
+        serverPhotos.add(String(item.id));
+      } catch (e) {
+        if (e?.response?.status === 401) {
+          onUnauthorizedRef.current?.();
+          return;
+        }
+        console.warn("history photo upload failed", e?.message);
+        break; // most likely offline — retry on the next sync
+      }
     }
   }, []);
 
@@ -60,9 +105,12 @@ export function useHistorySync({
   useEffect(() => {
     if (!token || storageBlocked) return;
     clearTimeout(timerRef.current);
-    timerRef.current = setTimeout(() => push(historyRef.current), PUSH_DEBOUNCE_MS);
+    timerRef.current = setTimeout(async () => {
+      const ok = await push(historyRef.current);
+      if (ok) await uploadMissingPhotos(historyRef.current);
+    }, PUSH_DEBOUNCE_MS);
     return () => clearTimeout(timerRef.current);
-  }, [history, token, storageBlocked, push]);
+  }, [history, token, storageBlocked, push, uploadMissingPhotos]);
 
   // Once per sign-in: union the server copy into the device list, persist, push.
   useEffect(() => {
@@ -84,7 +132,8 @@ export function useHistorySync({
         if (!blockedRef.current && !historyEquals(historyRef.current, merged)) {
           replaceHistory(merged);
         }
-        await push(merged);
+        const ok = await push(merged);
+        if (ok) await uploadMissingPhotos(merged);
       } catch (e) {
         if (e?.response?.status === 401) {
           onUnauthorizedRef.current?.();
@@ -94,7 +143,7 @@ export function useHistorySync({
         console.warn("history merge failed", e?.message);
       }
     })();
-  }, [token, replaceHistory, push]);
+  }, [token, replaceHistory, push, uploadMissingPhotos]);
 }
 
 /** Explicit account wipe — the only path that deletes server rows. */

@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import { View, ScrollView, Image, Pressable, StyleSheet } from "react-native";
 import { Text } from "react-native-paper";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -6,6 +6,7 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { useColors } from "../theme";
 import { useT } from "../i18n";
 import { classColors } from "../constants/colors";
+import HistoryDetailModal from "../components/HistoryDetailModal";
 
 const makeStyles = (C) =>
   StyleSheet.create({
@@ -94,6 +95,9 @@ const makeStyles = (C) =>
     cardTitle: { fontSize: 15.5, lineHeight: 20, fontWeight: "800" },
     cardConfidence: { fontWeight: "800" },
     cardMeta: { fontSize: 12, lineHeight: 16, color: C.gray, fontWeight: "500" },
+    pin: { flexDirection: "row", alignItems: "center", gap: 3, marginTop: 1 },
+    pinText: { fontSize: 11.5, fontWeight: "600", color: C.primary },
+    chev: { marginLeft: 2 },
   });
 
 /** "Your history." headline + notification bell (mockup, 2026-10-01). */
@@ -124,11 +128,12 @@ function confidence(item) {
   return `${pct.toFixed(1)}%`;
 }
 
-export default function HistoryScreen({ history, onClear, onOpenNews, unread = 0 }) {
+export default function HistoryScreen({ history, onClear, onOpenNews, unread = 0, token = null }) {
   const C = useColors();
   const t = useT();
   const s = useMemo(() => makeStyles(C), [C]);
   const colors = useMemo(() => classColors(C), [C]);
+  const [selected, setSelected] = useState(null);
 
   return (
     <SafeAreaView style={s.safe} edges={["top", "left", "right"]}>
@@ -155,8 +160,18 @@ export default function HistoryScreen({ history, onClear, onOpenNews, unread = 0
             {history.map((item) => {
               // `class` / `model` come from the API contract — never translated.
               const color = colors[item.class] || C.gray;
+              const loc = item.location;
+              const where = loc
+                ? [loc.label, loc.lat != null ? `${loc.lat}, ${loc.lon}` : null]
+                    .filter(Boolean)
+                    .join(" · ")
+                : null;
               return (
-                <View key={item.id} style={s.card}>
+                <Pressable
+                  key={item.id}
+                  style={s.card}
+                  onPress={() => setSelected(item)}
+                >
                   {item.imageUri ? (
                     <Image source={{ uri: item.imageUri }} style={s.thumb} />
                   ) : (
@@ -173,13 +188,34 @@ export default function HistoryScreen({ history, onClear, onOpenNews, unread = 0
                     </Text>
                     <Text style={s.cardMeta}>{item.model}</Text>
                     <Text style={s.cardMeta}>{item.timestamp}</Text>
+                    {where ? (
+                      <View style={s.pin}>
+                        <MaterialIcons name="location-on" size={12} color={C.primary} />
+                        <Text style={s.pinText} numberOfLines={1}>
+                          {where}
+                        </Text>
+                      </View>
+                    ) : null}
                   </View>
-                </View>
+                  <MaterialIcons
+                    name="chevron-right"
+                    size={18}
+                    color={C.gray}
+                    style={s.chev}
+                  />
+                </Pressable>
               );
             })}
           </>
         )}
       </ScrollView>
+
+      <HistoryDetailModal
+        item={selected}
+        visible={!!selected}
+        onClose={() => setSelected(null)}
+        token={token}
+      />
     </SafeAreaView>
   );
 }

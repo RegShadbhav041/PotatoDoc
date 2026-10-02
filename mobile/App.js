@@ -13,6 +13,7 @@ import HistoryScreen from "./src/screens/HistoryScreen";
 import LocationScreen from "./src/screens/LocationScreen";
 import AboutScreen from "./src/screens/AboutScreen";
 import ProfileScreen from "./src/screens/ProfileScreen";
+import SupportScreen from "./src/screens/SupportScreen";
 import NewsScreen from "./src/screens/NewsScreen";
 import SignInScreen from "./src/screens/SignInScreen";
 import SignUpScreen from "./src/screens/SignUpScreen";
@@ -25,6 +26,8 @@ import { useHistory } from "./src/hooks/useHistory";
 import { useAuth } from "./src/hooks/useAuth";
 import { useHistorySync } from "./src/hooks/useHistorySync";
 import { useNotices } from "./src/hooks/useNotices";
+import { useTickets } from "./src/hooks/useTickets";
+import { useLocationTag } from "./src/hooks/useLocationTag";
 
 // Hold the native splash (still frame) until the video paints its first
 // frame, so launch reads as one continuous animation.
@@ -106,7 +109,7 @@ export default function App() {
 
 function AppShell() {
   const [tab, setTab] = useState("home");
-  const [overlay, setOverlay] = useState(null); // 'signin' | 'signup' | 'news' | 'about' | null
+  const [overlay, setOverlay] = useState(null); // 'signin' | 'signup' | 'news' | 'about' | 'support' | null
   const [splashGone, setSplashGone] = useState(false);
   const handleSplashDone = useCallback(() => setSplashGone(true), []);
   const { colors: C, isDark } = useTheme();
@@ -135,6 +138,13 @@ function AppShell() {
     markAllRead,
   } = useNotices(token);
 
+  // Support tickets — same single-owner rule: the Profile row, the list and
+  // an open thread all share this one hook.
+  const tickets = useTickets(token);
+
+  // Field-location tag: Location tab edits it, Diagnose stamps it on save.
+  const locationTag = useLocationTag();
+
   if (!splashGone) return <Splash ready={ready} onDone={handleSplashDone} />;
 
   const historyLocked = !token;
@@ -143,6 +153,7 @@ function AppShell() {
   const goSignUp = () => setOverlay("signup");
   const openNews = () => setOverlay("news");
   const openAbout = () => setOverlay("about");
+  const openSupport = () => setOverlay("support");
   const closeOverlay = () => setOverlay(null);
 
   const changeTab = (next) => {
@@ -225,6 +236,13 @@ function AppShell() {
               newsOverlay
             ) : overlay === "about" ? (
               <AboutScreen onBack={closeOverlay} />
+            ) : overlay === "support" ? (
+              <SupportScreen
+                tickets={tickets}
+                signedIn={!!token}
+                onBack={closeOverlay}
+                onSignIn={goSignIn}
+              />
             ) : (
               <>
                 {tab === "home" && signedInHome}
@@ -233,6 +251,7 @@ function AppShell() {
                     addEntry={addEntry}
                     onOpenNews={openNews}
                     unread={unread}
+                    locationTag={locationTag}
                   />
                 )}
                 {tab === "history" && historyLocked && (
@@ -250,9 +269,10 @@ function AppShell() {
                     onClear={clearHistory}
                     onOpenNews={openNews}
                     unread={unread}
+                    token={token}
                   />
                 )}
-                {tab === "location" && <LocationScreen />}
+                {tab === "location" && <LocationScreen tag={locationTag} />}
                 {tab === "profile" && (
                   <ProfileScreen
                     user={user}
@@ -262,6 +282,7 @@ function AppShell() {
                     onSignOut={handleSignOut}
                     onOpenNews={openNews}
                     onOpenAbout={openAbout}
+                    onOpenSupport={openSupport}
                     onSaveProfile={updateProfile}
                     onUploadPhoto={uploadPhoto}
                     onRemovePhoto={removePhoto}
