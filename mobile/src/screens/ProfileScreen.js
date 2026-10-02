@@ -167,14 +167,6 @@ const makeStyles = (C) =>
     segmentText: { fontSize: 12.5, fontWeight: "700", color: C.gray },
     segmentTextOn: { color: "#FFFFFF" },
 
-    faqChip: {
-      backgroundColor: C.leafBg,
-      borderRadius: 999,
-      paddingHorizontal: 10,
-      paddingVertical: 5,
-    },
-    faqChipText: { fontSize: 11.5, fontWeight: "800", color: C.ink },
-
     logoutBtn: {
       flexDirection: "row",
       alignItems: "center",
@@ -466,6 +458,7 @@ export default function ProfileScreen({
   onSignOut,
   onOpenNews,
   onOpenAbout,
+  onOpenSupport,
   onSaveProfile,
   onUploadPhoto,
   onRemovePhoto,
@@ -639,15 +632,14 @@ export default function ProfileScreen({
               <MaterialIcons name="chevron-right" size={20} color={C.gray} />
             </Pressable>
 
-            <View style={s.row}>
+            <Pressable style={s.row} onPress={onOpenSupport}>
               <IconTile s={s} C={C} name="help-outline" />
               <View style={s.flex}>
                 <Text style={s.rowLabel}>{t("Help & Feedback")}</Text>
+                <Text style={s.rowSub}>{t("Report a problem or ask a question")}</Text>
               </View>
-              <View style={s.faqChip}>
-                <Text style={s.faqChipText}>{t("FAQ")}</Text>
-              </View>
-            </View>
+              <MaterialIcons name="chevron-right" size={20} color={C.gray} />
+            </Pressable>
 
             <Pressable style={s.logoutBtn} onPress={onSignOut}>
               <MaterialIcons name="logout" size={18} color="#FFFFFF" />

@@ -12,7 +12,7 @@ import { useWakeUp, useModels, usePrediction, fetchGradcam } from "../hooks/useA
 import { useColors } from "../theme";
 import { useT } from "../i18n";
 
-export default function DiagnoseScreen({ addEntry, onOpenNews, unread = 0 }) {
+export default function DiagnoseScreen({ addEntry, onOpenNews, unread = 0, locationTag = null }) {
   const C = useColors();
   const t = useT();
   const s = useMemo(() => makeStyles(C), [C]);
@@ -141,7 +141,20 @@ export default function DiagnoseScreen({ addEntry, onOpenNews, unread = 0 }) {
     if (!saveable || !addEntry) return;
     // heatmap intentionally NOT stored: base64 overlays bloat the AsyncStorage
     // row past Android's CursorWindow and made history unreadable before.
-    const item = await addEntry({ ...result, model: displayName, imageUri });
+    let location = null;
+    if (locationTag?.captureTag) {
+      try {
+        location = await locationTag.captureTag();
+      } catch (e) {
+        console.warn("location tag failed", e?.message);
+      }
+    }
+    const item = await addEntry({
+      ...result,
+      model: displayName,
+      imageUri,
+      ...(location ? { location } : {}),
+    });
     if (item) setSaved(true);
     else setError("History storage could not be read — entry NOT saved (existing data protected).");
   };

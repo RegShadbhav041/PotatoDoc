@@ -18,13 +18,16 @@
       "supportsTablet": true,
       "infoPlist": {
         "NSCameraUsageDescription": "PotatoDoc needs camera access to photograph potato leaves for disease analysis.",
-        "NSPhotoLibraryUsageDescription": "PotatoDoc needs photo library access to select potato leaf images for disease analysis."
+        "NSPhotoLibraryUsageDescription": "PotatoDoc needs photo library access to select potato leaf images for disease analysis.",
+        "NSLocationWhenInUseUsageDescription": "PotatoDoc tags each diagnosis with your field location so you can track disease pressure across your crops over time."
       }
     },
     "android": {
       "permissions": [
         "CAMERA",
-        "READ_EXTERNAL_STORAGE"
+        "READ_EXTERNAL_STORAGE",
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION"
       ],
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
@@ -44,7 +47,13 @@
       ],
       "expo-sqlite",
       "expo-video",
-      "expo-splash-screen"
+      "expo-splash-screen",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "PotatoDoc tags each diagnosis with your field location so you can track disease pressure across your crops over time."
+        }
+      ]
     ],
     "extra": {
       "eas": {

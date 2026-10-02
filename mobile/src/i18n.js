@@ -152,6 +152,30 @@ const NE = {
   Remove: "हटाउनुहोस्",
   "Permission needed to choose a photo.": "फोटो छान्न अनुमति चाहिन्छ।",
 
+  // Support tickets
+  "Report a problem or ask a question": "समस्या रिपोर्ट गर्नुहोस् वा प्रश्न सोध्नुहोस्",
+  "Sign in to contact support and track your tickets.":
+    "सहयोग टिमसँग सम्पर्क गर्न र आफ्ना टिकटहरू हेर्न लगइन गर्नुहोस्।",
+  "New Ticket": "नयाँ टिकट",
+  "No tickets yet": "अहिलेसम्म कुनै टिकट छैन",
+  "Something wrong in the app? Open a ticket and we will help you fix it.":
+    "एपमा केही गडबड छ? टिकट खोल्नुहोस्, हामी सच्याउन मद्दत गर्छौं।",
+  "Subject and message are required.": "विषय र सन्देश आवश्यक छन्।",
+  "How can we help?": "हामी कसरी सहयोग गर्न सक्छौं?",
+  Subject: "विषय",
+  Message: "सन्देश",
+  "Describe the problem…": "समस्याको विवरण लेख्नुहोस्…",
+  "Open Ticket": "टिकट खोल्नुहोस्",
+  Cancel: "रद्द गर्नुहोस्",
+  Ticket: "टिकट",
+  Open: "खुला",
+  Resolved: "समाधान भयो",
+  "Resolved — sending a message reopens this ticket.":
+    "समाधान भयो — सन्देश पठाउँदा टिकट फेरि खुल्छ।",
+  "Write a reply…": "जवाफ लेख्नुहोस्…",
+  Retry: "पुनः प्रयास",
+  messages: "सन्देश",
+
   // Your details modal
   "Your details": "तपाईंको विवरण",
   "Save your name and email address for a more personal experience.":
@@ -192,6 +216,28 @@ const NE = {
   "Coming soon": "छिट्टै आउँदैछ",
   "AI-powered potato leaf disease diagnosis. Snap a photo of a leaf and get an instant Early Blight, Late Blight, or Healthy verdict with Grad-CAM heatmaps from an ensemble of trained models.":
     "एआईमा आधारित आलोको पातको रोग निदान। पातको फोटो खिच्नुहोस् र प्रशिक्षित मोडेलहरूको समूहबाट ग्र्याड-क्याम हिटम्यापसहित बिहे ब्लाइट, ढिलो ब्लाइट वा स्वस्थ भनेर तुरुन्तै नतिजा पाउनुहोस्।",
+
+  // Location tag controls
+  "GPS auto-tagging": "GPS स्वचालित ट्याग",
+  "Attach your coordinates to every saved diagnosis.":
+    "प्रत्येक सुरक्षित निदानमा तपाईंको अक्षांश-रेखांश थप्नुहोस्।",
+  Accuracy: "सटीकता",
+  "Location permission is off. Allow it in Settings to auto-tag scans.":
+    "स्थान अनुमति बन्द छ। स्वचालित ट्यागका लागि सेटिङ्मा अनुमति दिनुहोस्।",
+  "Open Settings": "सेटिङ्मा खोल्नुहोस्",
+  "Refresh fix": "स्थिति ताजा गर्नुहोस्",
+  "Field or village name": "खेत वा गाउँको नाम",
+  "e.g. Field A, Pokhara": "जस्तै: खेत A, पोखरा",
+  "Works without GPS": "GPS बिना पनि काम गर्छ",
+  "How tagging works": "ट्याग कसरी काम गर्छ",
+
+  // History detail / report modal
+  "Diagnosis report": "निदान प्रतिवेदन",
+  Result: "नतिजा",
+  "Taken on": "खिचिएको मिति",
+  "Photo not on this device": "यो उपकरणमा फोटो छैन",
+  "No location tag": "स्थान ट्याग छैन",
+  "Share report": "प्रतिवेदन साझा गर्नुहोस्",
 
   // Auth
   "Welcome back!": "पुनः स्वागत छ!",
