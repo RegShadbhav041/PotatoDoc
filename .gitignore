@@ -16,7 +16,9 @@ outputs_image/**/last.pt
 outputs_pv/**/resume.pt
 outputs_pv/**/last.pt
 # --- archived experiment weights/logs live on disk only (zip per reproduce_inference.md) ---
-release_robust_v1/weights/*.pt
+# release_robust_v1 deferred 2026-10-02 -> moved to Unused/ (restore: git mv back). Weights never committed.
+**/release_robust_v1/weights/**/*.pt
+**/release_robust_v1/weights/*.pt
 Unused/outputs_archive/
 Unused/logs/
 
