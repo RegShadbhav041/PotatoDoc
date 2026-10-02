@@ -2,7 +2,7 @@
 // badge on Home/History and the News screen must share one unread counter.
 //
 // Backend contract (see backend-standalone/notices.py):
-//   GET  /notices              public -> {items:[{id,category,title,body,author_name,created_at,read?}], unread}
+//   GET  /notices              public -> {items:[{id,category,title,body,author_name,created_at,image_count,read?}], unread}
 //   GET  /notices/unread-count auth   -> {unread}
 //   POST /notices/{id}/read    auth   -> {ok, unread}
 //   POST /notices/read-all     auth   -> {marked, unread}
@@ -11,7 +11,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { API_BASE } from "./useApi";
 
-export const NOTICE_CATEGORIES = ["update", "announcement", "crop_alert"];
+export const NOTICE_CATEGORIES = ["update", "announcement", "crop_alert", "new_product", "medicine"];
 
 const LIST_TIMEOUT_MS = 15000;
 

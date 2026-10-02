@@ -6,10 +6,12 @@ import {
   StyleSheet,
   ActivityIndicator,
   RefreshControl,
+  Image,
 } from "react-native";
 import { Text } from "react-native-paper";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { MaterialIcons } from "@expo/vector-icons";
+import { API_BASE } from "../hooks/useApi";
 import { useColors } from "../theme";
 import { useT } from "../i18n";
 import { relativeTime } from "../utils/relativeTime";
@@ -19,18 +21,24 @@ const FILTERS = [
   { id: "update", label: "Updates" },
   { id: "announcement", label: "Announcements" },
   { id: "crop_alert", label: "Crop alerts" },
+  { id: "new_product", label: "New products" },
+  { id: "medicine", label: "Medicines" },
 ];
 
 const CATEGORY_LABEL = {
   update: "LATEST UPDATE",
   announcement: "Announcement",
   crop_alert: "Crop alert",
+  new_product: "New product",
+  medicine: "Medicine",
 };
 
 const CATEGORY_ICON = {
   update: "sync",
   announcement: "campaign",
   crop_alert: "warning",
+  new_product: "inventory-2",
+  medicine: "local-pharmacy",
 };
 
 const makeStyles = (C) =>
@@ -197,6 +205,14 @@ const makeStyles = (C) =>
       textDecorationLine: "underline",
       marginTop: 9,
     },
+    gallery: { marginTop: 10, marginHorizontal: -2 },
+    galleryRow: { gap: 8, paddingHorizontal: 2 },
+    galleryImg: {
+      width: 190,
+      height: 130,
+      borderRadius: 12,
+      backgroundColor: C.leafBg,
+    },
 
     empty: { alignItems: "center", paddingTop: 60, gap: 8 },
     emptyTitle: { fontSize: 16, fontWeight: "800", color: C.ink },
@@ -254,6 +270,23 @@ function NoticeCard({ s, t, C, notice, onPress }) {
       {/* Notice title/body are admin-authored content — never translated. */}
       <Text style={s.cardTitle}>{notice.title}</Text>
       {!!notice.body && <Text style={s.cardBody}>{notice.body}</Text>}
+      {/* Notice pictures: horizontal strip, loaded lazily from the public route. */}
+      {notice.image_count > 0 && (
+        <ScrollView
+          horizontal
+          style={s.gallery}
+          contentContainerStyle={s.galleryRow}
+          showsHorizontalScrollIndicator={false}
+        >
+          {Array.from({ length: notice.image_count }, (_, i) => (
+            <Image
+              key={i}
+              source={{ uri: `${API_BASE}/notices/${notice.id}/images/${i}` }}
+              style={s.galleryImg}
+            />
+          ))}
+        </ScrollView>
+      )}
       <Text style={s.author}>{notice.author_name || t("Super Admin")}</Text>
     </Pressable>
   );
