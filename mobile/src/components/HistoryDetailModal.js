@@ -233,7 +233,9 @@ export default function HistoryDetailModal({ item, visible, onClose, token }) {
             </Pressable>
           </View>
 
-          <ScrollView>
+          {/* flexShrink lets the scroll area fit the 92%-max sheet instead of
+              growing to full content height (which clipped it and killed scroll). */}
+          <ScrollView style={{ flexShrink: 1 }}>
             <Photo item={item} token={token} s={s} C={C} t={t} />
 
             <View style={s.metaCard}>
