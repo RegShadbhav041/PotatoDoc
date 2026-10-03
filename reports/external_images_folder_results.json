@@ -1,0 +1,90 @@
+[
+ {
+  "file": "ca2020_early_blight_potato_damage2.png",
+  "class": "Unknown",
+  "conf": 0.877,
+  "is_unknown": true,
+  "entropy": 0.36285411327421685,
+  "green_ratio": 0.142
+ },
+ {
+  "file": "Early-blight-diseases-infected-potato-leaf-Introduction-Early-blight-of-potato-is-caused.jpg",
+  "class": "Early Blight",
+  "conf": 0.898,
+  "is_unknown": false,
+  "entropy": 0.31070405052923233,
+  "green_ratio": 0.107
+ },
+ {
+  "file": "early.jpg",
+  "class": "Unknown",
+  "conf": 0.648,
+  "is_unknown": true,
+  "entropy": 0.6387631713266696,
+  "green_ratio": 0.243
+ },
+ {
+  "file": "earlyblt.jpg",
+  "class": "Early Blight",
+  "conf": 0.589,
+  "is_unknown": false,
+  "entropy": 0.7352745035287012,
+  "green_ratio": 0.007
+ },
+ {
+  "file": "earlyblt2.jpg",
+  "class": "Early Blight",
+  "conf": 0.877,
+  "is_unknown": false,
+  "entropy": 0.3527491651336157,
+  "green_ratio": 0.665
+ },
+ {
+  "file": "late.jpg",
+  "class": "Late Blight",
+  "conf": 0.922,
+  "is_unknown": false,
+  "entropy": 0.2564576482572183,
+  "green_ratio": 0.79
+ },
+ {
+  "file": "Late_blight_on_potato_leaf_2.jpg",
+  "class": "Late Blight",
+  "conf": 0.676,
+  "is_unknown": false,
+  "entropy": 0.5918309117240432,
+  "green_ratio": 0.557
+ },
+ {
+  "file": "lateblt.jpg",
+  "class": "Unknown",
+  "conf": 0.699,
+  "is_unknown": true,
+  "entropy": 0.6313090132816483,
+  "green_ratio": 0.597
+ },
+ {
+  "file": "lateblt2.jpg",
+  "class": "Late Blight",
+  "conf": 0.591,
+  "is_unknown": false,
+  "entropy": 0.6650973268094338,
+  "green_ratio": 0.881
+ },
+ {
+  "file": "lateblt3.jpg",
+  "class": "Late Blight",
+  "conf": 0.706,
+  "is_unknown": false,
+  "entropy": 0.5766617839439672,
+  "green_ratio": 0.448
+ },
+ {
+  "file": "potato-early-blight-leaves.jpg",
+  "class": "Unknown",
+  "conf": 0.537,
+  "is_unknown": true,
+  "entropy": 0.668738113536874,
+  "green_ratio": 0.72
+ }
+]

@@ -1,0 +1,133 @@
+classes: ['early_blight', 'late_blight', 'healthy', 'non_leaf']
+device: cuda
+class_weights: {'early_blight': 3.047, 'late_blight': 3.079, 'healthy': 3.975, 'non_leaf': 10.477}
+[small_cnn 1/25] loss 1.1528/0.9398 valF1 0.7026 lr 1.00e-03
+[small_cnn 2/25] loss 0.9990/0.7144 valF1 0.8662 lr 1.00e-03
+[small_cnn 3/25] loss 0.8542/0.6350 valF1 0.9117 lr 1.00e-03
+[small_cnn 4/25] loss 0.7937/0.6715 valF1 0.8737 lr 1.00e-03
+[small_cnn 5/25] loss 0.7478/0.5913 valF1 0.9351 lr 1.00e-03
+[small_cnn 6/25] loss 0.7223/0.5652 valF1 0.9425 lr 1.00e-03
+[small_cnn 7/25] loss 0.7063/0.5436 valF1 0.9542 lr 1.00e-03
+[small_cnn 8/25] loss 0.6794/0.5351 valF1 0.9554 lr 1.00e-03
+[small_cnn 9/25] loss 0.6666/0.5400 valF1 0.9592 lr 1.00e-03
+[small_cnn 10/25] loss 0.6558/0.5360 valF1 0.9629 lr 1.00e-03
+[small_cnn 11/25] loss 0.6359/0.5164 valF1 0.9700 lr 1.00e-03
+[small_cnn 12/25] loss 0.6212/0.5172 valF1 0.9675 lr 1.00e-03
+[small_cnn 13/25] loss 0.6110/0.5272 valF1 0.9620 lr 1.00e-03
+[small_cnn 14/25] loss 0.6087/0.4998 valF1 0.9776 lr 1.00e-03
+[small_cnn 15/25] loss 0.6007/0.5298 valF1 0.9609 lr 1.00e-03
+[small_cnn 16/25] loss 0.5945/0.5077 valF1 0.9766 lr 1.00e-03
+[small_cnn 17/25] loss 0.5833/0.5004 valF1 0.9769 lr 1.00e-03
+[small_cnn 18/25] loss 0.5752/0.4837 valF1 0.9801 lr 1.00e-03
+[small_cnn 19/25] loss 0.5771/0.4816 valF1 0.9822 lr 1.00e-03
+[small_cnn 20/25] loss 0.5748/0.4777 valF1 0.9820 lr 1.00e-03
+[small_cnn 21/25] loss 0.5631/0.4893 valF1 0.9757 lr 1.00e-03
+[small_cnn 22/25] loss 0.5561/0.4791 valF1 0.9827 lr 1.00e-03
+[small_cnn 23/25] loss 0.5573/0.4881 valF1 0.9781 lr 1.00e-03
+[small_cnn 24/25] loss 0.5548/0.5159 valF1 0.9689 lr 3.00e-04
+[small_cnn 25/25] loss 0.5375/0.4691 valF1 0.9888 lr 3.00e-04
+[mobilenetv2 1/25] loss 0.5476/0.4579 valF1 0.9915 lr 3.00e-04
+[mobilenetv2 2/25] loss 0.4911/0.4426 valF1 0.9936 lr 3.00e-04
+[mobilenetv2 3/25] loss 0.4805/0.4445 valF1 0.9903 lr 3.00e-04
+[mobilenetv2 4/25] loss 0.4725/0.4366 valF1 0.9955 lr 3.00e-04
+[mobilenetv2 5/25] loss 0.4654/0.4498 valF1 0.9935 lr 3.00e-04
+[mobilenetv2 6/25] loss 0.4645/0.4356 valF1 0.9942 lr 3.00e-04
+[mobilenetv2 7/25] loss 0.4671/0.4434 valF1 0.9916 lr 3.00e-04
+[mobilenetv2 8/25] loss 0.4614/0.4339 valF1 0.9948 lr 3.00e-04
+[mobilenetv2 9/25] loss 0.4558/0.4352 valF1 0.9949 lr 3.00e-04
+[mobilenetv2 10/25] loss 0.4559/0.4446 valF1 0.9916 lr 3.00e-04
+[mobilenetv2 11/25] loss 0.4597/0.4283 valF1 0.9981 lr 3.00e-04
+[mobilenetv2 12/25] loss 0.4563/0.4375 valF1 0.9948 lr 3.00e-04
+[mobilenetv2 13/25] loss 0.4552/0.4345 valF1 0.9955 lr 3.00e-04
+[mobilenetv2 14/25] loss 0.4549/0.4379 valF1 0.9948 lr 3.00e-04
+[mobilenetv2 15/25] loss 0.4516/0.4292 valF1 0.9967 lr 9.00e-05
+[mobilenetv2 16/25] loss 0.4425/0.4294 valF1 0.9961 lr 9.00e-05
+[mobilenetv2 17/25] loss 0.4389/0.4269 valF1 0.9968 lr 9.00e-05
+[mobilenetv2 18/25] loss 0.4413/0.4277 valF1 0.9968 lr 9.00e-05
+[mobilenetv2 19/25] loss 0.4387/0.4287 valF1 0.9961 lr 9.00e-05
+[mobilenetv2 20/25] loss 0.4395/0.4289 valF1 0.9955 lr 9.00e-05
+[mobilenetv2 21/25] loss 0.4377/0.4287 valF1 0.9968 lr 2.70e-05
+[mobilenetv2 22/25] loss 0.4368/0.4266 valF1 0.9961 lr 2.70e-05
+[mobilenetv2 23/25] loss 0.4360/0.4270 valF1 0.9961 lr 2.70e-05
+[mobilenetv2 24/25] loss 0.4363/0.4271 valF1 0.9955 lr 2.70e-05
+[mobilenetv2 25/25] loss 0.4350/0.4281 valF1 0.9961 lr 2.70e-05
+[efficientnetb0 1/25] loss 0.5380/0.4433 valF1 0.9910 lr 3.00e-04
+[efficientnetb0 2/25] loss 0.4723/0.4472 valF1 0.9897 lr 3.00e-04
+[efficientnetb0 3/25] loss 0.4609/0.4420 valF1 0.9916 lr 3.00e-04
+[efficientnetb0 4/25] loss 0.4542/0.4450 valF1 0.9922 lr 3.00e-04
+[efficientnetb0 5/25] loss 0.4515/0.4333 valF1 0.9974 lr 3.00e-04
+[efficientnetb0 6/25] loss 0.4518/0.4371 valF1 0.9942 lr 3.00e-04
+[efficientnetb0 7/25] loss 0.4470/0.4334 valF1 0.9948 lr 3.00e-04
+[efficientnetb0 8/25] loss 0.4462/0.4388 valF1 0.9903 lr 3.00e-04
+[efficientnetb0 9/25] loss 0.4441/0.4375 valF1 0.9942 lr 9.00e-05
+[efficientnetb0 10/25] loss 0.4389/0.4322 valF1 0.9942 lr 9.00e-05
+[efficientnetb0 11/25] loss 0.4378/0.4292 valF1 0.9955 lr 9.00e-05
+[efficientnetb0 12/25] loss 0.4353/0.4304 valF1 0.9961 lr 9.00e-05
+[efficientnetb0 13/25] loss 0.4343/0.4286 valF1 0.9961 lr 9.00e-05
+[efficientnetb0 14/25] loss 0.4346/0.4296 valF1 0.9961 lr 9.00e-05
+[efficientnetb0 15/25] loss 0.4346/0.4275 valF1 0.9974 lr 9.00e-05
+[efficientnetb0 16/25] loss 0.4341/0.4283 valF1 0.9968 lr 9.00e-05
+[efficientnetb0 17/25] loss 0.4328/0.4267 valF1 0.9967 lr 9.00e-05
+[efficientnetb0 18/25] loss 0.4333/0.4280 valF1 0.9974 lr 9.00e-05
+[efficientnetb0 19/25] loss 0.4339/0.4296 valF1 0.9955 lr 9.00e-05
+[efficientnetb0 20/25] loss 0.4318/0.4254 valF1 0.9974 lr 9.00e-05
+[efficientnetb0 21/25] loss 0.4323/0.4267 valF1 0.9981 lr 9.00e-05
+[efficientnetb0 22/25] loss 0.4326/0.4257 valF1 0.9987 lr 9.00e-05
+[efficientnetb0 23/25] loss 0.4324/0.4258 valF1 0.9981 lr 9.00e-05
+[efficientnetb0 24/25] loss 0.4322/0.4261 valF1 0.9981 lr 2.70e-05
+[efficientnetb0 25/25] loss 0.4308/0.4269 valF1 0.9974 lr 2.70e-05
+
+[small_cnn] acc=0.9740 F1macro=0.9771 MCC=0.9630
+              precision    recall  f1-score   support
+
+Early Blight       0.98      0.95      0.97       283
+ Late Blight       0.95      0.97      0.96       300
+     Healthy       0.98      1.00      0.99       319
+    Non-Leaf       1.00      0.98      0.99        60
+
+    accuracy                           0.97       962
+   macro avg       0.98      0.98      0.98       962
+weighted avg       0.97      0.97      0.97       962
+
+
+[mobilenetv2] acc=0.9823 F1macro=0.9855 MCC=0.9749
+              precision    recall  f1-score   support
+
+Early Blight       0.98      0.97      0.98       283
+ Late Blight       0.98      0.97      0.97       300
+     Healthy       0.99      1.00      0.99       319
+    Non-Leaf       1.00      1.00      1.00        60
+
+    accuracy                           0.98       962
+   macro avg       0.99      0.99      0.99       962
+weighted avg       0.98      0.98      0.98       962
+
+
+[efficientnetb0] acc=0.9906 F1macro=0.9923 MCC=0.9867
+              precision    recall  f1-score   support
+
+Early Blight       0.99      0.98      0.98       283
+ Late Blight       0.99      0.99      0.99       300
+     Healthy       0.99      1.00      1.00       319
+    Non-Leaf       1.00      1.00      1.00        60
+
+    accuracy                           0.99       962
+   macro avg       0.99      0.99      0.99       962
+weighted avg       0.99      0.99      0.99       962
+
+
+[ensemble] acc=0.9875 F1macro=0.9898 MCC=0.9823
+              precision    recall  f1-score   support
+
+Early Blight       0.99      0.97      0.98       283
+ Late Blight       0.98      0.99      0.98       300
+     Healthy       0.99      1.00      1.00       319
+    Non-Leaf       1.00      1.00      1.00        60
+
+    accuracy                           0.99       962
+   macro avg       0.99      0.99      0.99       962
+weighted avg       0.99      0.99      0.99       962
+
+plots saved
+
+Done -> D:\Potato\outputs_combined | test ensemble acc=0.9875

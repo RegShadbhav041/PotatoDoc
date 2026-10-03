@@ -21,18 +21,22 @@ import * as FileSystemLegacy from "expo-file-system/legacy";
 export const API_BASE =
   process.env.EXPO_PUBLIC_API_URL || "http://10.0.2.2:8000";
 
-// Network-level failover: if the active base becomes unreachable (dropped adb
-// reverse tunnel, changed host IP, ...), transparently rotate through the known
-// alternatives and remember the one that works. 10.0.2.2 is the Android
-// emulator's alias for the host loopback and needs NO adb reverse tunnel, so
-// API calls survive adb-server/emulator restarts.
+// Local fallback base: same backend over emulator loopback / LAN, used when
+// the public tunnel URL is stale (quick tunnels change every restart) or
+// unreachable. Set via EXPO_PUBLIC_LOCAL_URL in mobile/.env.
+export const API_LOCAL_BASE =
+  process.env.EXPO_PUBLIC_LOCAL_URL || "http://10.0.2.2:8000";
+
+// Network-level failover: if the active base becomes unreachable (expired
+// quick-tunnel URL, dropped adb reverse tunnel, changed host IP, ...),
+// transparently rotate through the known alternatives and remember the one
+// that works. 10.0.2.2 is the Android emulator's alias for the host loopback
+// and needs NO adb reverse tunnel, so API calls survive adb-server/emulator
+// restarts.
 const API_CANDIDATES = [
-  ...new Set([
-    API_BASE,
-    "http://10.0.2.2:8010",
-    "http://192.168.18.3:8010",
-    "http://127.0.0.1:8010",
-  ]),
+  ...new Set(
+    [API_BASE, API_LOCAL_BASE, "http://10.0.2.2:8000", "http://127.0.0.1:8000"].filter(Boolean)
+  ),
 ];
 let activeBaseIdx = 0;
 
@@ -50,6 +54,30 @@ async function callWithFailover(fn) {
     }
   }
   throw lastErr;
+}
+
+/** GET with base failover. Same axios response/error shape as axios.get. */
+export function apiGet(path, config = {}) {
+  return callWithFailover((base) => axios.get(`${base}${path}`, config));
+}
+
+/** POST/PUT/DELETE with base failover. Same shape as axios.request. */
+export function apiRequest(method, path, data, config = {}) {
+  return callWithFailover((base) =>
+    axios.request({ method, url: `${base}${path}`, data, ...config })
+  );
+}
+
+export function apiPost(path, data, config = {}) {
+  return apiRequest("post", path, data, config);
+}
+
+export function apiPut(path, data, config = {}) {
+  return apiRequest("put", path, data, config);
+}
+
+export function apiDelete(path, config = {}) {
+  return apiRequest("delete", path, undefined, config);
 }
 
 // Client fallback if GET /models is unreachable. Overwritten by server response.
