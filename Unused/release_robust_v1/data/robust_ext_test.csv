@@ -1,0 +1,447 @@
+filepath,label,source
+D:\Potato\_staging\bari\Potato Leaf Disease Dataset\Fungal Late Blight\orig_10.jpg,late_blight,bari_bari_fungal_late_blight
+D:\Potato\_staging\bari\Potato Leaf Disease Dataset\Fungal Late Blight\orig_3.jpg,late_blight,bari_bari_fungal_late_blight
+D:\Potato\_staging\bari\Potato Leaf Disease Dataset\Viral Leaf Roll\orig_0.jpg,non_leaf,bari_bari_viral_leaf_roll
+D:\Potato\_staging\bari\Potato Leaf Disease Dataset\Viral Leaf Roll\orig_10.jpg,non_leaf,bari_bari_viral_leaf_roll
+D:\Potato\_staging\ethiopia\root\Local\Healthy\Healthy (299).jpg,healthy,bari_ethiopia_healthy
+D:\Potato\_staging\ethiopia\root\Local\Healthy\Healthy (27).jpg,healthy,bari_ethiopia_healthy
+D:\Potato\_staging\ethiopia\root\Local\Healthy\Healthy (344).jpg,healthy,bari_ethiopia_healthy
+D:\Potato\_staging\ethiopia\root\Local\Healthy\Healthy (353).jpg,healthy,bari_ethiopia_healthy
+D:\Potato\_staging\ethiopia\root\Local\Healthy\Healthy (247).jpg,healthy,bari_ethiopia_healthy
+D:\Potato\_staging\ethiopia\root\Local\Healthy\Healthy (350).jpg,healthy,bari_ethiopia_healthy
+D:\Potato\_staging\ethiopia\root\Local\Healthy\Healthy (489).jpg,healthy,bari_ethiopia_healthy
+D:\Potato\_staging\ethiopia\root\Local\Healthy\Healthy (396).jpg,healthy,bari_ethiopia_healthy
+D:\Potato\_staging\ethiopia\root\Local\Healthy\Healthy (304).jpg,healthy,bari_ethiopia_healthy
+D:\Potato\_staging\ethiopia\root\Local\Healthy\Healthy (358).jpg,healthy,bari_ethiopia_healthy
+D:\Potato\_staging\ethiopia\root\Local\Healthy\Healthy (217).jpg,healthy,bari_ethiopia_healthy
+D:\Potato\_staging\ethiopia\root\Local\Healthy\Healthy (281).jpg,healthy,bari_ethiopia_healthy
+D:\Potato\_staging\ethiopia\root\Local\Healthy\Healthy (509).jpg,healthy,bari_ethiopia_healthy
+D:\Potato\_staging\ethiopia\root\Local\Healthy\Healthy (310).jpg,healthy,bari_ethiopia_healthy
+D:\Potato\_staging\ethiopia\root\Local\Healthy\Healthy (278).jpg,healthy,bari_ethiopia_healthy
+D:\Potato\_staging\ethiopia\root\Local\Healthy\Healthy (192).jpg,healthy,bari_ethiopia_healthy
+D:\Potato\_staging\ethiopia\root\Local\Healthy\Healthy (202).jpg,healthy,bari_ethiopia_healthy
+D:\Potato\_staging\ethiopia\root\Local\Healthy\Healthy (260).jpg,healthy,bari_ethiopia_healthy
+D:\Potato\_staging\ethiopia\root\Local\Healthy\Healthy (459).jpg,healthy,bari_ethiopia_healthy
+D:\Potato\_staging\ethiopia\root\Local\Healthy\Healthy (349).jpg,healthy,bari_ethiopia_healthy
+D:\Potato\_staging\ethiopia\root\Local\Healthy\Healthy (480).jpg,healthy,bari_ethiopia_healthy
+D:\Potato\_staging\ethiopia\root\Local\Healthy\Healthy (485).jpg,healthy,bari_ethiopia_healthy
+D:\Potato\_staging\ethiopia\root\Local\Healthy\Healthy (312).jpg,healthy,bari_ethiopia_healthy
+D:\Potato\_staging\ethiopia\root\Local\Healthy\Healthy (446).jpg,healthy,bari_ethiopia_healthy
+D:\Potato\_staging\ethiopia\root\Local\Healthy\Healthy (207).jpg,healthy,bari_ethiopia_healthy
+D:\Potato\_staging\ethiopia\root\Local\Healthy\Healthy (357).jpg,healthy,bari_ethiopia_healthy
+D:\Potato\_staging\ethiopia\root\Local\Healthy\Healthy (228).jpg,healthy,bari_ethiopia_healthy
+D:\Potato\_staging\ethiopia\root\Local\Healthy\Healthy (437).jpg,healthy,bari_ethiopia_healthy
+D:\Potato\_staging\ethiopia\root\Local\Healthy\Healthy (399).jpg,healthy,bari_ethiopia_healthy
+D:\Potato\_staging\ethiopia\root\Local\Healthy\Healthy (191).jpg,healthy,bari_ethiopia_healthy
+D:\Potato\_staging\ethiopia\root\Local\Healthy\Healthy (298).jpg,healthy,bari_ethiopia_healthy
+D:\Potato\_staging\ethiopia\root\Local\Healthy\Healthy (473).jpg,healthy,bari_ethiopia_healthy
+D:\Potato\_staging\ethiopia\root\Local\Healthy\Healthy (338).jpg,healthy,bari_ethiopia_healthy
+D:\Potato\_staging\ethiopia\root\Local\Healthy\Healthy (346).jpg,healthy,bari_ethiopia_healthy
+D:\Potato\_staging\ethiopia\root\Local\Healthy\Healthy (215).jpg,healthy,bari_ethiopia_healthy
+D:\Potato\_staging\ethiopia\root\Local\Late Blight\Late_Blight (454).jpg,late_blight,bari_ethiopia_late_blight
+D:\Potato\_staging\ethiopia\root\Local\Late Blight\Late_Blight (452).jpg,late_blight,bari_ethiopia_late_blight
+D:\Potato\_staging\ethiopia\root\Local\Late Blight\Late_Blight (509).jpg,late_blight,bari_ethiopia_late_blight
+D:\Potato\_staging\ethiopia\root\Local\Late Blight\Late_Blight (513).jpg,late_blight,bari_ethiopia_late_blight
+D:\Potato\_staging\ethiopia\root\Local\Late Blight\Late_Blight (512).jpg,late_blight,bari_ethiopia_late_blight
+D:\Potato\_staging\ethiopia\root\Local\Late Blight\Late_Blight (466).jpg,late_blight,bari_ethiopia_late_blight
+D:\Potato\_staging\central_java\bacteria\20230816_134245.jpg,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\20230815_120101.jpg,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\20230816_142405.jpg,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\20230816_135436.jpg,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\IMG_0370.JPG,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\IMG_1026.JPG,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\IMG_0336.JPG,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\IMG_1035.JPG,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\20230816_142843.jpg,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\20230816_142730.jpg,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\20230816_134756.jpg,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\IMG_1236.JPG,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\IMG_0352.JPG,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\IMG_1258.JPG,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\IMG_1111.JPG,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\IMG_0906.JPG,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\20230816_140633.jpg,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\1692332350457.jpg,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\IMG_1235.JPG,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\20230815_114003.jpg,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\20230816_141904.jpg,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\20230816_140559.jpg,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\IMG_0944.JPG,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\IMG_1244.JPG,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\IMG_1215.JPG,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\IMG_1116.JPG,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\20230816_143416.jpg,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\IMG_0367.JPG,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\IMG_1114.JPG,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\20230816_134520.jpg,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\IMG_20230816_142811.jpg,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\20230816_142227.jpg,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\20230816_140041.jpg,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\20230816_142101.jpg,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\20230816_134613.jpg,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\20230815_113821.jpg,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\IMG_0353.JPG,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\IMG_1022.JPG,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\IMG_1213.JPG,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\IMG_0373.JPG,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\IMG_20230815_122824.jpg,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\20230815_122416.jpg,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\20230816_142434.jpg,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\IMG_0349.JPG,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\IMG_1014.JPG,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\20230816_140615.jpg,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\20230815_113516.jpg,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\20230816_141039.jpg,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\20230816_141202.jpg,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\20230816_142749.jpg,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\IMG_0372.JPG,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\IMG_1161.JPG,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\20230816_140652.jpg,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\20230816_141038.jpg,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\IMG_1171.JPG,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\20230815_113920.jpg,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\bacteria\IMG_0941.JPG,non_leaf,java_bacteria
+D:\Potato\_staging\central_java\fungi\20230815_113141.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_20230816_112541.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\20230816_120937.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_9416.JPG,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\20230802_105613.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_9364.JPG,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\20230712_154301.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_20230815_113928~2.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\20230712_153956.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\20230802_111815.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\20230712_120515.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_0628.JPG,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_20230816_122348.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\1692334247315.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_20230816_122345~2 (2).jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\20230816_123051.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\20230802_105804.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\20230802_112205273.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_4783.JPG,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_8159.JPG,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\1692334247584.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\20230712_154837.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_20230815_151853.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_0794.JPG,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\20230816_114201.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\20230712_155729.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_20230816_122017.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\20230815_112230.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\20230802_111032.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\1692335403624.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_0815.JPG,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_8127.JPG,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_20230816_081407.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_8109.JPG,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_0254.JPG,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_20230816_114425.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\20230802_110636.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\1692335403690.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_0704.JPG,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_20230815_114008~2.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_20230816_121600.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_9381.JPG,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\1692332350534.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_20230816_113939~2.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_0401 (1).JPG,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\20230712_154218.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_0140.JPG,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\20230802_113024.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\20230816_140642.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\20230712_115151.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_20230815_112512~2 (2).jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\1692334247713.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_20230816_122029.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_0294.JPG,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_9390.JPG,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\20230816_114407.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_20230816_080308.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_9437.JPG,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_0669.JPG,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_0147.JPG,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\20230802_105838.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\20230712_123544.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_9403.JPG,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_0130.JPG,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_0151.JPG,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_0662.JPG,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_0210.JPG,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_20230815_120708~2.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\20230712_120442.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_20230815_153643~2.jpg,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_8220.JPG,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_0790.JPG,non_leaf,java_fungi
+D:\Potato\_staging\central_java\fungi\IMG_4703.JPG,non_leaf,java_fungi
+D:\Potato\_staging\central_java\healthy\IMG_1253.JPG,healthy,java_healthy
+D:\Potato\_staging\central_java\healthy\20230802_123219828.jpg,healthy,java_healthy
+D:\Potato\_staging\central_java\healthy\20230802_124914.jpg,healthy,java_healthy
+D:\Potato\_staging\central_java\healthy\20230712_130756.jpg,healthy,java_healthy
+D:\Potato\_staging\central_java\healthy\IMG_20230815_114456~2.jpg,healthy,java_healthy
+D:\Potato\_staging\central_java\healthy\20230922_154218.jpg,healthy,java_healthy
+D:\Potato\_staging\central_java\healthy\20230712_123836.jpg,healthy,java_healthy
+D:\Potato\_staging\central_java\healthy\20230802_124215.jpg,healthy,java_healthy
+D:\Potato\_staging\central_java\healthy\20230712_130800.jpg,healthy,java_healthy
+D:\Potato\_staging\central_java\healthy\20230922_154252.jpg,healthy,java_healthy
+D:\Potato\_staging\central_java\healthy\IMG_20230815_112958~2.jpg,healthy,java_healthy
+D:\Potato\_staging\central_java\healthy\IMG_8204.JPG,healthy,java_healthy
+D:\Potato\_staging\central_java\healthy\20230802_113050671.jpg,healthy,java_healthy
+D:\Potato\_staging\central_java\healthy\20230802_115936805.jpg,healthy,java_healthy
+D:\Potato\_staging\central_java\healthy\20230815_115651.jpg,healthy,java_healthy
+D:\Potato\_staging\central_java\healthy\IMG_20230815_152320.jpg,healthy,java_healthy
+D:\Potato\_staging\central_java\healthy\20230922_154044.jpg,healthy,java_healthy
+D:\Potato\_staging\central_java\healthy\20230712_123935.jpg,healthy,java_healthy
+D:\Potato\_staging\central_java\healthy\20230802_124213.jpg,healthy,java_healthy
+D:\Potato\_staging\central_java\healthy\20230712_122751.jpg,healthy,java_healthy
+D:\Potato\_staging\central_java\nematode\IMG_8338.JPG,non_leaf,java_nematode
+D:\Potato\_staging\central_java\nematode\IMG_20230816_121904~2.jpg,non_leaf,java_nematode
+D:\Potato\_staging\central_java\nematode\IMG_0156.JPG,non_leaf,java_nematode
+D:\Potato\_staging\central_java\nematode\IMG_0193.JPG,non_leaf,java_nematode
+D:\Potato\_staging\central_java\nematode\IMG_0192.JPG,non_leaf,java_nematode
+D:\Potato\_staging\central_java\nematode\20230712_122808.jpg,non_leaf,java_nematode
+D:\Potato\_staging\central_java\pest\IMG_0350.JPG,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\IMG_0349 - Copy.JPG,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\IMG_20230816_140126.jpg,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\20230802_115351.jpg,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\1692338650304.jpg,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\IMG_0838.JPG,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\IMG_0323.JPG,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\IMG_0334.JPG,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\20230802_125430.jpg,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\20230712_122034.jpg,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\20230802_104846805.jpg,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\1692338650582.jpg,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\IMG_20230816_135810~2.jpg,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\20230802_112805894.jpg,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\1692336759166.jpg,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\20230802_115546172.jpg,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\IMG_4743.JPG,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\IMG_0325.JPG,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\IMG_20230816_114257.jpg,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\20230712_122835.jpg,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\20230712_115559.jpg,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\20230922_163528.jpg,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\IMG_20230816_135235.jpg,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\IMG_0299.JPG,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\20230712_114353.jpg,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\IMG_20230816_140106.jpg,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\IMG_0296.JPG,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\IMG_20230816_140018.jpg,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\20230802_115710981.jpg,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\IMG_20230816_134630.jpg,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\IMG_20230816_140103.jpg,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\IMG_0190.JPG,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\IMG_0123 (1).JPG,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\IMG_0221.JPG,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\20230712_124120.jpg,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\20230712_144204.jpg,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\IMG_0214.JPG,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\20230922_163841.jpg,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\IMG_8141.JPG,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\20230802_115910618.jpg,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\IMG_20230816_135045.jpg,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\20230712_123408.jpg,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\IMG_20230816_134543.jpg,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\20230712_124214.jpg,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\20230922_163458.jpg,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\IMG_4760.JPG,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\IMG_9551.JPG,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\IMG_20230816_143028~2.jpg,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\IMG_20230816_142948.jpg,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\20230802_120043567.jpg,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\IMG_0272.JPG,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\IMG_0862.JPG,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\IMG_20230816_135850~2.jpg,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\IMG_20230815_115520~2.jpg,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\IMG_20230816_135708~2.jpg,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\IMG_0335.JPG,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\20230712_160248.jpg,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\20230922_163520.jpg,non_leaf,java_pest
+D:\Potato\_staging\central_java\pest\IMG_0228.JPG,non_leaf,java_pest
+D:\Potato\_staging\central_java\phytophthora\IMG_0404.JPG,late_blight,java_phytophthora
+D:\Potato\_staging\central_java\phytophthora\IMG_9402.JPG,late_blight,java_phytophthora
+D:\Potato\_staging\central_java\phytophthora\IMG_0329 - Copy.JPG,late_blight,java_phytophthora
+D:\Potato\_staging\central_java\phytophthora\20230802_124505.jpg,late_blight,java_phytophthora
+D:\Potato\_staging\central_java\phytophthora\20230802_124316.jpg,late_blight,java_phytophthora
+D:\Potato\_staging\central_java\phytophthora\IMG_9464 (1).JPG,late_blight,java_phytophthora
+D:\Potato\_staging\central_java\phytophthora\20230802_124756.jpg,late_blight,java_phytophthora
+D:\Potato\_staging\central_java\phytophthora\IMG_8145.JPG,late_blight,java_phytophthora
+D:\Potato\_staging\central_java\phytophthora\20230802_123451.jpg,late_blight,java_phytophthora
+D:\Potato\_staging\central_java\phytophthora\20230802_123816600.jpg,late_blight,java_phytophthora
+D:\Potato\_staging\central_java\phytophthora\20230802_123635614.jpg,late_blight,java_phytophthora
+D:\Potato\_staging\central_java\phytophthora\IMG_0356.JPG,late_blight,java_phytophthora
+D:\Potato\_staging\central_java\phytophthora\IMG_9439 (1).JPG,late_blight,java_phytophthora
+D:\Potato\_staging\central_java\phytophthora\IMG_0818.JPG,late_blight,java_phytophthora
+D:\Potato\_staging\central_java\phytophthora\IMG_9430 (1).JPG,late_blight,java_phytophthora
+D:\Potato\_staging\central_java\phytophthora\20230802_123643.jpg,late_blight,java_phytophthora
+D:\Potato\_staging\central_java\phytophthora\20230802_125551.jpg,late_blight,java_phytophthora
+D:\Potato\_staging\central_java\phytophthora\20230802_124958342.jpg,late_blight,java_phytophthora
+D:\Potato\_staging\central_java\phytophthora\IMG_9506 (1).JPG,late_blight,java_phytophthora
+D:\Potato\_staging\central_java\phytophthora\IMG_20230816_122433.jpg,late_blight,java_phytophthora
+D:\Potato\_staging\central_java\phytophthora\IMG_9514 (1).JPG,late_blight,java_phytophthora
+D:\Potato\_staging\central_java\phytophthora\IMG_0387.JPG,late_blight,java_phytophthora
+D:\Potato\_staging\central_java\phytophthora\IMG_0365.JPG,late_blight,java_phytophthora
+D:\Potato\_staging\central_java\phytophthora\IMG_20230815_151502.jpg,late_blight,java_phytophthora
+D:\Potato\_staging\central_java\phytophthora\20230802_124350.jpg,late_blight,java_phytophthora
+D:\Potato\_staging\central_java\phytophthora\IMG_4693.JPG,late_blight,java_phytophthora
+D:\Potato\_staging\central_java\phytophthora\20230802_124004.jpg,late_blight,java_phytophthora
+D:\Potato\_staging\central_java\phytophthora\20230802_125005.jpg,late_blight,java_phytophthora
+D:\Potato\_staging\central_java\phytophthora\20230802_125012171.jpg,late_blight,java_phytophthora
+D:\Potato\_staging\central_java\phytophthora\IMG_0361.JPG,late_blight,java_phytophthora
+D:\Potato\_staging\central_java\phytophthora\IMG_0261 - Copy (1).JPG,late_blight,java_phytophthora
+D:\Potato\_staging\central_java\virus\IMG_0482.JPG,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\20230815_144859.jpg,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\IMG_0274.JPG,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\20230816_114959.jpg,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\20230816_113726.jpg,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\20230816_112938.jpg,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\20230802_120000.jpg,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\20230816_113207.jpg,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\IMG_0703.JPG,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\20230815_150441.jpg,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\20230815_152957.jpg,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\IMG_0819.JPG,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\20230815_145104.jpg,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\20230816_145815.jpg,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\IMG_0407.JPG,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\20230815_115129.jpg,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\20230815_122405.jpg,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\20230815_112801.jpg,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\20230816_145813.jpg,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\20230802_120721.jpg,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\IMG_1222.JPG,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\20230802_130014.jpg,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\20230815_114241.jpg,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\IMG_1122.JPG,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\IMG_20230815_151108.jpg,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\IMG_0788.JPG,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\20230816_114318.jpg,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\IMG_0468.JPG,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\IMG_0483.JPG,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\IMG_0813.JPG,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\20230816_123055.jpg,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\IMG_8256.JPG,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\20230815_150557.jpg,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\IMG_8206.JPG,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\20230922_155857.jpg,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\20230815_150510.jpg,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\IMG_0514.JPG,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\20230816_145819.jpg,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\20230712_132441.jpg,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\IMG_8260.JPG,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\IMG_0840.JPG,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\1692338650371.jpg,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\20230712_133208.jpg,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\IMG_8194.JPG,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\IMG_20230816_115306~2.jpg,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\20230815_112519.jpg,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\IMG_0619.JPG,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\IMG_1125.JPG,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\IMG_9528.JPG,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\20230816_114355.jpg,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\20230712_132641.jpg,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\20230815_151048.jpg,non_leaf,java_virus
+D:\Potato\_staging\central_java\virus\20230815_112631.jpg,non_leaf,java_virus
+D:\Potato\_staging\plantdoc\train\Apple leaf\stock-photo-one-green-leaf-of-apple-tree-isolated-on-white-background-close-up-studio-photography-102522179.jpg,non_leaf,plantdoc_Apple leaf
+D:\Potato\_staging\plantdoc\train\Bell_pepper leaf spot\pepper-plant-leaves-turning-yellow-plants-turning-yellow-pepper-plant-leaves-turning-yellow-with-brown-spots.jpg,non_leaf,plantdoc_Bell_pepper leaf spot
+D:\Potato\_staging\plantdoc\train\Tomato leaf bacterial spot\photo-1.jpg,non_leaf,plantdoc_Tomato leaf bacterial spot
+D:\Potato\_staging\plantdoc\train\Tomato leaf mosaic virus\image018.jpg,non_leaf,plantdoc_Tomato leaf mosaic virus
+D:\Potato\_staging\plantdoc\train\Tomato leaf yellow virus\tomato-yellow-leaf-curl-virus-tylcv_950983.jpg,non_leaf,plantdoc_Tomato leaf yellow virus
+D:\Potato\_staging\plantdoc\train\Tomato mold leaf\tomato_leaf-mold_03_zoom.jpg,non_leaf,plantdoc_Tomato mold leaf
+D:\Potato\non_leaf_v2\animals_people\oi_bb1c310d4f8e9dc1.jpg,non_leaf,v2_animals_people
+D:\Potato\non_leaf_v2\animals_people\oi_3afefeea4a39a40e.jpg,non_leaf,v2_animals_people
+D:\Potato\non_leaf_v2\animals_people\oi_da5a1538a85d511d.jpg,non_leaf,v2_animals_people
+D:\Potato\non_leaf_v2\animals_people\oi_60d5e69171bc638f.jpg,non_leaf,v2_animals_people
+D:\Potato\non_leaf_v2\animals_people\oi_8420d1abf1491bbf.jpg,non_leaf,v2_animals_people
+D:\Potato\non_leaf_v2\animals_people\oi_2a917f5543c4a006.jpg,non_leaf,v2_animals_people
+D:\Potato\non_leaf_v2\animals_people\oi_c3ad11c68df30a8a.jpg,non_leaf,v2_animals_people
+D:\Potato\non_leaf_v2\animals_people\oi_b683212ec3bf1e9c.jpg,non_leaf,v2_animals_people
+D:\Potato\non_leaf_v2\animals_people\oi_f9ef63d48323a3f9.jpg,non_leaf,v2_animals_people
+D:\Potato\non_leaf_v2\animals_people\oi_a9f727a79d06c5d1.jpg,non_leaf,v2_animals_people
+D:\Potato\non_leaf_v2\animals_people\oi_a07d5cc6a2347455.jpg,non_leaf,v2_animals_people
+D:\Potato\non_leaf_v2\animals_people\oi_0da1561a47e023fb.jpg,non_leaf,v2_animals_people
+D:\Potato\non_leaf_v2\animals_people\oi_1dc738de77094043.jpg,non_leaf,v2_animals_people
+D:\Potato\non_leaf_v2\animals_people\oi_cce1aaab3474a97c.jpg,non_leaf,v2_animals_people
+D:\Potato\non_leaf_v2\animals_people\oi_bf2eeef15f0be547.jpg,non_leaf,v2_animals_people
+D:\Potato\non_leaf_v2\animals_people\oi_1c18a024c311ac30.jpg,non_leaf,v2_animals_people
+D:\Potato\non_leaf_v2\animals_people\oi_e369c7602ca0b2dc.jpg,non_leaf,v2_animals_people
+D:\Potato\non_leaf_v2\animals_people\oi_6d2df24e597e5e06.jpg,non_leaf,v2_animals_people
+D:\Potato\non_leaf_v2\animals_people\oi_1cbe5ba5232e46b8.jpg,non_leaf,v2_animals_people
+D:\Potato\non_leaf_v2\animals_people\oi_4bd2763af65645fe.jpg,non_leaf,v2_animals_people
+D:\Potato\non_leaf_v2\animals_people\oi_679cf9858012f24d.jpg,non_leaf,v2_animals_people
+D:\Potato\non_leaf_v2\animals_people\oi_4e63eb9da7b12fff.jpg,non_leaf,v2_animals_people
+D:\Potato\non_leaf_v2\animals_people\oi_ee02186d247e87bd.jpg,non_leaf,v2_animals_people
+D:\Potato\non_leaf_v2\animals_people\oi_13a8e5b0761fe254.jpg,non_leaf,v2_animals_people
+D:\Potato\non_leaf_v2\animals_people\oi_dd699ea85a293133.jpg,non_leaf,v2_animals_people
+D:\Potato\non_leaf_v2\animals_people\oi_1092eff4667bb31c.jpg,non_leaf,v2_animals_people
+D:\Potato\non_leaf_v2\animals_people\oi_6dbfe63e67b2f17d.jpg,non_leaf,v2_animals_people
+D:\Potato\non_leaf_v2\animals_people\oi_3e2ede42bf6c9a2f.jpg,non_leaf,v2_animals_people
+D:\Potato\non_leaf_v2\animals_people\oi_0de2bc45e6e222cb.jpg,non_leaf,v2_animals_people
+D:\Potato\non_leaf_v2\animals_people\oi_925efad59807469b.jpg,non_leaf,v2_animals_people
+D:\Potato\non_leaf_v2\animals_people\oi_1b3b37d766cbd348.jpg,non_leaf,v2_animals_people
+D:\Potato\non_leaf_v2\animals_people\oi_d28cd817588a099f.jpg,non_leaf,v2_animals_people
+D:\Potato\non_leaf_v2\animals_people\oi_79c0df14545e1cb5.jpg,non_leaf,v2_animals_people
+D:\Potato\non_leaf_v2\animals_people\oi_1876e650330582e3.jpg,non_leaf,v2_animals_people
+D:\Potato\non_leaf_v2\animals_people\oi_5f02da1efefa1408.jpg,non_leaf,v2_animals_people
+D:\Potato\non_leaf_v2\animals_people\oi_d321c34e244d07a0.jpg,non_leaf,v2_animals_people
+D:\Potato\non_leaf_v2\animals_people\oi_fc479df7cd149556.jpg,non_leaf,v2_animals_people
+D:\Potato\non_leaf_v2\animals_people\oi_011993e395696b60.jpg,non_leaf,v2_animals_people
+D:\Potato\non_leaf_v2\animals_people\oi_84f7f7dc841d12c8.jpg,non_leaf,v2_animals_people
+D:\Potato\non_leaf_v2\animals_people\oi_ce079e1ff479f0d7.jpg,non_leaf,v2_animals_people
+D:\Potato\non_leaf_v2\animals_people\oi_9cb2fe765424a03b.jpg,non_leaf,v2_animals_people
+D:\Potato\non_leaf_v2\other_crops\oi_649e8e75a8a3b819.jpg,non_leaf,v2_other_crops
+D:\Potato\non_leaf_v2\other_crops\oi_2513bda2d1ce200c.jpg,non_leaf,v2_other_crops
+D:\Potato\non_leaf_v2\other_crops\oi_1523f15b50285e62.jpg,non_leaf,v2_other_crops
+D:\Potato\non_leaf_v2\other_crops\oi_99373b31b430d649.jpg,non_leaf,v2_other_crops
+D:\Potato\non_leaf_v2\other_crops\oi_b1135cc62356f639.jpg,non_leaf,v2_other_crops
+D:\Potato\non_leaf_v2\other_crops\oi_839f57fb89084768.jpg,non_leaf,v2_other_crops
+D:\Potato\non_leaf_v2\other_crops\oi_9b4adbb6d2ca2618.jpg,non_leaf,v2_other_crops
+D:\Potato\non_leaf_v2\other_crops\oi_6ddf2fdeb6cc01cc.jpg,non_leaf,v2_other_crops
+D:\Potato\non_leaf_v2\other_crops\oi_dea74b6d5c542db2.jpg,non_leaf,v2_other_crops
+D:\Potato\non_leaf_v2\phone_random\oi_5617e46b9bc9fa5f.jpg,non_leaf,v2_phone_random
+D:\Potato\non_leaf_v2\phone_random\oi_99cb2383b20a232c.jpg,non_leaf,v2_phone_random
+D:\Potato\non_leaf_v2\phone_random\oi_44960f52640e622c.jpg,non_leaf,v2_phone_random
+D:\Potato\non_leaf_v2\phone_random\oi_7b72ee136670b943.jpg,non_leaf,v2_phone_random
+D:\Potato\non_leaf_v2\phone_random\oi_e10d16382c33c100.jpg,non_leaf,v2_phone_random
+D:\Potato\non_leaf_v2\phone_random\oi_d26267db2fce4cbd.jpg,non_leaf,v2_phone_random
+D:\Potato\non_leaf_v2\phone_random\oi_43112da20ed9c8db.jpg,non_leaf,v2_phone_random
+D:\Potato\non_leaf_v2\phone_random\oi_3c82ae8f86dc189f.jpg,non_leaf,v2_phone_random
+D:\Potato\non_leaf_v2\phone_random\oi_85e55581b891a349.jpg,non_leaf,v2_phone_random
+D:\Potato\non_leaf_v2\phone_random\oi_717f384e2f779fde.jpg,non_leaf,v2_phone_random
+D:\Potato\non_leaf_v2\phone_random\oi_8faacc6e3e8f1dc2.jpg,non_leaf,v2_phone_random
+D:\Potato\non_leaf_v2\phone_random\oi_30dc7aa4911b2289.jpg,non_leaf,v2_phone_random
+D:\Potato\non_leaf_v2\phone_random\oi_af9e7ef9939ceb76.jpg,non_leaf,v2_phone_random
+D:\Potato\non_leaf_v2\phone_random\oi_a32d9c71faeadd8e.jpg,non_leaf,v2_phone_random
+D:\Potato\non_leaf_v2\phone_random\oi_23fcd46021ce1da9.jpg,non_leaf,v2_phone_random
+D:\Potato\non_leaf_v2\soil_ground\we3ds_img_02256.png,non_leaf,v2_soil_ground
+D:\Potato\non_leaf_v2\soil_ground\we3ds_img_01432.png,non_leaf,v2_soil_ground
+D:\Potato\non_leaf_v2\soil_ground\we3ds_img_00344.png,non_leaf,v2_soil_ground
+D:\Potato\non_leaf_v2\soil_ground\we3ds_img_00392.png,non_leaf,v2_soil_ground
+D:\Potato\non_leaf_v2\soil_ground\we3ds_img_00624.png,non_leaf,v2_soil_ground
+D:\Potato\non_leaf_v2\soil_ground\we3ds_img_00248.png,non_leaf,v2_soil_ground
+D:\Potato\non_leaf_v2\soil_ground\we3ds_img_02344.png,non_leaf,v2_soil_ground
+D:\Potato\non_leaf_v2\soil_ground\we3ds_img_01120.png,non_leaf,v2_soil_ground
+D:\Potato\non_leaf_v2\soil_ground\we3ds_img_00936.png,non_leaf,v2_soil_ground
+D:\Potato\non_leaf_v2\soil_ground\we3ds_img_02408.png,non_leaf,v2_soil_ground
+D:\Potato\non_leaf_v2\soil_ground\we3ds_img_01936.png,non_leaf,v2_soil_ground
+D:\Potato\non_leaf_v2\soil_ground\we3ds_img_01824.png,non_leaf,v2_soil_ground
+D:\Potato\non_leaf_v2\soil_ground\we3ds_img_01096.png,non_leaf,v2_soil_ground
+D:\Potato\non_leaf_v2\soil_ground\we3ds_img_00176.png,non_leaf,v2_soil_ground
+D:\Potato\non_leaf_v2\soil_ground\we3ds_img_01856.png,non_leaf,v2_soil_ground
+D:\Potato\non_leaf_v2\soil_ground\we3ds_img_00768.png,non_leaf,v2_soil_ground
+D:\Potato\non_leaf_v2\soil_ground\we3ds_img_02456.png,non_leaf,v2_soil_ground
+D:\Potato\non_leaf_v2\soil_ground\we3ds_img_01584.png,non_leaf,v2_soil_ground
+D:\Potato\non_leaf_v2\soil_ground\we3ds_img_01536.png,non_leaf,v2_soil_ground
+D:\Potato\non_leaf_v2\soil_ground\we3ds_img_00760.png,non_leaf,v2_soil_ground
+D:\Potato\non_leaf_v2\soil_ground\we3ds_img_01608.png,non_leaf,v2_soil_ground
+D:\Potato\non_leaf_v2\soil_ground\we3ds_img_02264.png,non_leaf,v2_soil_ground
+D:\Potato\non_leaf_v2\soil_ground\we3ds_img_00368.png,non_leaf,v2_soil_ground
+D:\Potato\non_leaf_v2\soil_ground\we3ds_img_01104.png,non_leaf,v2_soil_ground
+D:\Potato\non_leaf_v2\soil_ground\we3ds_img_02032.png,non_leaf,v2_soil_ground
+D:\Potato\non_leaf_v2\soil_ground\we3ds_img_01960.png,non_leaf,v2_soil_ground
+D:\Potato\non_leaf_v2\soil_ground\we3ds_img_01648.png,non_leaf,v2_soil_ground
+D:\Potato\non_leaf_v2\soil_ground\we3ds_img_01280.png,non_leaf,v2_soil_ground
+D:\Potato\non_leaf_v2\soil_ground\we3ds_img_00472.png,non_leaf,v2_soil_ground
+D:\Potato\non_leaf_v2\soil_ground\we3ds_img_01968.png,non_leaf,v2_soil_ground
+D:\Potato\non_leaf_v2\soil_ground\we3ds_img_00328.png,non_leaf,v2_soil_ground

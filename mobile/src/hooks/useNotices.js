@@ -8,8 +8,7 @@
 //   POST /notices/read-all     auth   -> {marked, unread}
 // The list is public — anonymous callers simply get no read flags.
 import { useCallback, useEffect, useRef, useState } from "react";
-import axios from "axios";
-import { API_BASE } from "./useApi";
+import { apiGet, apiPost } from "./useApi";
 
 export const NOTICE_CATEGORIES = ["update", "announcement", "crop_alert", "new_product", "medicine"];
 
@@ -45,7 +44,7 @@ export function useNotices(token) {
     async ({ silent = false } = {}) => {
       if (!silent) setRefreshing(true);
       try {
-        const res = await axios.get(`${API_BASE}/notices`, {
+        const res = await apiGet("/notices", {
           headers: authHeaders(token),
           timeout: LIST_TIMEOUT_MS,
         });
@@ -82,8 +81,8 @@ export function useNotices(token) {
       );
       setUnread((prev) => Math.max(0, prev - 1));
       try {
-        const res = await axios.post(
-          `${API_BASE}/notices/${noticeId}/read`,
+        const res = await apiPost(
+          `/notices/${noticeId}/read`,
           null,
           { headers: authHeaders(token), timeout: LIST_TIMEOUT_MS }
         );
@@ -112,8 +111,8 @@ export function useNotices(token) {
     setItems((prev) => prev.map((n) => ({ ...n, read: true })));
     setUnread(0);
     try {
-      const res = await axios.post(
-        `${API_BASE}/notices/read-all`,
+      const res = await apiPost(
+        "/notices/read-all",
         null,
         { headers: authHeaders(token), timeout: LIST_TIMEOUT_MS }
       );

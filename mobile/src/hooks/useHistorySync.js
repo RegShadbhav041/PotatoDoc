@@ -2,7 +2,7 @@
 // copy is unioned in at sign-in and pushed back up afterwards.
 import { useCallback, useEffect, useRef } from "react";
 import axios from "axios";
-import { API_BASE, uploadAuthed } from "./useApi";
+import { API_BASE, apiDelete, apiGet, apiPut, uploadAuthed } from "./useApi";
 import {
   mergeHistory,
   historyEquals,
@@ -38,8 +38,8 @@ export function useHistorySync({
     if (!Array.isArray(items) || items.length === 0) return false;
     inFlightRef.current = true;
     try {
-      await axios.put(
-        `${API_BASE}/history`,
+      await apiPut(
+        "/history",
         { items: items.slice(0, MAX_HISTORY_ITEMS).map(stripLocalKeys) },
         { headers: { Authorization: `Bearer ${current}` }, timeout: 20000 }
       );
@@ -123,7 +123,7 @@ export function useHistorySync({
 
     (async () => {
       try {
-        const res = await axios.get(`${API_BASE}/history`, {
+        const res = await apiGet("/history", {
           headers: { Authorization: `Bearer ${token}` },
           timeout: 20000,
         });
@@ -150,7 +150,7 @@ export function useHistorySync({
 export async function deleteServerHistory(token) {
   if (!token) return;
   try {
-    await axios.delete(`${API_BASE}/history`, {
+    await apiDelete("/history", {
       headers: { Authorization: `Bearer ${token}` },
       timeout: 20000,
     });
