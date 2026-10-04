@@ -5,7 +5,11 @@
 // Photo source: the local file when it still exists on this device, else the
 // server copy the sync uploaded (GET /history/{id}/photo) — merged entries
 // from another device have no imageUri but do have has_photo.
-import React, { useEffect, useMemo, useState } from "react";
+//
+// Layout: the sheet is a fixed-height column (max 92%) whose middle child is
+// the only scrollable region. Share sits in a pinned footer OUTSIDE that
+// region, so it can never be scrolled out of reach or clipped by the sheet.
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import {
   Image,
   Modal,
@@ -18,8 +22,11 @@ import {
 import { Text } from "react-native-paper";
 import { MaterialIcons } from "@expo/vector-icons";
 import axios from "axios";
+import { captureRef } from "react-native-view-shot";
+import * as Sharing from "expo-sharing";
 import { API_BASE } from "../hooks/useApi";
 import PredictionResult from "./PredictionResult";
+import ShareReportCard from "./ShareReportCard";
 import { useColors } from "../theme";
 import { useT } from "../i18n";
 import { relativeTime } from "../utils/relativeTime";
@@ -37,7 +44,7 @@ function formatCoords(loc) {
   return parts.join(" ");
 }
 
-/** Plain-text report for the OS share sheet (works without images). */
+/** Plain-text report — the fallback when the OS can't take an image share. */
 function buildReport(item, t, where) {
   const lines = [
     "PotatoDoc — Diagnosis Report",
@@ -57,6 +64,53 @@ function buildReport(item, t, where) {
   return lines.join("\n");
 }
 
+/**
+ * Local file if it is still on this device, otherwise the server copy the
+ * sync uploaded. Shared by the sheet's preview and the offscreen share card
+ * so the same bytes are fetched once and cached by RN's image cache.
+ */
+function usePhotoUri(item, token) {
+  const [uri, setUri] = useState(item?.imageUri || null);
+  const [missing, setMissing] = useState(false);
+
+  useEffect(() => {
+    let alive = true;
+    setUri(item?.imageUri || null);
+    setMissing(false);
+    if (item?.imageUri) return () => { alive = false; };
+
+    // No local file (merged from another device): pull the server copy.
+    if (item?.has_photo && token && item.id != null) {
+      (async () => {
+        try {
+          const res = await axios.get(
+            `${API_BASE}/history/${encodeURIComponent(item.id)}/photo`,
+            {
+              headers: { Authorization: `Bearer ${token}` },
+              responseType: "arraybuffer",
+              timeout: 20000,
+            }
+          );
+          const bytes = new Uint8Array(res.data);
+          let bin = "";
+          const CHUNK = 0x8000;
+          for (let i = 0; i < bytes.length; i += CHUNK) {
+            bin += String.fromCharCode.apply(null, bytes.subarray(i, i + CHUNK));
+          }
+          if (alive) setUri(`data:image/jpeg;base64,${btoa(bin)}`);
+        } catch (e) {
+          if (alive) setMissing(true);
+        }
+      })();
+    } else {
+      setMissing(true);
+    }
+    return () => { alive = false; };
+  }, [item, token]);
+
+  return { uri, missing };
+}
+
 const makeStyles = (C) =>
   StyleSheet.create({
     backdrop: {
@@ -69,7 +123,8 @@ const makeStyles = (C) =>
       borderTopLeftRadius: 22,
       borderTopRightRadius: 22,
       maxHeight: "92%",
-      paddingBottom: 20,
+      overflow: "hidden",
+      flexDirection: "column",
     },
     grab: {
       alignSelf: "center",
@@ -98,6 +153,10 @@ const makeStyles = (C) =>
       alignItems: "center",
       justifyContent: "center",
     },
+    // The ONLY scrollable region: shrinks when the sheet hits its 92% cap,
+    // otherwise takes its natural height.
+    scroll: { flexShrink: 1 },
+    scrollContent: { paddingBottom: 12 },
     photoWrap: { alignItems: "center", marginBottom: 4 },
     photo: { width: 200, height: 200, borderRadius: 14 },
     photoMissing: {
@@ -124,6 +183,15 @@ const makeStyles = (C) =>
     metaRow: { flexDirection: "row", alignItems: "center", gap: 8 },
     metaText: { flex: 1, fontSize: 13, fontWeight: "600", color: C.ink },
     metaMuted: { fontSize: 12, fontWeight: "500", color: C.gray },
+    // Pinned footer — outside the ScrollView, so it is always reachable.
+    footer: {
+      borderTopWidth: StyleSheet.hairlineWidth,
+      borderTopColor: C.cardBorder,
+      backgroundColor: C.page,
+      paddingHorizontal: 16,
+      paddingTop: 10,
+      paddingBottom: 18,
+    },
     shareBtn: {
       flexDirection: "row",
       alignItems: "center",
@@ -131,55 +199,16 @@ const makeStyles = (C) =>
       gap: 8,
       backgroundColor: C.primary,
       borderRadius: 14,
-      marginHorizontal: 16,
       paddingVertical: 13,
-      marginTop: 4,
     },
     shareText: { color: "#FFFFFF", fontSize: 15, fontWeight: "800" },
-    // PredictionResult renders its own Paper card — trim its outer margin so
-    // it sits flush inside the sheet.
-    result: { marginTop: 0, marginBottom: 8 },
+    // Capture target for the share image: laid out offscreen so it never
+    // appears in the UI. captureRef draws the view itself (parent clipping
+    // does not apply), so this is safe on both platforms.
+    offscreen: { position: "absolute", left: -100000, top: 0 },
   });
 
-function Photo({ item, token, s, C, t }) {
-  const [uri, setUri] = useState(item.imageUri || null);
-  const [missing, setMissing] = useState(false);
-
-  useEffect(() => {
-    let alive = true;
-    setUri(item.imageUri || null);
-    setMissing(false);
-    // No local file (merged from another device): pull the server copy.
-    if (!item.imageUri && item.has_photo && token && item.id != null) {
-      (async () => {
-        try {
-          const res = await axios.get(
-            `${API_BASE}/history/${encodeURIComponent(item.id)}/photo`,
-            {
-              headers: { Authorization: `Bearer ${token}` },
-              responseType: "arraybuffer",
-              timeout: 20000,
-            }
-          );
-          const bytes = new Uint8Array(res.data);
-          let bin = "";
-          const CHUNK = 0x8000;
-          for (let i = 0; i < bytes.length; i += CHUNK) {
-            bin += String.fromCharCode.apply(null, bytes.subarray(i, i + CHUNK));
-          }
-          if (alive) setUri(`data:image/jpeg;base64,${btoa(bin)}`);
-        } catch (e) {
-          if (alive) setMissing(true);
-        }
-      })();
-    } else if (!item.imageUri) {
-      setMissing(true);
-    }
-    return () => {
-      alive = false;
-    };
-  }, [item, token]);
-
+function Photo({ uri, missing, s, C, t }) {
   if (uri) {
     return (
       <View style={s.photoWrap}>
@@ -204,6 +233,9 @@ export default function HistoryDetailModal({ item, visible, onClose, token }) {
   const C = useColors();
   const t = useT();
   const s = useMemo(() => makeStyles(C), [C]);
+  const cardRef = useRef(null);
+  const { uri: photoUri, missing } = usePhotoUri(item, token);
+  const [sharing, setSharing] = useState(false);
 
   const where =
     item && item.location
@@ -211,11 +243,35 @@ export default function HistoryDetailModal({ item, visible, onClose, token }) {
       : "";
 
   const onShare = async () => {
-    if (!item) return;
+    if (!item || sharing) return;
+    setSharing(true);
     try {
+      // 1. Preferred: a branded PNG of the report.
+      try {
+        // Give the offscreen card's <Image> a beat to decode before capture.
+        await new Promise((r) => setTimeout(r, 350));
+        const uri = await captureRef(cardRef, {
+          format: "png",
+          quality: 1,
+          result: "tmpfile",
+        });
+        if (uri && (await Sharing.isAvailableAsync())) {
+          await Sharing.shareAsync(uri, {
+            mimeType: "image/png",
+            dialogTitle: t("Share report"),
+            UTI: "public.png",
+          });
+          return;
+        }
+      } catch (e) {
+        console.warn("image share failed", e?.message);
+      }
+      // 2. Fallback: the plain-text report — always works.
       await Share.share({ message: buildReport(item, t, where) });
     } catch (e) {
       console.warn("share failed", e?.message);
+    } finally {
+      setSharing(false);
     }
   };
 
@@ -233,10 +289,8 @@ export default function HistoryDetailModal({ item, visible, onClose, token }) {
             </Pressable>
           </View>
 
-          {/* flexShrink lets the scroll area fit the 92%-max sheet instead of
-              growing to full content height (which clipped it and killed scroll). */}
-          <ScrollView style={{ flexShrink: 1 }}>
-            <Photo item={item} token={token} s={s} C={C} t={t} />
+          <ScrollView style={s.scroll} contentContainerStyle={s.scrollContent}>
+            <Photo uri={photoUri} missing={missing} s={s} C={C} t={t} />
 
             <View style={s.metaCard}>
               <View style={s.metaRow}>
@@ -265,15 +319,32 @@ export default function HistoryDetailModal({ item, visible, onClose, token }) {
               heatmap={null}
               ensembleHeatmaps={null}
             />
-
-            <Pressable style={s.shareBtn} onPress={onShare}>
-              <MaterialIcons name="share" size={18} color="#FFFFFF" />
-              <Text style={s.shareText}>{t("Share report")}</Text>
-            </Pressable>
-            <View style={{ height: 8 }} />
           </ScrollView>
+
+          {/* Pinned footer: reachable no matter how long the report is. */}
+          <View style={s.footer}>
+            <Pressable
+              style={[s.shareBtn, sharing && { opacity: 0.6 }]}
+              onPress={onShare}
+              disabled={sharing}
+            >
+              <MaterialIcons name="share" size={18} color="#FFFFFF" />
+              <Text style={s.shareText}>
+                {sharing ? t("Sharing…") : t("Share report")}
+              </Text>
+            </Pressable>
+          </View>
         </Pressable>
       </Pressable>
+
+      {/* Offscreen capture target for the share image. */}
+      {visible ? (
+        <View style={s.offscreen} pointerEvents="none">
+          <View ref={cardRef} collapsable={false}>
+            <ShareReportCard item={item} where={where} photoUri={photoUri} />
+          </View>
+        </View>
+      ) : null}
     </Modal>
   );
 }

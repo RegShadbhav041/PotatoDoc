@@ -17,8 +17,6 @@ import { useColors, useTheme } from "../theme";
 import { LANGUAGES, useLang, useT } from "../i18n";
 import * as ImagePicker from "expo-image-picker";
 import { authErrorMessage } from "../hooks/useAuth";
-import LocationTaggerPanel from "../components/LocationTaggerPanel";
-
 // Layout follows the designer's "profile" + "profile dark mode" mockups
 // (2026-10-01); the palette decides which one you see.
 const makeStyles = (C) =>
@@ -463,7 +461,6 @@ export default function ProfileScreen({
   onSaveProfile,
   onUploadPhoto,
   onRemovePhoto,
-  locationTag = null,
 }) {
   const C = useColors();
   const t = useT();
@@ -473,7 +470,6 @@ export default function ProfileScreen({
 
   const [notifications, setNotifications] = useState(true);
   const [editing, setEditing] = useState(false);
-  const [taggerOpen, setTaggerOpen] = useState(false);
   const [saving, setSaving] = useState(false);
   const [saveError, setSaveError] = useState(null);
   const [photoBusy, setPhotoBusy] = useState(false);
@@ -552,21 +548,6 @@ export default function ProfileScreen({
             )}
           </Pressable>
         </View>
-
-        {/* Field tagging — works without an account, so it sits outside the gate. */}
-        {locationTag && (
-          <Pressable
-            style={[s.row, { marginTop: 4 }]}
-            onPress={() => setTaggerOpen(true)}
-          >
-            <IconTile s={s} C={C} name="gps-fixed" />
-            <View style={s.flex}>
-              <Text style={s.rowLabel}>{t("Field & location settings")}</Text>
-              <Text style={s.rowSub}>{t("GPS auto-tagging and field label")}</Text>
-            </View>
-            <MaterialIcons name="chevron-right" size={20} color={C.gray} />
-          </Pressable>
-        )}
 
         {user ? (
           <>
@@ -695,31 +676,6 @@ export default function ProfileScreen({
         onPickCamera={() => pickAndUpload(true)}
         onRemovePhoto={handleRemovePhoto}
       />
-
-      <Modal
-        visible={taggerOpen}
-        transparent
-        animationType="fade"
-        onRequestClose={() => setTaggerOpen(false)}
-      >
-        <View style={s.modalBackdrop}>
-          <View style={[s.modalCard, { maxHeight: "86%" }]}>
-            <Pressable
-              style={s.modalClose}
-              onPress={() => setTaggerOpen(false)}
-              hitSlop={8}
-            >
-              <MaterialIcons name="close" size={18} color="#12301C" />
-            </Pressable>
-            <Text style={[s.modalTitle, { marginBottom: 14 }]}>
-              {t("Field & location settings")}
-            </Text>
-            <ScrollView showsVerticalScrollIndicator={false}>
-              <LocationTaggerPanel tag={locationTag} />
-            </ScrollView>
-          </View>
-        </View>
-      </Modal>
     </SafeAreaView>
   );
 }

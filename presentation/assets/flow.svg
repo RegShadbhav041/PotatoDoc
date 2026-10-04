@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1720" height="940" viewBox="0 0 1720 940" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0D3B1F"/>
+    </marker>
+    <marker id="ahg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2E9E4F"/>
+    </marker>
+    <linearGradient id="gw" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F4F9F4"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1720" height="940" fill="#FFFFFF"/>
+
+  <!-- lane labels -->
+  <g font-size="15" fill="#9BAEA0" font-weight="bold" letter-spacing="2">
+    <text x="48" y="52">CLIENT</text>
+    <text x="352" y="52">EDGE</text>
+    <text x="648" y="52">BACKEND</text>
+    <text x="1352" y="52">ML PIPELINE</text>
+  </g>
+  <line x1="40" y1="66" x2="1680" y2="66" stroke="#E4EDE6" stroke-width="2"/>
+
+  <!-- ================= client ================= -->
+  <rect x="48" y="120" width="250" height="126" rx="16" fill="url(#gw)" stroke="#0D3B1F" stroke-width="2.5"/>
+  <text x="173" y="158" text-anchor="middle" font-size="19" font-weight="bold" fill="#0D3B1F">React Native app</text>
+  <text x="173" y="184" text-anchor="middle" font-size="14" fill="#4A6152">Android · Expo</text>
+  <text x="173" y="212" text-anchor="middle" font-size="14" fill="#4A6152">camera photo + history</text>
+  <text x="173" y="232" text-anchor="middle" font-size="14" fill="#4A6152">Grad-CAM viewer</text>
+
+  <rect x="48" y="292" width="250" height="96" rx="16" fill="#FFFFFF" stroke="#C9D6CB" stroke-width="2"/>
+  <text x="173" y="330" text-anchor="middle" font-size="18" font-weight="bold" fill="#0D3B1F">Admin console</text>
+  <text x="173" y="356" text-anchor="middle" font-size="14" fill="#4A6152">browser · superadmin</text>
+  <text x="173" y="378" text-anchor="middle" font-size="14" fill="#4A6152">users · notices · tickets</text>
+
+  <!-- ================= edge ================= -->
+  <rect x="352" y="150" width="244" height="150" rx="16" fill="#0D3B1F"/>
+  <text x="474" y="196" text-anchor="middle" font-size="19" font-weight="bold" fill="#FFFFFF">Cloudflare Tunnel</text>
+  <text x="474" y="226" text-anchor="middle" font-size="14" fill="#A8D3B4">named tunnel, no open port</text>
+  <text x="474" y="254" text-anchor="middle" font-size="14" fill="#A8D3B4">terminates HTTPS</text>
+  <text x="474" y="278" text-anchor="middle" font-size="14" fill="#A8D3B4">caches static admin assets</text>
+
+  <!-- ================= backend ================= -->
+  <rect x="648" y="96" width="300" height="560" rx="18" fill="#F2F8F2" stroke="#2E9E4F" stroke-width="2.5"/>
+  <text x="798" y="134" text-anchor="middle" font-size="20" font-weight="bold" fill="#0D3B1F">FastAPI backend</text>
+  <text x="798" y="158" text-anchor="middle" font-size="13.5" fill="#5B7263">app.py · auth.py · admin.py</text>
+
+  <rect x="676" y="176" width="244" height="72" rx="12" fill="#FFFFFF" stroke="#C9D6CB" stroke-width="1.8"/>
+  <text x="798" y="205" text-anchor="middle" font-size="15.5" font-weight="bold" fill="#0D3B1F">JWT auth</text>
+  <text x="798" y="228" text-anchor="middle" font-size="13" fill="#4A6152">require_user · require_superadmin</text>
+
+  <rect x="676" y="264" width="244" height="72" rx="12" fill="#FFFFFF" stroke="#C9D6CB" stroke-width="1.8"/>
+  <text x="798" y="293" text-anchor="middle" font-size="15.5" font-weight="bold" fill="#0D3B1F">/predict</text>
+  <text x="798" y="316" text-anchor="middle" font-size="13" fill="#4A6152">multipart photo in, JSON out</text>
+
+  <rect x="676" y="352" width="244" height="72" rx="12" fill="#FFFFFF" stroke="#C9D6CB" stroke-width="1.8"/>
+  <text x="798" y="381" text-anchor="middle" font-size="15.5" font-weight="bold" fill="#0D3B1F">Static admin UI</text>
+  <text x="798" y="404" text-anchor="middle" font-size="13" fill="#4A6152">HTML · CSS · JS from disk</text>
+
+  <rect x="676" y="440" width="244" height="72" rx="12" fill="#FFFFFF" stroke="#C9D6CB" stroke-width="1.8"/>
+  <text x="798" y="469" text-anchor="middle" font-size="15.5" font-weight="bold" fill="#0D3B1F">SQLite + media</text>
+  <text x="798" y="492" text-anchor="middle" font-size="13" fill="#4A6152">users · history · notices</text>
+
+  <rect x="676" y="528" width="244" height="72" rx="12" fill="#FFFFFF" stroke="#C9D6CB" stroke-width="1.8"/>
+  <text x="798" y="557" text-anchor="middle" font-size="15.5" font-weight="bold" fill="#0D3B1F">Support tickets</text>
+  <text x="798" y="580" text-anchor="middle" font-size="13" fill="#4A6152">two-way farmer chat</text>
+
+  <!-- ================= ml pipeline ================= -->
+  <rect x="1020" y="96" width="640" height="560" rx="18" fill="#FFF9F1" stroke="#D98324" stroke-width="2.5"/>
+  <text x="1340" y="134" text-anchor="middle" font-size="20" font-weight="bold" fill="#8A4B0C">Inference pipeline</text>
+  <text x="1340" y="158" text-anchor="middle" font-size="13.5" fill="#A5764A">three gates, then three models</text>
+
+  <!-- gates -->
+  <rect x="1050" y="176" width="290" height="64" rx="11" fill="#FFFFFF" stroke="#E0B98A" stroke-width="1.8"/>
+  <text x="1195" y="203" text-anchor="middle" font-size="15" font-weight="bold" fill="#8A4B0C">1 · Green-pixel gate</text>
+  <text x="1195" y="224" text-anchor="middle" font-size="12.5" fill="#A5764A">no green content → reject</text>
+
+  <rect x="1370" y="176" width="260" height="64" rx="11" fill="#FFFFFF" stroke="#E0B98A" stroke-width="1.8"/>
+  <text x="1500" y="203" text-anchor="middle" font-size="15" font-weight="bold" fill="#8A4B0C">2 · Non-Leaf class</text>
+  <text x="1500" y="224" text-anchor="middle" font-size="12.5" fill="#A5764A">trained foreign-object label</text>
+
+  <rect x="1050" y="256" width="580" height="64" rx="11" fill="#FFFFFF" stroke="#E0B98A" stroke-width="1.8"/>
+  <text x="1340" y="283" text-anchor="middle" font-size="15" font-weight="bold" fill="#8A4B0C">3 · Entropy rule</text>
+  <text x="1340" y="304" text-anchor="middle" font-size="12.5" fill="#A5764A">high uncertainty → refuse to guess</text>
+
+  <!-- ensemble -->
+  <rect x="1050" y="346" width="580" height="176" rx="13" fill="#FFFFFF" stroke="#2E9E4F" stroke-width="2.2"/>
+  <text x="1340" y="378" text-anchor="middle" font-size="16.5" font-weight="bold" fill="#0D3B1F">Soft-vote ensemble</text>
+
+  <rect x="1072" y="396" width="176" height="52" rx="9" fill="#EAF4EA" stroke="#BBD9C1"/>
+  <text x="1160" y="427" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#0D3B1F">Small CNN</text>
+  <rect x="1260" y="396" width="176" height="52" rx="9" fill="#EAF4EA" stroke="#BBD9C1"/>
+  <text x="1348" y="427" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#0D3B1F">MobileNetV2</text>
+  <rect x="1448" y="396" width="170" height="52" rx="9" fill="#EAF4EA" stroke="#BBD9C1"/>
+  <text x="1533" y="427" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#0D3B1F">EfficientNet-B0</text>
+
+  <text x="1340" y="478" text-anchor="middle" font-size="13.5" fill="#4A6152">averaged class probabilities  →  Grad-CAM on the last conv layer</text>
+  <text x="1340" y="504" text-anchor="middle" font-size="13.5" fill="#4A6152">Early Blight · Late Blight · Healthy · Non-Leaf</text>
+
+  <rect x="1050" y="546" width="580" height="84" rx="11" fill="#0D3B1F"/>
+  <text x="1340" y="578" text-anchor="middle" font-size="16" font-weight="bold" fill="#FFFFFF">JSON response</text>
+  <text x="1340" y="604" text-anchor="middle" font-size="13.5" fill="#A8D3B4">label · confidence · model used · Grad-CAM data URL</text>
+  <text x="1340" y="622" text-anchor="middle" font-size="13.5" fill="#A8D3B4">or “Unknown” when all three gates reject</text>
+
+  <!-- ================= arrows ================= -->
+  <line x1="298" y1="183" x2="344" y2="183" stroke="#0D3B1F" stroke-width="3" marker-end="url(#ah)"/>
+  <text x="321" y="172" text-anchor="middle" font-size="12.5" fill="#0D3B1F" font-weight="bold">HTTPS</text>
+
+  <line x1="596" y1="225" x2="640" y2="225" stroke="#0D3B1F" stroke-width="3" marker-end="url(#ah)"/>
+  <text x="618" y="214" text-anchor="middle" font-size="12.5" fill="#0D3B1F" font-weight="bold">WS</text>
+
+  <line x1="298" y1="340" x2="470" y2="340" stroke="#7E9486" stroke-width="2.5" marker-end="url(#ah)"/>
+  <path d="M470,340 L470,308" stroke="#7E9486" stroke-width="2.5" fill="none" marker-end="url(#ah)"/>
+  <text x="384" y="330" text-anchor="middle" font-size="12.5" fill="#5B7263">HTTPS</text>
+
+  <!-- backend internal: predict -> gates -->
+  <path d="M920,300 L985,300 L985,208 L1042,208" stroke="#0D3B1F" stroke-width="3" fill="none" marker-end="url(#ah)"/>
+  <text x="985" y="252" text-anchor="middle" font-size="12.5" fill="#0D3B1F" font-weight="bold">photo</text>
+
+  <!-- gate chain -->
+  <path d="M1340,240 L1340,256" stroke="#D98324" stroke-width="2.5" fill="none" marker-end="url(#ah)"/>
+  <path d="M1050,288 L1012,288 L1012,588 L1042,588" stroke="#C0392B" stroke-width="2.5" fill="none" marker-end="url(#ah)"/>
+  <text x="1006" y="430" text-anchor="middle" font-size="13" font-weight="bold" fill="#C0392B" transform="rotate(-90 1006 430)">reject → Unknown</text>
+
+  <line x1="1340" y1="320" x2="1340" y2="342" stroke="#2E9E4F" stroke-width="3" marker-end="url(#ahg)"/>
+  <text x="1408" y="336" font-size="12.5" fill="#2E9E4F" font-weight="bold">pass</text>
+
+  <line x1="1340" y1="522" x2="1340" y2="542" stroke="#0D3B1F" stroke-width="3" marker-end="url(#ah)"/>
+
+  <!-- response back to phone -->
+  <path d="M1340,660 L1340,740 L173,740 L173,254" stroke="#2E9E4F" stroke-width="3" fill="none" marker-end="url(#ahg)"/>
+  <text x="756" y="730" text-anchor="middle" font-size="14" font-weight="bold" fill="#2E9E4F">result + heatmap returned to the phone</text>
+
+  <!-- admin route -->
+  <path d="M798,660 L798,790 L173,790 L173,396" stroke="#7E9486" stroke-width="2.5" fill="none" marker-end="url(#ah)"/>
+  <text x="486" y="782" text-anchor="middle" font-size="13" fill="#5B7263">superadmin JWT · read / write</text>
+
+  <!-- footer note -->
+  <text x="48" y="896" font-size="14" fill="#8A9A8E">Static files (HTML · CSS · JS · logo) are served straight from disk — no rebuild needed to update the admin UI.</text>
+  <text x="48" y="920" font-size="14" fill="#8A9A8E">Backend runs on a separate PC behind the tunnel; the public URL is potatodoc.shadbhavregmi.com.np</text>
+</svg>

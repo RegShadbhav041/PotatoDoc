@@ -68,6 +68,8 @@ export function apiRequest(method, path, data, config = {}) {
   );
 }
 
+export { isDeadSession, isSuspension, isSignedOutError } from "./sessionErrors";
+
 export function apiPost(path, data, config = {}) {
   return apiRequest("post", path, data, config);
 }

@@ -1,0 +1,256 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1720" height="960" viewBox="0 0 1720 960" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="c-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0D3B1F"/>
+    </marker>
+    <marker id="diamond" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="11" markerHeight="11" orient="auto">
+      <path d="M0,6 L6,1 L12,6 L6,11 z" fill="#FFFFFF" stroke="#0D3B1F" stroke-width="1.4"/>
+    </marker>
+    <marker id="arrow-open" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="11" markerHeight="11" orient="auto">
+      <path d="M1,1 L11,6 L1,11" fill="none" stroke="#0D3B1F" stroke-width="1.6"/>
+    </marker>
+  </defs>
+
+  <rect width="1720" height="960" fill="#FFFFFF"/>
+
+  <!-- legend / title -->
+  <text x="60" y="56" font-size="24" font-weight="bold" fill="#0D3B1F">Backend — class &amp; module structure</text>
+  <text x="60" y="84" font-size="14.5" fill="#8A9A8E">FastAPI · SQLAlchemy-free raw SQLite · Pydantic request models · JWT bearer auth</text>
+
+  <!-- ================= ROW 1 ================= -->
+
+  <!-- User -->
+  <g>
+    <rect x="60" y="120" width="440" height="252" rx="12" fill="#FFFFFF" stroke="#0D3B1F" stroke-width="2.5"/>
+    <rect x="60" y="120" width="440" height="46" rx="12" fill="#0D3B1F"/>
+    <rect x="60" y="152" width="440" height="14" fill="#0D3B1F"/>
+    <text x="280" y="150" text-anchor="middle" font-size="19" font-weight="bold" fill="#FFFFFF">User</text>
+    <text x="470" y="150" text-anchor="end" font-size="12" fill="#A8D3B4">auth.py · db.py</text>
+
+    <line x1="60" y1="238" x2="500" y2="238" stroke="#DCE6DE" stroke-width="1.6"/>
+    <g font-size="14.5" fill="#31473A">
+      <text x="80" y="190">id : int</text>
+      <text x="80" y="214">contact : str   (email | phone)</text>
+      <text x="80" y="234">name : str</text>
+      <text x="286" y="190">role : “user” | “superadmin”</text>
+      <text x="286" y="214">password_hash : str (PBKDF2)</text>
+      <text x="286" y="234">status : “active” | “suspended”</text>
+    </g>
+
+    <g font-size="14.5" fill="#0D3B1F">
+      <text x="80" y="268">+ hash_password(pw) → str</text>
+      <text x="80" y="292">+ verify_password(pw, stored) → bool</text>
+      <text x="80" y="316">+ normalize_contact(raw) → str</text>
+      <text x="80" y="344">+ require_user(credentials) → dict  «guard»</text>
+      <text x="80" y="364">+ require_superadmin(user) → dict  «guard»</text>
+    </g>
+  </g>
+
+  <!-- FastAPI app -->
+  <g>
+    <rect x="556" y="120" width="580" height="252" rx="12" fill="#F2F8F2" stroke="#2E9E4F" stroke-width="2.5"/>
+    <rect x="556" y="120" width="580" height="46" rx="12" fill="#2E9E4F"/>
+    <rect x="556" y="152" width="580" height="14" fill="#2E9E4F"/>
+    <text x="846" y="150" text-anchor="middle" font-size="19" font-weight="bold" fill="#FFFFFF">InferenceService</text>
+    <text x="1116" y="150" text-anchor="end" font-size="12" fill="#D6F2DE">app.py</text>
+
+    <line x1="556" y1="238" x2="1136" y2="238" stroke="#CFE6D4" stroke-width="1.6"/>
+    <g font-size="14.5" fill="#31473A">
+      <text x="576" y="190">app : FastAPI</text>
+      <text x="576" y="214">cache : dict[mid, nn]   (LRU)</text>
+      <text x="576" y="234">IDS = [small_cnn, mobilenetv2, …]</text>
+      <text x="856" y="190">DEFAULT = “ensemble”</text>
+      <text x="856" y="214">CLASSES = 4 labels</text>
+      <text x="856" y="234">transform : torchvision TF</text>
+    </g>
+
+    <g font-size="14.5" fill="#0D3B1F">
+      <text x="576" y="268">+ load_mid(mid) → nn.Module</text>
+      <text x="576" y="292">+ probs_of(mid, img) → dict[str, float]</text>
+      <text x="576" y="316">+ gradcam_overlay(mid, img) → str</text>
+      <text x="576" y="344">+ green_ratio(img) → float   «gate 1»</text>
+      <text x="576" y="364">+ norm_entropy(p) → float   «gate 3»</text>
+    </g>
+    <g font-size="14.5" fill="#0D3B1F">
+      <text x="856" y="268">+ read_image(raw) → PIL.Image</text>
+      <text x="856" y="292">+ last_conv(m) → nn.Module</text>
+      <text x="856" y="316">+ soft_vote(probs[]) → dict</text>
+      <text x="856" y="344">+ resolve(mid) → str   «alias map»</text>
+      <text x="856" y="364">+ ping() → “Hello, I am alive”</text>
+    </g>
+  </g>
+
+  <!-- MediaStore -->
+  <g>
+    <rect x="1196" y="120" width="464" height="252" rx="12" fill="#FFFFFF" stroke="#0D3B1F" stroke-width="2.5"/>
+    <rect x="1196" y="120" width="464" height="46" rx="12" fill="#0D3B1F"/>
+    <rect x="1196" y="152" width="464" height="14" fill="#0D3B1F"/>
+    <text x="1428" y="150" text-anchor="middle" font-size="19" font-weight="bold" fill="#FFFFFF">MediaStore</text>
+    <text x="1640" y="150" text-anchor="end" font-size="12" fill="#A8D3B4">media.py</text>
+
+    <line x1="1196" y1="238" x2="1660" y2="238" stroke="#DCE6DE" stroke-width="1.6"/>
+    <g font-size="14.5" fill="#31473A">
+      <text x="1216" y="190">root : Path</text>
+      <text x="1216" y="214">MAX_BYTES : int</text>
+      <text x="1216" y="234">ALLOWED : {jpg, png, webp}</text>
+      <text x="1444" y="190">kind : “notice” | “ticket”</text>
+      <text x="1444" y="214">sha  : content-addressed</text>
+    </g>
+
+    <g font-size="14.5" fill="#0D3B1F">
+      <text x="1216" y="268">+ save(data, kind) → name</text>
+      <text x="1216" y="292">+ path(name) → Path</text>
+      <text x="1216" y="316">+ stream(name) → FileResponse</text>
+      <text x="1216" y="344">+ exists(name) → bool</text>
+      <text x="1444" y="268">+ delete(name) → None</text>
+      <text x="1444" y="292">+ sniff(bytes) → mime</text>
+      <text x="1444" y="316">+ safe_join(name) → Path</text>
+      <text x="1444" y="344">«no path traversal»</text>
+    </g>
+  </g>
+
+  <!-- ================= ROW 2 ================= -->
+
+  <!-- Diagnosis -->
+  <g>
+    <rect x="60" y="500" width="440" height="248" rx="12" fill="#FFFFFF" stroke="#0D3B1F" stroke-width="2.5"/>
+    <rect x="60" y="500" width="440" height="46" rx="12" fill="#0D3B1F"/>
+    <rect x="60" y="532" width="440" height="14" fill="#0D3B1F"/>
+    <text x="280" y="530" text-anchor="middle" font-size="19" font-weight="bold" fill="#FFFFFF">Diagnosis</text>
+    <text x="470" y="530" text-anchor="end" font-size="12" fill="#A8D3B4">history.py</text>
+
+    <line x1="60" y1="618" x2="500" y2="618" stroke="#DCE6DE" stroke-width="1.6"/>
+    <g font-size="14.5" fill="#31473A">
+      <text x="80" y="570">id : int</text>
+      <text x="80" y="594">user_id : int  → User.id</text>
+      <text x="80" y="614">label : str</text>
+      <text x="286" y="570">confidence : float</text>
+      <text x="286" y="594">model : str</text>
+      <text x="286" y="614">created_at : datetime</text>
+    </g>
+
+    <g font-size="14.5" fill="#0D3B1F">
+      <text x="80" y="652">+ record(user_id, result) → id</text>
+      <text x="80" y="676">+ list_for_user(user_id, limit) → list</text>
+      <text x="80" y="700">+ delete(user_id, id) → bool</text>
+      <text x="80" y="728">+ last_n(user_id, n=50) → list</text>
+    </g>
+  </g>
+
+  <!-- Notice -->
+  <g>
+    <rect x="556" y="500" width="580" height="248" rx="12" fill="#FFFFFF" stroke="#0D3B1F" stroke-width="2.5"/>
+    <rect x="556" y="500" width="580" height="46" rx="12" fill="#0D3B1F"/>
+    <rect x="556" y="532" width="580" height="14" fill="#0D3B1F"/>
+    <text x="846" y="530" text-anchor="middle" font-size="19" font-weight="bold" fill="#FFFFFF">Notice</text>
+    <text x="1116" y="530" text-anchor="end" font-size="12" fill="#A8D3B4">notices.py · admin.py  «Pydantic NoticeIn»</text>
+
+    <line x1="556" y1="618" x2="1136" y2="618" stroke="#DCE6DE" stroke-width="1.6"/>
+    <g font-size="14.5" fill="#31473A">
+      <text x="576" y="570">id : int</text>
+      <text x="576" y="594">title : str</text>
+      <text x="576" y="614">body : str</text>
+      <text x="856" y="570">category : str</text>
+      <text x="856" y="594">status : “draft” | “published”</text>
+      <text x="856" y="614">image : str | None</text>
+    </g>
+
+    <g font-size="14.5" fill="#0D3B1F">
+      <text x="576" y="652">+ create(body: NoticeIn) → Notice</text>
+      <text x="576" y="676">+ update(id, body) → Notice</text>
+      <text x="576" y="700">+ delete(id) → None</text>
+      <text x="576" y="728">+ set_status(id, status) → None</text>
+      <text x="856" y="652">+ list_published() → list</text>
+      <text x="856" y="676">+ list_all(status) → list  «superadmin»</text>
+      <text x="856" y="700">+ attach_image(id, file) → str</text>
+      <text x="856" y="728">+ image(name) → FileResponse</text>
+    </g>
+  </g>
+
+  <!-- Ticket -->
+  <g>
+    <rect x="1196" y="500" width="464" height="248" rx="12" fill="#FFFFFF" stroke="#0D3B1F" stroke-width="2.5"/>
+    <rect x="1196" y="500" width="464" height="46" rx="12" fill="#0D3B1F"/>
+    <rect x="1196" y="532" width="464" height="14" fill="#0D3B1F"/>
+    <text x="1428" y="530" text-anchor="middle" font-size="19" font-weight="bold" fill="#FFFFFF">Ticket ⟶ TicketMessage</text>
+    <text x="1640" y="530" text-anchor="end" font-size="12" fill="#A8D3B4">tickets.py</text>
+
+    <line x1="1196" y1="618" x2="1660" y2="618" stroke="#DCE6DE" stroke-width="1.6"/>
+    <g font-size="14.5" fill="#31473A">
+      <text x="1216" y="570">id : int</text>
+      <text x="1216" y="594">user_id : int  → User.id</text>
+      <text x="1216" y="614">status : “open” | “resolved”</text>
+      <text x="1444" y="570">subject : str</text>
+      <text x="1444" y="594">messages : list[TicketMessage]</text>
+      <text x="1444" y="614">from : “farmer” | “admin”</text>
+    </g>
+
+    <g font-size="14.5" fill="#0D3B1F">
+      <text x="1216" y="652">+ open(user_id, body) → Ticket</text>
+      <text x="1216" y="676">+ reply(id, body, from) → None</text>
+      <text x="1216" y="700">+ set_status(id, status) → None</text>
+      <text x="1216" y="728">+ reopen(id) → None</text>
+      <text x="1444" y="652">+ list_all(status) → list</text>
+      <text x="1444" y="676">+ detail(id) → Ticket</text>
+      <text x="1444" y="700">+ for_user(user_id) → list</text>
+      <text x="1444" y="728">+ thread(id) → list</text>
+    </g>
+  </g>
+
+  <!-- ================= ROW 3 ================= -->
+  <g>
+    <rect x="60" y="820" width="440" height="112" rx="12" fill="#F7FAF7" stroke="#9BAEA0" stroke-width="2" stroke-dasharray="7 5"/>
+    <text x="280" y="852" text-anchor="middle" font-size="17" font-weight="bold" fill="#4A6152">LocationRules</text>
+    <text x="280" y="874" text-anchor="middle" font-size="13.5" fill="#7E9486">location.py · location_rules.py</text>
+    <text x="280" y="900" text-anchor="middle" font-size="13.5" fill="#4A6152">+ evaluate(lat, lon, context) → verdict</text>
+    <text x="280" y="920" text-anchor="middle" font-size="13.5" fill="#4A6152">GPS advisory + regional advisory feed</text>
+  </g>
+
+  <g>
+    <rect x="556" y="820" width="580" height="112" rx="12" fill="#F7FAF7" stroke="#9BAEA0" stroke-width="2" stroke-dasharray="7 5"/>
+    <text x="846" y="852" text-anchor="middle" font-size="17" font-weight="bold" fill="#4A6152">Router layer (admin.py)</text>
+    <text x="846" y="874" text-anchor="middle" font-size="13.5" fill="#7E9486">overview · list_users · change_role · stats · models</text>
+    <text x="846" y="900" text-anchor="middle" font-size="13.5" fill="#4A6152">every handler depends on require_superadmin(…)</text>
+    <text x="846" y="920" text-anchor="middle" font-size="13.5" fill="#4A6152">Pydantic: RoleIn · StatusIn · TicketStatusIn · TicketMessageIn</text>
+  </g>
+
+  <g>
+    <rect x="1196" y="820" width="464" height="112" rx="12" fill="#F7FAF7" stroke="#9BAEA0" stroke-width="2" stroke-dasharray="7 5"/>
+    <text x="1428" y="852" text-anchor="middle" font-size="17" font-weight="bold" fill="#4A6152">db.py — SQLite schema</text>
+    <text x="1428" y="874" text-anchor="middle" font-size="13.5" fill="#7E9486">ROLES · sessions · password reset · seed_superadmin()</text>
+    <text x="1428" y="900" text-anchor="middle" font-size="13.5" fill="#4A6152">dev fallback account baked into git history</text>
+    <text x="1428" y="920" text-anchor="middle" font-size="13.5" fill="#4A6152">potatodoc.db — file-backed, no ORM</text>
+  </g>
+
+  <!-- ================= RELATIONSHIPS ================= -->
+  <!-- User 1 · 0..* Diagnosis -->
+  <line x1="280" y1="372" x2="280" y2="500" stroke="#0D3B1F" stroke-width="2.2" marker-start="url(#diamond)" marker-end="url(#c-ah)"/>
+  <text x="296" y="424" font-size="14" font-weight="bold" fill="#0D3B1F">1</text>
+  <text x="296" y="478" font-size="14" font-weight="bold" fill="#0D3B1F">0..*</text>
+  <text x="298" y="452" font-size="13.5" fill="#5B7263">owns</text>
+
+  <!-- User 1 · 0..* Ticket (elbow) -->
+  <path d="M500,300 L540,300 L540,466 L1300,466 L1300,500" stroke="#0D3B1F" stroke-width="2.2" fill="none" marker-end="url(#c-ah)"/>
+  <text x="1264" y="456" font-size="14" font-weight="bold" fill="#0D3B1F">0..*</text>
+  <text x="1316" y="488" font-size="14" font-weight="bold" fill="#0D3B1F">1</text>
+  <text x="900" y="456" font-size="13.5" fill="#5B7263">opens</text>
+
+  <!-- InferenceService · Diagnosis -->
+  <path d="M700,372 L700,440 L280,440 L280,500" stroke="#2E9E4F" stroke-width="2.2" fill="none" marker-end="url(#c-ah)"/>
+  <text x="470" y="432" font-size="13.5" fill="#2E7A45">records result</text>
+
+  <!-- InferenceService · MediaStore -->
+  <line x1="1136" y1="240" x2="1196" y2="240" stroke="#0D3B1F" stroke-width="2.2" marker-end="url(#arrow-open)"/>
+  <text x="1166" y="230" text-anchor="middle" font-size="13" fill="#5B7263">«uses»</text>
+
+  <!-- InferenceService · Notice -->
+  <path d="M846,372 L846,500" stroke="#0D3B1F" stroke-width="2.2" fill="none" marker-end="url(#arrow-open)"/>
+  <text x="858" y="440" font-size="13.5" fill="#5B7263">serves feed</text>
+
+  <!-- MediaStore · Ticket -->
+  <line x1="1428" y1="372" x2="1428" y2="500" stroke="#0D3B1F" stroke-width="2.2" marker-end="url(#arrow-open)"/>
+  <text x="1440" y="440" font-size="13.5" fill="#5B7263">stores attachment</text>
+
+  <!-- Ticket · TicketMessage composite note -->
+  <text x="1660" y="770" text-anchor="end" font-size="13.5" fill="#8A9A8E">composite: one Ticket owns many TicketMessages (filled diamond on Ticket side)</text>
+</svg>

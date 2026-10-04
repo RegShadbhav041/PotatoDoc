@@ -150,7 +150,7 @@ export default function HistoryScreen({ history, onClear, onOpenNews, unread = 0
         ) : (
           <>
             <View style={s.sectionRow}>
-              <Text style={s.sectionLabel}>{t("Sample diagnoses")}</Text>
+              <Text style={s.sectionLabel}>{t("Your diagnoses")}</Text>
               <Pressable style={s.clearBtn} onPress={onClear} hitSlop={8}>
                 <MaterialIcons name="delete-outline" size={16} color={C.ink} />
                 <Text style={s.clearText}>{t("Clear")}</Text>

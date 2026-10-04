@@ -1,6 +1,7 @@
 // Local-first sync: the device is the source of truth for writes, the server
 // copy is unioned in at sign-in and pushed back up afterwards.
 import { useCallback, useEffect, useRef } from "react";
+import { AppState } from "react-native";
 import axios from "axios";
 import { API_BASE, apiDelete, apiGet, apiPut, uploadAuthed } from "./useApi";
 import {
@@ -11,6 +12,11 @@ import {
 } from "./historyMerge";
 
 const PUSH_DEBOUNCE_MS = 1500;
+// An upload that fails while offline has nothing left to trigger it: the
+// list does not change, so the debounce above never re-runs. Retry slowly
+// while signed in and whenever the farmer foregrounds the app, so a photo
+// is never stranded on the device with an empty server copy.
+const PHOTO_RETRY_MS = 120000;
 
 export function useHistorySync({
   token,
@@ -30,6 +36,7 @@ export function useHistorySync({
 
   const timerRef = useRef(null);
   const inFlightRef = useRef(false);
+  const photoInFlightRef = useRef(false);
   const mergedTokenRef = useRef(null);
 
   const push = useCallback(async (items) => {
@@ -67,37 +74,43 @@ export function useHistorySync({
   const uploadMissingPhotos = useCallback(async (items) => {
     const current = tokenRef.current;
     if (!current || !Array.isArray(items) || items.length === 0) return;
-    let serverPhotos;
+    if (photoInFlightRef.current) return; // timer + debounce can overlap
+    photoInFlightRef.current = true;
     try {
-      const res = await axios.get(`${API_BASE}/history`, {
-        headers: { Authorization: `Bearer ${current}` },
-        timeout: 20000,
-      });
-      serverPhotos = new Set(
-        (Array.isArray(res.data?.items) ? res.data.items : [])
-          .filter((i) => i && i.has_photo && i.id != null)
-          .map((i) => String(i.id))
-      );
-    } catch (e) {
-      return; // offline: next sync retries
-    }
-    for (const item of items) {
-      if (!item?.imageUri || serverPhotos.has(String(item.id))) continue;
+      let serverPhotos;
       try {
-        await uploadAuthed(
-          item.imageUri,
-          `/history/${encodeURIComponent(item.id)}/photo`,
-          current
+        const res = await axios.get(`${API_BASE}/history`, {
+          headers: { Authorization: `Bearer ${current}` },
+          timeout: 20000,
+        });
+        serverPhotos = new Set(
+          (Array.isArray(res.data?.items) ? res.data.items : [])
+            .filter((i) => i && i.has_photo && i.id != null)
+            .map((i) => String(i.id))
         );
-        serverPhotos.add(String(item.id));
       } catch (e) {
-        if (e?.response?.status === 401) {
-          onUnauthorizedRef.current?.();
-          return;
-        }
-        console.warn("history photo upload failed", e?.message);
-        break; // most likely offline — retry on the next sync
+        return; // offline: the retry timer will try again
       }
+      for (const item of items) {
+        if (!item?.imageUri || serverPhotos.has(String(item.id))) continue;
+        try {
+          await uploadAuthed(
+            item.imageUri,
+            `/history/${encodeURIComponent(item.id)}/photo`,
+            current
+          );
+          serverPhotos.add(String(item.id));
+        } catch (e) {
+          if (e?.response?.status === 401) {
+            onUnauthorizedRef.current?.();
+            return;
+          }
+          console.warn("history photo upload failed", e?.message);
+          break; // most likely offline — retry on the timer above
+        }
+      }
+    } finally {
+      photoInFlightRef.current = false;
     }
   }, []);
 
@@ -111,6 +124,22 @@ export function useHistorySync({
     }, PUSH_DEBOUNCE_MS);
     return () => clearTimeout(timerRef.current);
   }, [history, token, storageBlocked, push, uploadMissingPhotos]);
+
+  // Stranded-photo retry: covers the case where a push succeeded but the
+  // upload failed (offline / timeout) and no new scan is ever made.
+  useEffect(() => {
+    if (!token || storageBlocked) return undefined;
+    const retry = () => uploadMissingPhotos(historyRef.current);
+    const id = setInterval(retry, PHOTO_RETRY_MS);
+    const sub = AppState.addEventListener("change", (state) => {
+      if (state === "active") retry();
+    });
+    retry(); // right after sign-in, alongside the merge below
+    return () => {
+      clearInterval(id);
+      sub.remove();
+    };
+  }, [token, storageBlocked, uploadMissingPhotos]);
 
   // Once per sign-in: union the server copy into the device list, persist, push.
   useEffect(() => {

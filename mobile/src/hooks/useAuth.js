@@ -4,9 +4,9 @@
 import { useCallback, useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
-import { API_BASE, apiGet, apiPost, apiPut, uploadAuthed } from "./useApi";
+import { API_BASE, apiGet, apiPost, apiPut, uploadAuthed, isSignedOutError } from "./useApi";
 
-const TOKEN_KEY = "potatoDocAuth";
+export const TOKEN_KEY = "potatoDocAuth";
 const REMEMBER_KEY = "potatoDocAuthRemember";
 
 export function authErrorMessage(error) {
@@ -134,6 +134,38 @@ export function useAuth() {
     AsyncStorage.multiRemove([TOKEN_KEY, REMEMBER_KEY]).catch(() => {});
   }, []);
 
+  /**
+   * Re-read the signed-in profile from the server. The Profile card must show
+   * exactly what the account holds — not whatever this device last had in
+   * memory — so the same login looks identical on every device. Throws on a
+   * dead/suspended session (the caller signs out), resolves to null when there
+   * is no session to check.
+   */
+  const refreshUser = useCallback(async () => {
+    if (!token) return null;
+    const res = await apiGet("/auth/me", {
+      headers: { Authorization: `Bearer ${token}` },
+      timeout: 15000,
+    });
+    setUser(res.data);
+    return res.data;
+  }, [token]);
+
+  // Any authenticated call that comes back 401 or "suspended" proves the
+  // session can no longer work (account suspended mid-session, token revoked,
+  // expired). Without this, a suspended farmer stayed signed in until their
+  // next history sync happened to fail.
+  useEffect(() => {
+    const id = axios.interceptors.response.use(
+      (response) => response,
+      (error) => {
+        if (isSignedOutError(error)) clearSession();
+        return Promise.reject(error);
+      }
+    );
+    return () => axios.interceptors.response.eject(id);
+  }, [clearSession]);
+
   const signOut = useCallback(() => {
     const dead = token;
     setToken(null);
@@ -156,6 +188,7 @@ export function useAuth() {
     signUp,
     signOut,
     clearSession,
+    refreshUser,
     updateProfile,
     uploadPhoto,
     removePhoto,
