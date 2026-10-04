@@ -95,6 +95,12 @@ async function show(granted, title, body, data) {
   }
 }
 
+// AsyncStorage read-then-write is not atomic, so two cycles on the same JS
+// thread (poll interval + AppState + the background task) can both pass the
+// lock and post the same notice twice. This flag is synchronous, so it can't
+// be observed as false by both callers.
+let cycleInFlight = false;
+
 /**
  * Run one notification cycle.
  *
@@ -108,7 +114,12 @@ async function show(granted, title, body, data) {
  */
 export async function runNotifCycle({ token, userId, granted = true }) {
   if (!token || userId == null) return { ran: false, announced: 0, reason: "no-session" };
-  if (!(await acquireCycleLock())) return { ran: false, announced: 0, reason: "locked" };
+  if (cycleInFlight) return { ran: false, announced: 0, reason: "locked" };
+  cycleInFlight = true;
+  if (!(await acquireCycleLock())) {
+    cycleInFlight = false;
+    return { ran: false, announced: 0, reason: "locked" };
+  }
 
   try {
     const auth = { headers: { Authorization: `Bearer ${token}` }, timeout: 15000 };
@@ -162,6 +173,7 @@ export async function runNotifCycle({ token, userId, granted = true }) {
     }
     return { ran: true, announced, reason: "diff" };
   } finally {
+    cycleInFlight = false;
     await releaseCycleLock();
   }
 }
