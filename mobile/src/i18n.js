@@ -93,7 +93,7 @@ const NE = {
 
   // History
   "Your history": "तपाईंको इतिहास",
-  "Sample diagnoses": "नमूना निदाहरू",
+  "Your diagnoses": "तपाईंकानिदाहरू",
   Clear: "हटाउनुहोस्",
   "No predictions yet. Diagnose a leaf to build your history.":
     "अहिलेसम्म कुनै पूर्वानुमान छैन। इतिहास बनाउन पातको निदान गर्नुहोस्।",
@@ -240,6 +240,7 @@ const NE = {
   "Photo not on this device": "यो उपकरणमा फोटो छैन",
   "No location tag": "स्थान ट्याग छैन",
   "Share report": "प्रतिवेदन साझा गर्नुहोस्",
+  "Sharing…": "साझा गर्दै…",
 
   // Auth
   "Welcome back!": "पुनः स्वागत छ!",

@@ -1,3 +1,6 @@
+// Must load first: it calls TaskManager.defineTask at module scope, which the
+// OS needs in place before it can hand the app a background notification run.
+import "./src/notifications/notifPollTask";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Animated, View, StyleSheet, Text, TextInput } from "react-native";
 
@@ -25,6 +28,8 @@ import * as SplashScreen from "expo-splash-screen";
 import { useHistory } from "./src/hooks/useHistory";
 import { useAuth } from "./src/hooks/useAuth";
 import { useHistorySync } from "./src/hooks/useHistorySync";
+import { useSessionWatch } from "./src/hooks/useSessionWatch";
+import { useAppNotifications } from "./src/hooks/useAppNotifications";
 import { useNotices } from "./src/hooks/useNotices";
 import { useTickets } from "./src/hooks/useTickets";
 import { useLocationTag } from "./src/hooks/useLocationTag";
@@ -113,7 +118,7 @@ function AppShell() {
   const [splashGone, setSplashGone] = useState(false);
   const handleSplashDone = useCallback(() => setSplashGone(true), []);
   const { colors: C, isDark } = useTheme();
-  const { user, token, ready, signIn, signUp, signOut, clearSession, updateProfile, uploadPhoto, removePhoto } = useAuth();
+  const { user, token, ready, signIn, signUp, signOut, clearSession, refreshUser, updateProfile, uploadPhoto, removePhoto } = useAuth();
   const { history, addEntry, clearHistory, replaceHistory, storageBlocked } =
     useHistory();
 
@@ -124,6 +129,17 @@ function AppShell() {
     storageBlocked,
     onUnauthorized: clearSession,
   });
+
+  // Suspended / revoked while the app is idle: re-verify on a timer and on
+  // every foreground so the farmer is signed out instead of left in a session
+  // the server will keep rejecting. The same call refreshes `user`, so the
+  // Profile card always mirrors the account the token actually belongs to —
+  // identical on every device the farmer signs into.
+  useSessionWatch(token, refreshUser, clearSession);
+
+  // Real device notifications: chimes on new notices and support replies
+  // even while the app is backgrounded.
+  useAppNotifications(token, user?.id ?? null);
 
   // Single owner of the feed: the bell badges and the News screen share one
   // unread counter (same rule as useAuth).
@@ -276,7 +292,6 @@ function AppShell() {
                 {tab === "profile" && (
                   <ProfileScreen
                     user={user}
-                    locationTag={locationTag}
                     historyCount={history.length}
                     unread={unread}
                     onSignIn={goSignIn}
