@@ -16,7 +16,9 @@ import {
   unregisterNotifPollTask,
 } from "../notifications/notifPollTask";
 
-const POLL_MS = 30000;
+// Foreground only — keep it snappy so an urgent notice reaches the shade in
+// well under a minute. The 15-minute background job covers the rest.
+const POLL_MS = 10000;
 
 export function useAppNotifications(token, userId = null) {
   const grantedRef = useRef(false);
