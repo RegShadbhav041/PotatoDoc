@@ -1359,3 +1359,69 @@ Key environment variables: `POTATO_WEIGHTS_DIR`, `POTATO_DB`, `POTATO_TOKEN_TTL_
 8. Chapters 1 and 2 must contain in-text citations; references in APA style — no Wikipedia/Google sources.
 9. Certificate must be on college letter pad; abstract ≤ 300 words.
 10. Proofread: no typos/grammatical errors; avoid plagiarism; redraw all diagrams (do not paste directly without citation).
+
+
+# GLOSSARY
+
+| Term | Definition |
+|---|---|
+| **Accuracy** | Fraction of predictions that exactly match the true labels; reported alongside macro-F1 because class sizes are imbalanced (e.g. 100 / 100 / 16 / 60). |
+| **Activation map (A)** | The feature tensor produced by a convolutional layer, captured by a forward hook during Grad-CAM and weighted by gradient means to build the heatmap. |
+| **AsyncStorage** | React Native's persistent key–value store; used for local-first data (auth token, history ≤50, location cache, language/theme). |
+| **Base64 overlay** | The Grad-CAM heatmap encoded as a `data:image/jpeg;base64,…` string inside the JSON response, so the app can render it without a second download. |
+| **Calibration** | Agreement between reported confidence and empirical correctness; thresholds are frozen from validation data only (`calibration/thresholds.json`). |
+| **Cold start** | Server downtime on first request after idling; mitigated by the app's `/ping` + warm-up prediction when entering the Diagnose tab. |
+| **Ensemble (soft vote)** | Averaging the softmax vectors of SmallCNN, MobileNetV2 and EfficientNet-B0 before argmax; improves confidence without retraining. |
+| **Entropy (H̄)** | Normalised predictive uncertainty, `−Σ pᵢ ln pᵢ / ln(n)` on a 0–1 scale; values above 0.85 trigger the Layer-3 rejection. |
+| **Failover (API client)** | Rotation through candidate base URLs (env, local, emulator loopbacks) on transport failure only — never after a server response. |
+| **green_ratio (G)** | Fraction of green-ish pixels in the input image; measured and returned for transparency but never used as a hard gate. |
+| **Grad-CAM** | Gradient-weighted class activation mapping; localises the image regions that most influenced the predicted class without retraining. |
+| **i18n** | Internationalisation; English ⇄ Nepali dictionary of ≈306 keys with English fallback by construction. |
+| **Local-first** | The device is the source of truth: entries are written locally first, then unioned and pushed to the server on a 1.5 s debounce. |
+| **Macro-F1 / macro-AUC** | Unweighted mean of per-class F1 / one-vs-rest AUC, so a small class (Healthy, n=16) counts as much as a large one. |
+| **Non-Leaf** | The reject class trained on COCO *person* photos; never shown to users — returned as `class:"Unknown"` with `is_unknown:true`. |
+| **Opaque token** | A random `secrets.token_urlsafe(32)` session string stored row-per-token in SQLite; revocable by deleting the row (no JWT signing). |
+| **Pickling-free checkpoint** | `best.pt` stores state-dict weights loaded with `torch.load` at process start, keeping cold paths free of Python-object deserialisation risks. |
+| **Rejection (unknown) pipeline** | Three-layer selective prediction: (1) green-ratio measurement, (2) Non-Leaf gate, (3) entropy/confidence gate — returns `Unknown` instead of a wrong class. |
+| **Resume safety** | Each epoch rewrites `resume.pt` (weights + optimizer + scheduler + epoch) so training survives power loss; a class-count guard rejects mismatched heads. |
+| **scrypt** | Memory-hard password KDF used with N=16384, r=8, p=1 and a 16-byte salt; stored as `scrypt$16384$8$1$salt$digest`. |
+| **Soft vote** | See *Ensemble*; the mean of members' probability vectors (as opposed to hard voting on argmax). |
+| **Suitability score** | 0–100 field score computed by `/location/analyze` from elevation, climate, soil texture/pH/nitrogen and place context, with 5 factors, varieties and tips. |
+| **WAL mode** | SQLite write-ahead logging: concurrent reads during writes, durability across crashes, and safe rollback journaling for `potatodoc.db`. |
+| **Warm-up prediction** | A throwaway inference sent on entering Diagnose to absorb server cold-start latency before the user's real scan. |
+
+# ABBREVIATIONS
+
+| Abbreviation | Expansion |
+|---|---|
+| **AUC** | Area Under the (ROC) Curve |
+| **BLOB** | Binary Large Object |
+| **CNN** | Convolutional Neural Network |
+| **COCO** | Common Objects in Context (dataset) |
+| **CPU / GPU** | Central / Graphics Processing Unit |
+| **CSV** | Comma-Separated Values |
+| **Exp.** | Experiment |
+| **F1** | Harmonic mean of precision and recall |
+| **FK / PK / UK** | Foreign Key / Primary Key / Unique Key |
+| **Grad-CAM** | Gradient-Weighted Class Activation Mapping |
+| **HTTP / HTTPS** | HyperText Transfer Protocol / (Secure) |
+| **i18n** | Internationalisation (18 letters between "i" and "n") |
+| **JPEG / PNG / WebP** | Image file formats accepted by `/predict` |
+| **JSON** | JavaScript Object Notation |
+| **KDF** | Key Derivation Function (scrypt) |
+| **LR** | Learning Rate (or Learning-Rate schedule) |
+| **MB** | Megabytes (checkpoint sizes) |
+| **MCC** | Matthews Correlation Coefficient |
+| **ML** | Machine Learning |
+| **OVR** | One-vs-Rest (ROC/AUC strategy) |
+| **ReLU** | Rectified Linear Unit (activation) |
+| **REST** | Representational State Transfer |
+| **ROC** | Receiver Operating Characteristic |
+| **SDK** | Software Development Kit (Expo) |
+| **SQL / SQLite** | Structured Query Language / serverless SQL engine |
+| **TTL** | Time-To-Live (session token: 30 days) |
+| **UI / UX** | User Interface / User Experience |
+| **URL** | Uniform Resource Locator |
+| **UTC** | Coordinated Universal Time |
+| **uvicorn** | ASGI server for Python/ASGI apps (FastAPI) |
+| **WAL** | Write-Ahead Logging (SQLite mode) |
